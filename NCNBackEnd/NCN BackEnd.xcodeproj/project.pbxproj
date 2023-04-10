@@ -67,6 +67,8 @@
 		43023B1B29E429E200FC62BE /* RemoveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B1A29E429E200FC62BE /* RemoveService.swift */; };
 		43023B1D29E42B4F00FC62BE /* RemoveServiceDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B1C29E42B4F00FC62BE /* RemoveServiceDatabaseService.swift */; };
 		43023B1F29E42B6800FC62BE /* RemoveServiceDatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B1E29E42B6800FC62BE /* RemoveServiceDatManager.swift */; };
+		43023B2729E4386F00FC62BE /* RemoveSubscriptionDatabaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B2629E4386F00FC62BE /* RemoveSubscriptionDatabaseContract.swift */; };
+		43023B2929E438C300FC62BE /* RemoveSubscriptionDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B2829E438C300FC62BE /* RemoveSubscriptionDataContract.swift */; };
 		432905A529CDAFD1002EC379 /* AddNewEmployee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905A429CDAFD1002EC379 /* AddNewEmployee.swift */; };
 		432905A729CDB0B2002EC379 /* AddNewEmployeeDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905A629CDB0B2002EC379 /* AddNewEmployeeDataContract.swift */; };
 		432905A929CDC8D8002EC379 /* AddNewEmployeeDatabaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905A829CDC8D8002EC379 /* AddNewEmployeeDatabaseContract.swift */; };
@@ -222,6 +224,8 @@
 		43023B1A29E429E200FC62BE /* RemoveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveService.swift; sourceTree = "<group>"; };
 		43023B1C29E42B4F00FC62BE /* RemoveServiceDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveServiceDatabaseService.swift; sourceTree = "<group>"; };
 		43023B1E29E42B6800FC62BE /* RemoveServiceDatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveServiceDatManager.swift; sourceTree = "<group>"; };
+		43023B2629E4386F00FC62BE /* RemoveSubscriptionDatabaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveSubscriptionDatabaseContract.swift; sourceTree = "<group>"; };
+		43023B2829E438C300FC62BE /* RemoveSubscriptionDataContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveSubscriptionDataContract.swift; sourceTree = "<group>"; };
 		432905A429CDAFD1002EC379 /* AddNewEmployee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEmployee.swift; sourceTree = "<group>"; };
 		432905A629CDB0B2002EC379 /* AddNewEmployeeDataContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEmployeeDataContract.swift; sourceTree = "<group>"; };
 		432905A829CDC8D8002EC379 /* AddNewEmployeeDatabaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEmployeeDatabaseContract.swift; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 				43023AFA29E40DD300FC62BE /* RemoveEmployeeDataContract.swift */,
 				43023B0A29E414F200FC62BE /* RemoveUserDataContract.swift */,
 				43023B1629E429A100FC62BE /* RemoveServiceDataContract.swift */,
+				43023B2829E438C300FC62BE /* RemoveSubscriptionDataContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				43023AFC29E40DF200FC62BE /* RemoveEmployeeDatabaseContract.swift */,
 				43023B0C29E4152700FC62BE /* RemoveUserDatabaseContract.swift */,
 				43023B1829E429C300FC62BE /* RemoveServiceDatabaseContract.swift */,
+				43023B2629E4386F00FC62BE /* RemoveSubscriptionDatabaseContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 				4383D54929D6EC8C00938DAB /* TrackServiceClient.swift in Sources */,
 				4383D52329D6DDE900938DAB /* TrackQuery.swift in Sources */,
 				432ADE8229BF114F00E9C70F /* UserLoginDataManager.swift in Sources */,
+				43023B2729E4386F00FC62BE /* RemoveSubscriptionDatabaseContract.swift in Sources */,
 				4383D53D29D6E5B300938DAB /* TrackService.swift in Sources */,
 				43023AED29E3F10400FC62BE /* DeleteQueryDatabaseContract.swift in Sources */,
 				432905EE29D1C82B002EC379 /* ViewSubscriptionDatabaseContract.swift in Sources */,
@@ -826,6 +833,7 @@
 				4383D4E829D5809100938DAB /* EmployeeViewDataContract.swift in Sources */,
 				43023B1D29E42B4F00FC62BE /* RemoveServiceDatabaseService.swift in Sources */,
 				4383D50129D6B95000938DAB /* AdminViewClientDatabaseContract.swift in Sources */,
+				43023B2929E438C300FC62BE /* RemoveSubscriptionDataContract.swift in Sources */,
 				438386D329CAEA4E00EAE655 /* ViewService.swift in Sources */,
 				432905A729CDB0B2002EC379 /* AddNewEmployeeDataContract.swift in Sources */,
 				43023A7429E2EDB800FC62BE /* MopdifyAvailableServiceDatabaseService.swift in Sources */,
