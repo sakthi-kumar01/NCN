@@ -1,0 +1,16 @@
+PODS:
+  - VTComponents (2.0.38)
+
+DEPENDENCIES:
+  - VTComponents
+
+SPEC REPOS:
+  https://git.csez.zohocorpin.com/vtouchzoho/vtouchpodspecs.git:
+    - VTComponents
+
+SPEC CHECKSUMS:
+  VTComponents: 369616dec2d3c6d2a85b7a512102e8902f9b4ec5
+
+PODFILE CHECKSUM: 6bf3e6633c956a7ce58a00c5424942e133882288
+
+COCOAPODS: 1.12.0
