@@ -441,7 +441,7 @@ extension Database {
         return nil
     }
 
-    func insertStatement(tableName: String, columnName: [String], insertData: [Any], response: (String) -> Void, error: (String) -> Void, success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
+    func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
         var columnNameString = columnName.joined(separator: ", ")
         var insertString = ""
         for val in insertData {
@@ -462,9 +462,9 @@ extension Database {
         let prepareStatement: OpaquePointer? = Database.shared.prepareStatement(statement: querry)
 
         if sqlite3_step(prepareStatement) == SQLITE_DONE {
-            response("\(tableName): Sucessfully Executed")
+            success("\(tableName): Sucessfully Executed")
         } else {
-            error("Error : \(String(cString: sqlite3_errmsg(db)))")
+            failure("Error : \(String(cString: sqlite3_errmsg(db)))")
         }
     }
 
