@@ -22,17 +22,17 @@ class Database {
         createDatabase()
         enableForeignKeys(db!)
         // executequery(db: db, Statement: "PRAGMA FOREIGN_KEYS = ON")
-        createUserTable()
-        createEmployeeTypeTable()
-        createEmployeeTable()
-        createAdminTable()
-        createEnterpriseTable()
-        createAvailableServiceTable()
-        createEmployeeTypeTable()
-        createQueryTypeTable()
-        createQueryTable()
-        createAvailavleSubscriptionTable()
-        createServicesLinkTable()
+//        createUserTable()
+//        createEmployeeTypeTable()
+//        createEmployeeTable()
+//        createAdminTable()
+//        createEnterpriseTable()
+//        createAvailableServiceTable()
+//        createEmployeeTypeTable()
+//        createQueryTypeTable()
+//        createQueryTable()
+//        createAvailavleSubscriptionTable()
+//        createServicesLinkTable()
 
         insertDefaultAdminValues()
     }
@@ -359,46 +359,61 @@ class Database {
 
 extension Database {
     func selectQuery(columnString: String, tableName: String, whereClause: String = "") -> [[String: Any]]? {
-        var selectStatement = "SELECT \(columnString) FROM \(tableName)"
-        var rows = [[String: Any]]()
-        if whereClause != "" {
-            selectStatement = selectStatement + " WHERE " + whereClause
-        }
+        print("select query for \(tableName) called")
+        
+            var stmt: OpaquePointer?
+            var result: [[String: Any]] = []
 
-        var queryStatement: OpaquePointer?
+            // Open the database
+            
+                let query = "SELECT * FROM \(tableName);"
 
-        if sqlite3_prepare_v2(db, selectStatement, -1, &queryStatement, nil) ==
-            SQLITE_OK
-        {
-            while sqlite3_step(queryStatement) == SQLITE_ROW {
-                var row = [String: Any]()
-                for i in 0 ..< sqlite3_column_count(queryStatement) {
-                    let columnName = String(cString: sqlite3_column_name(queryStatement, i))
-                    let columnType = sqlite3_column_type(queryStatement, i)
-                    var values: Any?
-                    switch columnType {
-                    case SQLITE_INTEGER:
-                        values = Int(sqlite3_column_int(queryStatement, i))
-                    case SQLITE_FLOAT:
-                        values = Float(sqlite3_column_double(queryStatement, i))
-                    case SQLITE_TEXT:
-                        let cString = sqlite3_column_text(queryStatement, i)
-                        values = String(cString: cString!)
+                // Prepare the statement
+                if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
+                    // Execute the statement
+                    while sqlite3_step(stmt) == SQLITE_ROW {
+                        var row: [String: Any] = [:]
+                        let columnCount = sqlite3_column_count(stmt)
 
-                    case SQLITE_NULL:
-                        values = nil
-                    default:
+                        // Extract the data from the columns
+                        for i in 0..<columnCount {
+                            let columnName = String(cString: sqlite3_column_name(stmt, i))
+                            let columnType = sqlite3_column_type(stmt, i)
 
-                        sqlite3_finalize(queryStatement)
+                            switch columnType {
+                            case SQLITE_INTEGER:
+                                let value = sqlite3_column_int(stmt, i)
+                                row[columnName] = Int(value)
+                            case SQLITE_FLOAT:
+                                let value = sqlite3_column_double(stmt, i)
+                                row[columnName] = Double(value)
+                            case SQLITE_TEXT:
+                                let value = String(cString: sqlite3_column_text(stmt, i))
+                                row[columnName] = value
+                            case SQLITE_BLOB:
+                                let value = Data(bytes: sqlite3_column_blob(stmt, i), count: Int(sqlite3_column_bytes(stmt, i)))
+                                row[columnName] = value
+                            default:
+                                row[columnName] = nil
+                            }
+                        }
+
+                        result.append(row)
                     }
-                    row[columnName] = values
                 }
-                rows.append(row)
-                sqlite3_finalize(queryStatement)
-                return rows
+        
+
+                // Clean up
+        sqlite3_finalize(stmt)
+            
+
+            
+
+            if result.isEmpty {
+                return nil
+            } else {
+                return result
             }
-        }
-        return nil
     }
 
     func prepareStatement(db: OpaquePointer?, sql: String) throws -> OpaquePointer? {

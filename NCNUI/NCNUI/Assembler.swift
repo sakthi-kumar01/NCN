@@ -31,6 +31,7 @@ class Assembler {
     }
 
     static func getViewServiceView(router _: ViewServiceRouterContract?) -> ViewServiceView {
+        print("View func called")
         let useCase = getViewServiceUseCase()
         let presenter = ViewServicePresenter(viewService: useCase)
         let view = ViewServiceView(presenter: presenter)

@@ -18,7 +18,7 @@ class Router {
 
     func launch() {
         // for success case
-        window.contentView = Assembler.getUserLoginView(userName: "raja", password: "raja", router: self)
+        window.contentView = Assembler.getViewServiceView(router: self)
     }
 }
 
