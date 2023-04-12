@@ -441,7 +441,7 @@ extension Database {
         return nil
     }
 
-    func insertStatement(tableName: String, columnName: [String], insertData: [Any], response: (String) -> Void, error: (String) -> Void) {
+    func insertStatement(tableName: String, columnName: [String], insertData: [Any], response: (String) -> Void, error: (String) -> Void, success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
         var columnNameString = columnName.joined(separator: ", ")
         var insertString = ""
         for val in insertData {
@@ -468,34 +468,16 @@ extension Database {
         }
     }
 
-    func updateValue(tableName _: String, columns: [String], values _: [String: Any], Id _: Int, IncrementValue _: Int = 0) -> Bool {
-        var query = ""
-        var columnValue = ""
-        for column in columns {
-            //            if values[column.name] != nil {
-            //                if column.type == "TEXT" {
-            //                    columnValue += column.name + " = " + "'" + String(values[column.name] as! String) + "'" + ", "
-            //                }
-            //                else if column.type == "INTEGER" {
-            //                    if IncrementValue != 0 {
-            //                        columnValue += column.name + " = " + column.name + " + " + String(IncrementValue)
-            //                    }
-            //                    else {
-            //                        columnValue += column.name + " = " + String(values[column.name] as! Int)
-            //                    }
-            //                    columnValue += ", "
-            //                }
-            //            }
-            //        }
-            //        let query = "UPDATE \(tableName) SET \(columnValue.dropLast(2)) WHERE id = \(Id) "
-            //        print(query)
+    func updateValue(tableName: String, columns: [String: Any], rowIdColumnName: String, rowIdValue: Int,  success: @escaping (String)-> Void, failure: @escaping (String)-> Void)  {
+        var query = prepareUpdateStatement(tableName: tableName, columns: columns, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdValue)
+        
             if sqlite3_exec(db, query, nil, nil, nil) == SQLITE_OK {
-                return true
+                success("value update")
             } else {
-                return false
+                failure("value not inserted")
             }
-        }
-        return false
+        
+       
     }
 
     func prepareUpdateStatement(tableName: String, columns: [String: Any], rowIdColumnName: String, rowIdValue: Int) -> String {

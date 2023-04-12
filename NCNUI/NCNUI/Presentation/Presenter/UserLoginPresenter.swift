@@ -7,6 +7,7 @@
 
 import Foundation
 import NCN_BackEnd
+import Security
 class UserLoginPresenter {
     weak var view: UserLoginViewContract?
     var userLogin: UserLogin
@@ -36,4 +37,11 @@ extension UserLoginPresenter {
     func failed(loginError: String) {
         view?.load(message: loginError)
     }
+    
+    
+}
+extension UserLoginPresenter {
+    
+
+    
 }
