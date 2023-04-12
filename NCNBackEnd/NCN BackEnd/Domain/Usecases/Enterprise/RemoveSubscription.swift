@@ -17,8 +17,8 @@ public final class RemoveSubscriptionRequest: Request {
 }
 
 public final class RemoveSubscriptionResponse: ZResponse {
-    public var response: [String]
-    public init(response: [String]) {
+    public var response: String
+    public init(response: String) {
         self.response = response
     }
 }
@@ -46,7 +46,7 @@ public final class RemoveSubscription: ZUsecase<RemoveSubscriptionRequest, Remov
         })
     }
 
-    private func success(message: [String], callback: @escaping (RemoveSubscriptionResponse) -> Void) {
+    private func success(message: String, callback: @escaping (RemoveSubscriptionResponse) -> Void) {
         let response = RemoveSubscriptionResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }

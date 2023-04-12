@@ -13,7 +13,7 @@ public class RemoveSubscriptionDataManager {
         self.databaseService = databaseService
     }
 
-    private func success(message: [String], callback: ([String]) -> Void) {
+    private func success(message: String, callback: (String) -> Void) {
         callback(message)
     }
 
@@ -26,7 +26,7 @@ public class RemoveSubscriptionDataManager {
 }
 
 extension RemoveSubscriptionDataManager: RemoveSubscriptionDataContract {
-    public func removeSubscription(subscriptionId: Int, success: @escaping ([String]) -> Void, failure: @escaping (String) -> Void) {
+    public func removeSubscription(subscriptionId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         databaseService.removeSubscription(subscriptionId: subscriptionId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
