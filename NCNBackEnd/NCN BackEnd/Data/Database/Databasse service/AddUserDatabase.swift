@@ -16,7 +16,7 @@ public class AddNewUserDatabase: AddNewUserDatabaseContract {
         let columnName = ["userName", "password", "eMail", "mobileNumber", "enterpriseId"]
         let values: [Any] = [userName, password, email, mobilePhone, enterpriseId]
 
-        db.insertStatement(tableName: "users", columnName: columnName, insertData: values, response: success, error: failure)
+        db.insertStatement(tableName: "users", columnName: columnName, insertData: values, success: success, failure: failure)
     }
 }
 

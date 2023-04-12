@@ -42,7 +42,7 @@ class Database {
 
         do {
             var path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            path.append(path: "NCNapp.sqlite")
+            path.append(path: "NCNapp.sqlite3")
 
             filePath = path.absoluteString
 
