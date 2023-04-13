@@ -18,7 +18,7 @@ class Router {
 
     func launch() {
         // for success case
-        window.contentView = Assembler.getViewSubscriptionView()
+        window.contentView = Assembler.get
     }
 }
 
