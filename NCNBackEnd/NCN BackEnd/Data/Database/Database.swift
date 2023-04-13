@@ -483,21 +483,33 @@ extension Database {
         }
     }
 
-    func updateValue(tableName: String, columns: [String: Any], rowIdColumnName: String, rowIdValue: Int,  success: @escaping (String)-> Void, failure: @escaping (String)-> Void)  {
-        var query = prepareUpdateStatement(tableName: tableName, columns: columns, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdValue)
-        
-            if sqlite3_exec(db, query, nil, nil, nil) == SQLITE_OK {
-                success("value update")
-            } else {
-                failure("value not inserted")
-            }
+    func updateValue(tableName: String, columnValue: [Any], columnName: [String], rowIdColumnName: String, rowIdValue: Int,  success: @escaping (String)-> Void, failure: @escaping (String)-> Void)  {
+        var query = prepareUpdateStatement(tableName: tableName, columnName: columnName, columnValue: columnValue, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdValue)
+        print(query)
+        let prepareStatement: OpaquePointer? = Database.shared.prepareStatement(statement: query)
+
+        if sqlite3_step(prepareStatement) == SQLITE_DONE {
+            success("\(tableName): Sucessfully Executed")
+        } else {
+            failure("Error : \(String(cString: sqlite3_errmsg(db)))")
+        }
         
        
     }
 
-    func prepareUpdateStatement(tableName: String, columns: [String: Any], rowIdColumnName: String, rowIdValue: Int) -> String {
-        let columnsString = columns.map { "\($0) = '\($1)'" }.joined(separator: ", ")
+    func prepareUpdateStatement(tableName: String, columnName: [String], columnValue: [Any], rowIdColumnName: String, rowIdValue: Int) -> String {
+        var columnsString = ""
+        for i in 0...columnName.count-1 {
+            if columnValue[i] is String {
+                columnsString = columnsString + "\(columnName[i])" + " = " + "\'" + "\(String(describing: columnValue[i]))" + "\'" + "," + " "
+            } else {
+                columnsString = columnsString + "\(columnName[i])" + " = " + "\(String(describing: columnValue[i]))" + "," + " "
+            }
+        }
+        columnsString = String(columnsString.dropLast(2))
+
         let updateStatement = "UPDATE \(tableName) SET \(columnsString) WHERE \(rowIdColumnName) = \(rowIdValue);"
+
         return updateStatement
     }
 

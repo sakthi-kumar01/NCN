@@ -7,16 +7,13 @@
 
 import Foundation
 public class SetEnterpriseDatabase: SetEnterpriseDatabaseContract {
+    var db = Database.shared
     public var enterPrise: [Enterprise] = []
 
     public init() {}
 
     public func setEnterpriseName(enterpriseName: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        let newEnterPrise = Enterprise(enterpriseName: enterpriseName)
-        if newEnterPrise.enterpriseName == "raja" {
-            success("new enterprise created")
-        } else {
-            failure("No data")
-        }
+        db.insertStatement(tableName: "enterprise", columnName: ["enterpriseName"], insertData: ["random"], success: success, failure: failure)
+        
     }
 }
