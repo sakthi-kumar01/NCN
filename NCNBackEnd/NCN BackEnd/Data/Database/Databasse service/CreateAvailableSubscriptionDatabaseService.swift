@@ -14,6 +14,6 @@ public class CreateAvailableSubscriptionDatabaseService: CreateAvailableSubscrip
     public func createAvaialableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionConuntLimit: Float, subscriptionDaylimit: Int, serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         let availableSubscriptionColumnName = ["subscriptionId", "subscriptionPackageType", "subscriptionCountLimit", "subscritptionDayLimit", "serviceId"]
         let availableSubscriptionColumndata: [Any] = [subscriptionId, subscriptionPackageType, subscriptionConuntLimit, subscriptionDaylimit, serviceId]
-        db.insertStatement(tableName: "availableSubscription", columnName: availableSubscriptionColumnName, insertData: availableSubscriptionColumndata, response: success, error: failure)
+        db.insertStatement(tableName: "availableSubscription", columnName: availableSubscriptionColumnName, insertData: availableSubscriptionColumndata, success: success, failure: failure)
     }
 }

@@ -13,11 +13,12 @@ public class AssignQueryDatabaseService {
 }
 
 extension AssignQueryDatabaseService: AssignQueryDatabaseContract {
-    public func assignQuery(employeeId: Int, queryId: Int, success _: @escaping (String) -> Void, failure _: @escaping (String) -> Void) {
+    public func assignQuery(employeeId: Int, queryId: Int, success: @escaping (String) -> Void, failure : @escaping (String) -> Void) {
         var tableName = "query"
-        var columns = ["queryId": queryId, "employeeId": employeeId]
+        var columnsValue = [ queryId, employeeId]
+        var columnName = ["queryId","employeeId"]
         var rowIdColumnName = "queryId"
         var rowIdColumnValue = queryId
-        db.prepareUpdateStatement(tableName: tableName, columns: columns, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdColumnValue)
+        db.updateValue(tableName: tableName, columnValue: columnsValue, columnName: columnName, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdColumnValue, success: success, failure: failure)
     }
 }

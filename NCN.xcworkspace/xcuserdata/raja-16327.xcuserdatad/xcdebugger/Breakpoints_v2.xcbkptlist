@@ -18,131 +18,6 @@
             endingLineNumber = "24"
             landmarkName = "init(error:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8E8DDB49-A13B-4529-9918-75630AC0B1B6 - 2bb100f41481a60c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.ViewSubscriptionError.init(error: Swift.String) -&gt; NCN_BackEnd.ViewSubscriptionError"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Domain/Usecases/Enterprise/ViewSubscription.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "8E8DDB49-A13B-4529-9918-75630AC0B1B6 - 2bb100f41481a60c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.ViewSubscriptionError.init(error: Swift.String) -&gt; NCN_BackEnd.ViewSubscriptionError"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Domain/Usecases/Enterprise/ViewSubscription.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "164">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "25D18468-2504-4B29-BAFE-02723648FBBE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NCNBackEnd/NCN BackEnd/Data/Database/Database.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
-            landmarkName = "selectQuery(columnString:tableName:whereClause:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "25D18468-2504-4B29-BAFE-02723648FBBE - e867e8be401ce12e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.Database.selectQuery(columnString: Swift.String, tableName: Swift.String, whereClause: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Data/Database/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "356"
-                  endingLineNumber = "356"
-                  offsetFromSymbolStart = "2344">
-               </Location>
-               <Location
-                  uuid = "25D18468-2504-4B29-BAFE-02723648FBBE - e867e8be401cef78"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.Database.selectQuery(columnString: Swift.String, tableName: Swift.String, whereClause: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Data/Database/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "374"
-                  endingLineNumber = "374"
-                  offsetFromSymbolStart = "2344">
-               </Location>
-               <Location
-                  uuid = "25D18468-2504-4B29-BAFE-02723648FBBE - e867e8be401cecba"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.Database.selectQuery(columnString: Swift.String, tableName: Swift.String, whereClause: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Data/Database/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "376"
-                  endingLineNumber = "376"
-                  offsetFromSymbolStart = "2344">
-               </Location>
-               <Location
-                  uuid = "25D18468-2504-4B29-BAFE-02723648FBBE - e867e8be401cec67"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.Database.selectQuery(columnString: Swift.String, tableName: Swift.String, whereClause: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Data/Database/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "381"
-                  endingLineNumber = "381"
-                  offsetFromSymbolStart = "2344">
-               </Location>
-               <Location
-                  uuid = "25D18468-2504-4B29-BAFE-02723648FBBE - e867e8be401cec67"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NCN_BackEnd.Database.selectQuery(columnString: Swift.String, tableName: Swift.String, whereClause: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;&gt;"
-                  moduleName = "NCN_BackEnd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Data/Database/Database.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "381"
-                  endingLineNumber = "381"
-                  offsetFromSymbolStart = "2208">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -159,6 +34,22 @@
             endingLineNumber = "40"
             landmarkName = "DeleteQueryPresenter"
             landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01D82658-4E75-4323-835F-B839D91E4063"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NCNBackEnd/NCN BackEnd/Data/Database/Database.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "selectQuery(columnString:tableName:whereClause:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

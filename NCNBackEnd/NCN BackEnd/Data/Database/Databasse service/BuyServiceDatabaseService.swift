@@ -13,7 +13,7 @@ public class BuyServiceDatabaseService: BuyServiceDatabaseContract {
         let queryColumnName = ["userId", "employeeId", "serviceId", "subscriptionId", "enterpriseId"]
 
         let queryColumnValue: [Any] = [userId, employeeId, serviceId, subscritpionId, enterpriseId]
-        db.insertStatement(tableName: "serviceLinkTable", columnName: queryColumnName, insertData: queryColumnValue, response: success,
-                           error: failure)
+        db.insertStatement(tableName: "serviceLinkTable", columnName: queryColumnName, insertData: queryColumnValue, success: success,
+                           failure: failure)
     }
 }

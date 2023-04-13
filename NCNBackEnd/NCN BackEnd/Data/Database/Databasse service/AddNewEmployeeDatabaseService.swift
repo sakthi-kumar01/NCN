@@ -17,7 +17,7 @@ public final class AddNewEmployeeDatabase: AddNewEmployeeDatabaseContract {
         let employeeColumnName = ["employeeTypeId", "userId"]
 
         // entering in user table
-        db.insertStatement(tableName: "users", columnName: userColumnName, insertData: userColumndata, response: success, error: failure)
+        db.insertStatement(tableName: "users", columnName: userColumnName, insertData: userColumndata, success: success, failure: failure)
         // entering in employee table
         let newUserId = db.selectQuery(columnString: "MAX(userId)", tableName: "users")
         print("userId:", newUserId)
@@ -26,6 +26,6 @@ public final class AddNewEmployeeDatabase: AddNewEmployeeDatabaseContract {
             print(value) // This will print 3
         }
         let employeeColumndata: [Any] = [employeeType, userId]
-        db.insertStatement(tableName: "employee", columnName: employeeColumnName, insertData: employeeColumndata, response: success, error: failure)
+        db.insertStatement(tableName: "employee", columnName: employeeColumnName, insertData: employeeColumndata, success: success, failure: failure)
     }
 }

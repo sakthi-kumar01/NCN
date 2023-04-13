@@ -28,7 +28,7 @@ public class ViewSubscriptionView: NSView {
 }
 
 extension ViewSubscriptionView: ViewSubscriptionViewContract {
-    func load(subscriptionId: Int, subscriptionPackageType: String?, subscriptionCountLimit: Float?, subscritptionDayLimit: Int?, serviceId: Int) {
+    func load(subscriptionId: Int, subscriptionPackageType: String?, subscriptionCountLimit: Int?, subscritptionDayLimit: Int?, serviceId: Int) {
         print("=================================================")
         print(subscriptionId)
         print(subscriptionPackageType)

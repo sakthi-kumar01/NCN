@@ -31,6 +31,7 @@ class Assembler {
     }
 
     static func getViewServiceView(router _: ViewServiceRouterContract?) -> ViewServiceView {
+        print("View func called")
         let useCase = getViewServiceUseCase()
         let presenter = ViewServicePresenter(viewService: useCase)
         let view = ViewServiceView(presenter: presenter)
@@ -92,7 +93,41 @@ class Assembler {
         presenter.view = view
         return view
     }
+    static func getModifyAvaialableService(serviceId: Int, serviceTitle: String, serviceDescription: String) -> ModifyAvailableServiceView {
+        let usecase = getModifyAvailableServiceUsecase()
+        let presenter = ModifyAvailableServicePresenter(modifyAvailableService: usecase)
+        let view = ModifyAvailableServiceView(serviceId: serviceId, serviceTitle: serviceTitle, serviceDescription: serviceDescription, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    static func getAssignQueryView(employeeId: Int, queryId: Int) -> AssignQueryView {
+        let usecase = getAssignQueryUsecase()
+        let presenter = AssignQueryPresenter(assignQuery: usecase)
+        let view = AssignQueryView(employeeId: employeeId, queryId: queryId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    static func getEnterpriseNameView() -> SetEnterpriseNameView {
+        
+    }
+    
+    private static func getAssignQueryUsecase() -> AssignQuery {
+        let database = AssignQueryDatabaseService()
+        let dataManager = AssignQueryDataManager(databaseService: database)
+        let useCase = AssignQuery(dataManager: dataManager)
+        return useCase
 
+    }
+    
+    private static func getModifyAvailableServiceUsecase() -> ModifyAvailableService {
+        let database = ModifyAvailableServiceDatabaseService()
+        let dataManager = ModifyAvailableServiceDataManager(databaseService: database)
+        let useCase = ModifyAvailableService(dataManager: dataManager)
+        return useCase
+    }
     private static func getCreateAvailableServiceUsecase() -> CreateAvailableService {
         let database = CreateAvailableServicesDatabase()
         let dataManager = CreateAvaialableServicesDataManager(database: database)

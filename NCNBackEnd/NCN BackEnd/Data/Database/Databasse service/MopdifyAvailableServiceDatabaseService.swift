@@ -12,10 +12,12 @@ public class ModifyAvailableServiceDatabaseService {
     public init() {}
 }
 
-// extension ModifyAvailableServiceDatabaseService : ModifyAvailableServiceDatabaseContract {
-//    public func modifyAvailableService(serviceId: Int, serviceTitle: String, serviceDescription: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-//        db.prepareUpdateStatement(tableName: <#T##String#>, columns: <#T##[String : Any]#>, rowIdColumnName: <#T##String#>, rowIdValue: <#T##Int#>)
-//    }
-//
-//
-// }
+ extension ModifyAvailableServiceDatabaseService : ModifyAvailableServiceDatabaseContract {
+    public func modifyAvailableService(serviceId: Int, serviceTitle: String, serviceDescription: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        let columnName = ["serviceTitle", "serviceDescription"]
+        let columnValue = [serviceTitle, serviceDescription]
+        db.updateValue(tableName: "availableService", columnValue: columnValue, columnName: columnName, rowIdColumnName: "serviceId", rowIdValue: serviceId, success: success, failure: failure)
+    }
+
+
+ }

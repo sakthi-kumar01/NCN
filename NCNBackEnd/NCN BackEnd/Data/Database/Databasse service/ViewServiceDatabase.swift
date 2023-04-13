@@ -7,16 +7,42 @@
 
 import Foundation
 public class ViewServiceDatabase: ViewServiceDatabaseContract {
-    public init() {}
+    public init() {print("db created")}
     let db = Database.shared
-
-    let returnServicesOne = AvailableService(serviceId: 1, serviceTitle: "random", serviceDescription: "random")
-    let returnServicesTwo = AvailableService(serviceId: 2, serviceTitle: "random", serviceDescription: "random")
+    var result: [AvailableService] = []
+    
     var returnService: [AvailableService] = []
-
-    public func viewService(success: @escaping ([AvailableService]) -> Void, failure _: @escaping (String) -> Void) {
-        returnService.append(returnServicesOne)
-        returnService.append(returnServicesTwo)
-        success(returnService)
+    
+    public func viewService(success: @escaping ([AvailableService]) -> Void, failure : @escaping (String) -> Void) {
+        var res = db.selectQuery(columnString: "*", tableName: "availableService")
+        
+        guard let resultedArray = res else {
+            failure("No  data")
+            return
+        }
+        for dict in resultedArray {
+            if let subscriptionId = dict["serviceId"] as? Int {
+                
+                if let subscriptionPackageType = dict["serviceTitle"] as? String {
+                    
+                    if let subscriptionCountLimit = dict["serviceDescription"] as? String {
+                        
+                        
+                            
+                            let newAvailableSubscription = AvailableService(serviceId: subscriptionId, serviceTitle: subscriptionPackageType , serviceDescription: subscriptionCountLimit)
+                           
+                            result.append(newAvailableSubscription)
+                            
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+            }
+        }
+        success(result)
     }
 }

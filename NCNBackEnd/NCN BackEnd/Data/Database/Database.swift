@@ -22,17 +22,17 @@ class Database {
         createDatabase()
         enableForeignKeys(db!)
         // executequery(db: db, Statement: "PRAGMA FOREIGN_KEYS = ON")
-        createUserTable()
-        createEmployeeTypeTable()
-        createEmployeeTable()
-        createAdminTable()
-        createEnterpriseTable()
-        createAvailableServiceTable()
-        createEmployeeTypeTable()
-        createQueryTypeTable()
-        createQueryTable()
-        createAvailavleSubscriptionTable()
-        createServicesLinkTable()
+//        createUserTable()
+//        createEmployeeTypeTable()
+//        createEmployeeTable()
+//        createAdminTable()
+//        createEnterpriseTable()
+//        createAvailableServiceTable()
+//        createEmployeeTypeTable()
+//        createQueryTypeTable()
+//        createQueryTable()
+//        createAvailavleSubscriptionTable()
+//        createServicesLinkTable()
 
         insertDefaultAdminValues()
     }
@@ -42,7 +42,7 @@ class Database {
 
         do {
             var path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            path.append(path: "NCNapp.sqlite")
+            path.append(path: "NCNapp.sqlite3")
 
             filePath = path.absoluteString
 
@@ -359,46 +359,61 @@ class Database {
 
 extension Database {
     func selectQuery(columnString: String, tableName: String, whereClause: String = "") -> [[String: Any]]? {
-        var selectStatement = "SELECT \(columnString) FROM \(tableName)"
-        var rows = [[String: Any]]()
-        if whereClause != "" {
-            selectStatement = selectStatement + " WHERE " + whereClause
-        }
+        print("select query for \(tableName) called")
+        
+            var stmt: OpaquePointer?
+            var result: [[String: Any]] = []
 
-        var queryStatement: OpaquePointer?
+            // Open the database
+            
+                let query = "SELECT * FROM \(tableName);"
 
-        if sqlite3_prepare_v2(db, selectStatement, -1, &queryStatement, nil) ==
-            SQLITE_OK
-        {
-            while sqlite3_step(queryStatement) == SQLITE_ROW {
-                var row = [String: Any]()
-                for i in 0 ..< sqlite3_column_count(queryStatement) {
-                    let columnName = String(cString: sqlite3_column_name(queryStatement, i))
-                    let columnType = sqlite3_column_type(queryStatement, i)
-                    var values: Any?
-                    switch columnType {
-                    case SQLITE_INTEGER:
-                        values = Int(sqlite3_column_int(queryStatement, i))
-                    case SQLITE_FLOAT:
-                        values = Float(sqlite3_column_double(queryStatement, i))
-                    case SQLITE_TEXT:
-                        let cString = sqlite3_column_text(queryStatement, i)
-                        values = String(cString: cString!)
+                // Prepare the statement
+                if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
+                    // Execute the statement
+                    while sqlite3_step(stmt) == SQLITE_ROW {
+                        var row: [String: Any] = [:]
+                        let columnCount = sqlite3_column_count(stmt)
 
-                    case SQLITE_NULL:
-                        values = nil
-                    default:
+                        // Extract the data from the columns
+                        for i in 0..<columnCount {
+                            let columnName = String(cString: sqlite3_column_name(stmt, i))
+                            let columnType = sqlite3_column_type(stmt, i)
 
-                        sqlite3_finalize(queryStatement)
+                            switch columnType {
+                            case SQLITE_INTEGER:
+                                let value = sqlite3_column_int(stmt, i)
+                                row[columnName] = Int(value)
+                            case SQLITE_FLOAT:
+                                let value = sqlite3_column_double(stmt, i)
+                                row[columnName] = Double(value)
+                            case SQLITE_TEXT:
+                                let value = String(cString: sqlite3_column_text(stmt, i))
+                                row[columnName] = value
+                            case SQLITE_BLOB:
+                                let value = Data(bytes: sqlite3_column_blob(stmt, i), count: Int(sqlite3_column_bytes(stmt, i)))
+                                row[columnName] = value
+                            default:
+                                row[columnName] = nil
+                            }
+                        }
+
+                        result.append(row)
                     }
-                    row[columnName] = values
                 }
-                rows.append(row)
-                sqlite3_finalize(queryStatement)
-                return rows
+        
+
+                // Clean up
+        sqlite3_finalize(stmt)
+         //print(result)
+
+            
+
+            if result.isEmpty {
+                return nil
+            } else {
+                return result
             }
-        }
-        return nil
     }
 
     func prepareStatement(db: OpaquePointer?, sql: String) throws -> OpaquePointer? {
@@ -441,7 +456,7 @@ extension Database {
         return nil
     }
 
-    func insertStatement(tableName: String, columnName: [String], insertData: [Any], response: (String) -> Void, error: (String) -> Void) {
+    func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
         var columnNameString = columnName.joined(separator: ", ")
         var insertString = ""
         for val in insertData {
@@ -462,45 +477,39 @@ extension Database {
         let prepareStatement: OpaquePointer? = Database.shared.prepareStatement(statement: querry)
 
         if sqlite3_step(prepareStatement) == SQLITE_DONE {
-            response("\(tableName): Sucessfully Executed")
+            success("\(tableName): Sucessfully Executed")
         } else {
-            error("Error : \(String(cString: sqlite3_errmsg(db)))")
+            failure("Error : \(String(cString: sqlite3_errmsg(db)))")
         }
     }
 
-    func updateValue(tableName _: String, columns: [String], values _: [String: Any], Id _: Int, IncrementValue _: Int = 0) -> Bool {
-        var query = ""
-        var columnValue = ""
-        for column in columns {
-            //            if values[column.name] != nil {
-            //                if column.type == "TEXT" {
-            //                    columnValue += column.name + " = " + "'" + String(values[column.name] as! String) + "'" + ", "
-            //                }
-            //                else if column.type == "INTEGER" {
-            //                    if IncrementValue != 0 {
-            //                        columnValue += column.name + " = " + column.name + " + " + String(IncrementValue)
-            //                    }
-            //                    else {
-            //                        columnValue += column.name + " = " + String(values[column.name] as! Int)
-            //                    }
-            //                    columnValue += ", "
-            //                }
-            //            }
-            //        }
-            //        let query = "UPDATE \(tableName) SET \(columnValue.dropLast(2)) WHERE id = \(Id) "
-            //        print(query)
-            if sqlite3_exec(db, query, nil, nil, nil) == SQLITE_OK {
-                return true
+    func updateValue(tableName: String, columnValue: [Any], columnName: [String], rowIdColumnName: String, rowIdValue: Int,  success: @escaping (String)-> Void, failure: @escaping (String)-> Void)  {
+        var query = prepareUpdateStatement(tableName: tableName, columnName: columnName, columnValue: columnValue, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdValue)
+        print(query)
+        let prepareStatement: OpaquePointer? = Database.shared.prepareStatement(statement: query)
+
+        if sqlite3_step(prepareStatement) == SQLITE_DONE {
+            success("\(tableName): Sucessfully Executed")
+        } else {
+            failure("Error : \(String(cString: sqlite3_errmsg(db)))")
+        }
+        
+       
+    }
+
+    func prepareUpdateStatement(tableName: String, columnName: [String], columnValue: [Any], rowIdColumnName: String, rowIdValue: Int) -> String {
+        var columnsString = ""
+        for i in 0...columnName.count-1 {
+            if columnValue[i] is String {
+                columnsString = columnsString + "\(columnName[i])" + " = " + "\'" + "\(String(describing: columnValue[i]))" + "\'" + "," + " "
             } else {
-                return false
+                columnsString = columnsString + "\(columnName[i])" + " = " + "\(String(describing: columnValue[i]))" + "," + " "
             }
         }
-        return false
-    }
+        columnsString = String(columnsString.dropLast(2))
 
-    func prepareUpdateStatement(tableName: String, columns: [String: Any], rowIdColumnName: String, rowIdValue: Int) -> String {
-        let columnsString = columns.map { "\($0) = '\($1)'" }.joined(separator: ", ")
         let updateStatement = "UPDATE \(tableName) SET \(columnsString) WHERE \(rowIdColumnName) = \(rowIdValue);"
+
         return updateStatement
     }
 

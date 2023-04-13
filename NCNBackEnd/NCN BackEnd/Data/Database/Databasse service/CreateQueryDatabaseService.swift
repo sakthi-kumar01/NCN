@@ -14,7 +14,7 @@ public class CreateQueryDatabaseService: CreateQueryDatabaseContract {
         let queryColumnName = ["queryId", "queryTypeId", "queryStatus", "queryMessage", "createdOn", "userId", "employeeId", "enterpriseId"]
         let date = queryDate.description
         let queryColumnValue: [Any] = [queryId, queryType.rawValue, false, queryMessage, date, userId, employeeId, enterpriseId]
-        db.insertStatement(tableName: "query", columnName: queryColumnName, insertData: queryColumnValue, response: success,
-                           error: failure)
+        db.insertStatement(tableName: "query", columnName: queryColumnName, insertData: queryColumnValue, success: success,
+                           failure: failure)
     }
 }
