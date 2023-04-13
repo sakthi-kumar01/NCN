@@ -8,7 +8,7 @@
 import Foundation
 public class SetEnterpriseDatabase: SetEnterpriseDatabaseContract {
     var db = Database.shared
-    public var enterPrise: [Enterprise] = []
+    
 
     public init() {}
 
