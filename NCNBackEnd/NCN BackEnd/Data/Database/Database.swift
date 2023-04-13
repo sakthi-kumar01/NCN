@@ -457,7 +457,13 @@ extension Database {
     }
 
     func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
-        var columnNameString = columnName.joined(separator: ", ")
+        var columnNameString = ""
+        if columnName.count > 1{
+            columnName.joined(separator: ", ")
+            
+        } else {
+            columnNameString = columnName[0]
+        }
         var insertString = ""
         for val in insertData {
             if val is String {
@@ -513,17 +519,19 @@ extension Database {
         return updateStatement
     }
 
-    func deleteValue(tableName: String, columnName: String, columnValue: String) -> Bool {
+    func deleteValue(tableName: String, columnName: String, columnValue: String,success: @escaping (String)-> Void, failure: @escaping (String)-> Void ) {
         let deleteQuery = "DELETE FROM \(tableName) WHERE " + columnName + " = " + columnValue
         var deleteStatement: OpaquePointer?
         if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStatement, nil) == SQLITE_OK {
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
-                return true
+                sqlite3_finalize(deleteStatement)
+                success("Deletion Complete")
             } else {
-                return false
+                sqlite3_finalize(deleteStatement)
+               failure("Deletion is not done")
             }
         }
-        sqlite3_finalize(deleteStatement)
-        return false
+        
+        
     }
 }

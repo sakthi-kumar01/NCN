@@ -110,9 +110,39 @@ class Assembler {
         return view
     }
     
-    static func getEnterpriseNameView() -> SetEnterpriseNameView {
-        
+    private static func getSetEnterpriseName() -> SetEnterpriseName{
+        let database = SetEnterpriseDatabase()
+        let dataManager = SetEnterpriseNameDataManager(database: database)
+        let useCase = SetEnterpriseName(dataManager: dataManager)
+        return useCase
     }
+    static func getSetEnterpriseView(enterpriseName: String) -> SetEnterpriseNameView {
+        let usecase = getSetEnterpriseName()
+        let presenter = SetEnterpriseNamePresenter(setEnterpriseName: usecase)
+        let view = SetEnterpriseNameView(enterpriseName: enterpriseName, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    
+    
+    
+    private static func getRemoveService() -> RemoveService{
+        let database = RemoveServiceDatabaseService()
+        let dataManager = RemoveServiceDataManager(databaseService: database)
+        let useCase = RemoveService(dataManager: dataManager)
+        return useCase
+    }
+    static func getRemoveServiceView(serviceId: Int) -> RemoveServiceView {
+        let usecase = getRemoveService()
+        let presenter = RemoveServicePresenter(removeService: usecase)
+        let view = RemoveServiceView(serviceId: serviceId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
     
     private static func getAssignQueryUsecase() -> AssignQuery {
         let database = AssignQueryDatabaseService()
