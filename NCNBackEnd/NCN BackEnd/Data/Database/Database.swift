@@ -405,7 +405,7 @@ extension Database {
 
                 // Clean up
         sqlite3_finalize(stmt)
-            
+         //print(result)
 
             
 

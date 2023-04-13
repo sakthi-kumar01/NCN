@@ -7,7 +7,7 @@
 
 import Foundation
 protocol ViewSubscriptionViewContract: AnyObject {
-    func load(subscriptionId: Int, subscriptionPackageType: String?, subscriptionCountLimit: Float?, subscritptionDayLimit: Int?, serviceId: Int)
+    func load(subscriptionId: Int, subscriptionPackageType: String?, subscriptionCountLimit: Int?, subscritptionDayLimit: Int?, serviceId: Int)
     func failed(error: String)
 }
 
