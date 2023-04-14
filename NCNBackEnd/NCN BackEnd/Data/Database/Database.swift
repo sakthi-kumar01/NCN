@@ -363,10 +363,14 @@ extension Database {
         
             var stmt: OpaquePointer?
             var result: [[String: Any]] = []
-
+        var  query = "SELECT * FROM \(tableName);"
             // Open the database
-            
-                let query = "SELECT * FROM \(tableName);"
+        if whereClause == "" {
+             query = "SELECT * FROM \(tableName);"
+        } else {
+            query = "SELECT * FROM \(tableName)  " + "where " + "\(whereClause)" + ";"
+        }
+                print(query)
 
                 // Prepare the statement
                 if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
@@ -459,7 +463,7 @@ extension Database {
     func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
         var columnNameString = ""
         if columnName.count > 1{
-            columnName.joined(separator: ", ")
+            columnNameString = columnName.joined(separator: ", ")
             
         } else {
             columnNameString = columnName[0]
@@ -525,10 +529,10 @@ extension Database {
         if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStatement, nil) == SQLITE_OK {
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 sqlite3_finalize(deleteStatement)
-                success("Deletion Complete")
+                success("Deletion Statement Executed")
             } else {
                 sqlite3_finalize(deleteStatement)
-               failure("Deletion is not done")
+               failure("Deletion is not done.")
             }
         }
         

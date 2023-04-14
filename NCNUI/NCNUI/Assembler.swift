@@ -125,15 +125,6 @@ class Assembler {
         return view
     }
     
-    
-    
-    
-    private static func getRemoveService() -> RemoveService{
-        let database = RemoveServiceDatabaseService()
-        let dataManager = RemoveServiceDataManager(databaseService: database)
-        let useCase = RemoveService(dataManager: dataManager)
-        return useCase
-    }
     static func getRemoveServiceView(serviceId: Int) -> RemoveServiceView {
         let usecase = getRemoveService()
         let presenter = RemoveServicePresenter(removeService: usecase)
@@ -141,6 +132,28 @@ class Assembler {
         view.presenter = presenter
         presenter.view = view
         return view
+    }
+    
+    static func getCreateAvailableServiceView() -> CreateAvailableServiceView {
+        let usecase = getCreateAvailableService()
+        let presenter = CreateAvailableServicesPresenter(createAvailableService: usecase)
+        let view = CreateAvailableServiceView(serviceId: 36, serviceTitle: "random", serviceDescription: "random", presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    private static func getCreateAvailableService() -> CreateAvailableService {
+        let database = CreateAvailableServicesDatabase()
+        let datamanager = CreateAvaialableServicesDataManager(database: database  )
+        let usecase = CreateAvailableService(datamanager: datamanager)
+        return usecase
+    }
+    private static func getRemoveService() -> RemoveService{
+        let database = RemoveServiceDatabaseService()
+        let dataManager = RemoveServiceDataManager(databaseService: database)
+        let useCase = RemoveService(dataManager: dataManager)
+        return useCase
     }
     
     
@@ -160,7 +173,7 @@ class Assembler {
     }
     private static func getCreateAvailableServiceUsecase() -> CreateAvailableService {
         let database = CreateAvailableServicesDatabase()
-        let dataManager = CreateAvaialableServicesDataManager(database: database)
+        let dataManager = CreateAvaialableServicesDataManager(database: database as! CreateAvailableServicesDatabaseContract)
         let useCase = CreateAvailableService(datamanager: dataManager)
         return useCase
     }

@@ -19,7 +19,7 @@ public class CreateAvaialableServicesDataManager {
 
     private func failure(message: String, callback: (String) -> Void) {
         if message == "No Data" {
-            let error = "Service already exist"
+            let error = "Service already exist. Data Not inserted"
             callback(error)
         }
     }

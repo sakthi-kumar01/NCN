@@ -18,7 +18,7 @@ class Router {
 
     func launch() {
         // for success case
-        window.contentView = Assembler.getRemoveServiceView(serviceId: 4)
+        window.contentView = Assembler.getCreateAvailableServiceView()
     }
 }
 
