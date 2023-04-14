@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public class CreateAvaialableSusbscriptionDataManager {
+public class CreateAvailableSusbscriptionDataManager {
     public var databaseService: CreateAvailableSubscriptionDatabaseContract
 
     public init(databaseService: CreateAvailableSubscriptionDatabaseContract) {
@@ -25,7 +25,7 @@ public class CreateAvaialableSusbscriptionDataManager {
     }
 }
 
-extension CreateAvaialableSusbscriptionDataManager: CreateAvailableSubscriptionDataContract {
+extension CreateAvailableSusbscriptionDataManager: CreateAvailableSubscriptionDataContract {
     public func createAvailableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionConuntLimit: Float, subscriptionDaylimit: Int, serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         databaseService.createAvaialableSubscription(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionConuntLimit: subscriptionConuntLimit, subscriptionDaylimit: subscriptionDaylimit, serviceId: serviceId, success: {
             [weak self] message in

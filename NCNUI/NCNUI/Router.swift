@@ -18,7 +18,7 @@ class Router {
 
     func launch() {
         // for success case
-        window.contentView = Assembler.getCreateAvailableServiceView()
+        window.contentView = Assembler.getCreateavaialabaleSubscription(subscriptionId: 49, subscriptionPackageType: "byte", subscriptionCountLimit: 10, subscritptionDayLimit: 10, serviceId: 10)
     }
 }
 

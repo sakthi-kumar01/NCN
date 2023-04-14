@@ -110,6 +110,21 @@ class Assembler {
         return view
     }
     
+    static func getCreateavaialabaleSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float,subscritptionDayLimit: Int, serviceId: Int ) -> CreateAvailableSubscriptionView {
+        let usecase = getCreateAvaialableSubscription()
+        let presenter = CreateAvailableSubscriptionPresenter(createAvailableSubscription: usecase)
+        let view = CreateAvailableSubscriptionView(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscritptionDayLimit: subscriptionId, serviceId: serviceId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+        
+    }
+    private static func getCreateAvaialableSubscription() -> CreateAvailableSubscription {
+        let database = CreateAvailableSubscriptionDatabaseService()
+        let datamanager = CreateAvailableSusbscriptionDataManager(databaseService: database)
+        let useCase = CreateAvailableSubscription(datamanager: datamanager)
+        return useCase
+    }
     private static func getSetEnterpriseName() -> SetEnterpriseName{
         let database = SetEnterpriseDatabase()
         let dataManager = SetEnterpriseNameDataManager(database: database)
@@ -173,7 +188,7 @@ class Assembler {
     }
     private static func getCreateAvailableServiceUsecase() -> CreateAvailableService {
         let database = CreateAvailableServicesDatabase()
-        let dataManager = CreateAvaialableServicesDataManager(database: database as! CreateAvailableServicesDatabaseContract)
+        let dataManager = CreateAvaialableServicesDataManager(database: database)
         let useCase = CreateAvailableService(datamanager: dataManager)
         return useCase
     }
@@ -209,7 +224,7 @@ class Assembler {
 
     public static func getCreateavailableSubscription() -> CreateAvailableSubscription {
         let database = CreateAvailableSubscriptionDatabaseService()
-        let datamanager = CreateAvaialableSusbscriptionDataManager(databaseService: database)
+        let datamanager = CreateAvailableSusbscriptionDataManager(databaseService: database)
         let usecase = CreateAvailableSubscription(datamanager: datamanager)
 
         return usecase
