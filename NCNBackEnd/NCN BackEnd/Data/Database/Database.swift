@@ -358,67 +358,63 @@ class Database {
 }
 
 extension Database {
-    func selectQuery(columnString: String, tableName: String, whereClause: String = "") -> [[String: Any]]? {
+    func selectQuery(columnString: String, tableName: String, joinClause: String = "", whereClause: String = "") -> [[String: Any]]? {
         print("select query for \(tableName) called")
         
-            var stmt: OpaquePointer?
-            var result: [[String: Any]] = []
-        var  query = "SELECT * FROM \(tableName);"
-            // Open the database
-        if whereClause == "" {
-             query = "SELECT * FROM \(tableName);"
-        } else {
-            query = "SELECT * FROM \(tableName)  " + "where " + "\(whereClause)" + ";"
+        var stmt: OpaquePointer?
+        var result: [[String: Any]] = []
+        var query = "SELECT \(columnString) FROM \(tableName) \(joinClause)"
+        
+        if whereClause != "" {
+            query += " WHERE \(whereClause)"
         }
-                print(query)
-
-                // Prepare the statement
-                if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
-                    // Execute the statement
-                    while sqlite3_step(stmt) == SQLITE_ROW {
-                        var row: [String: Any] = [:]
-                        let columnCount = sqlite3_column_count(stmt)
-
-                        // Extract the data from the columns
-                        for i in 0..<columnCount {
-                            let columnName = String(cString: sqlite3_column_name(stmt, i))
-                            let columnType = sqlite3_column_type(stmt, i)
-
-                            switch columnType {
-                            case SQLITE_INTEGER:
-                                let value = sqlite3_column_int(stmt, i)
-                                row[columnName] = Int(value)
-                            case SQLITE_FLOAT:
-                                let value = sqlite3_column_double(stmt, i)
-                                row[columnName] = Double(value)
-                            case SQLITE_TEXT:
-                                let value = String(cString: sqlite3_column_text(stmt, i))
-                                row[columnName] = value
-                            case SQLITE_BLOB:
-                                let value = Data(bytes: sqlite3_column_blob(stmt, i), count: Int(sqlite3_column_bytes(stmt, i)))
-                                row[columnName] = value
-                            default:
-                                row[columnName] = nil
-                            }
-                        }
-
-                        result.append(row)
+        
+        print(query)
+        
+        if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
+            //print("select statement preparation = sucess")
+            while sqlite3_step(stmt) == SQLITE_ROW {
+                
+                var row: [String: Any] = [:]
+                let columnCount = sqlite3_column_count(stmt)
+                
+                for i in 0..<columnCount {
+                    let columnName = String(cString: sqlite3_column_name(stmt, i))
+                    let columnType = sqlite3_column_type(stmt, i)
+                    
+                    switch columnType {
+                    case SQLITE_INTEGER:
+                        let value = sqlite3_column_int(stmt, i)
+                        row[columnName] = Int(value)
+                    case SQLITE_FLOAT:
+                        let value = sqlite3_column_double(stmt, i)
+                        row[columnName] = Double(value)
+                    case SQLITE_TEXT:
+                        let value = String(cString: sqlite3_column_text(stmt, i))
+                        row[columnName] = value
+                    case SQLITE_BLOB:
+                        let value = Data(bytes: sqlite3_column_blob(stmt, i), count: Int(sqlite3_column_bytes(stmt, i)))
+                        row[columnName] = value
+                    default:
+                        row[columnName] = nil
                     }
                 }
-        
-
-                // Clean up
-        sqlite3_finalize(stmt)
-         //print(result)
-
-            
-
-            if result.isEmpty {
-                return nil
-            } else {
-                return result
+                
+                result.append(row)
             }
+        } else {
+            print("selsct statement preparation failure")
+        }
+        
+        sqlite3_finalize(stmt)
+        
+        if result.isEmpty {
+            return nil
+        } else {
+            return result
+        }
     }
+
 
     func prepareStatement(db: OpaquePointer?, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?

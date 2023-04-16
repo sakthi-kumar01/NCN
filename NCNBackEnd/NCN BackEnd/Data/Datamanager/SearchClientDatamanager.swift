@@ -26,8 +26,8 @@ public class SearchClientDataManager {
 }
 
 extension SearchClientDataManager: SearchClientDataContract {
-    public func searchClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.searchClient(employeeId: employeeId, success: {
+    public func searchClient(userId: Int, employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.searchClient(userId: userId, employeeId: employeeId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

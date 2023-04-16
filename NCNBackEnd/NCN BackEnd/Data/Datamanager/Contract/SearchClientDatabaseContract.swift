@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol SearchClientDatabaseContract {
-    func searchClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
+    func searchClient(userId: Int, employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
 }

@@ -11,7 +11,7 @@ protocol SearchClientViewContract: AnyObject {
 }
 
 protocol SearchClientPresenterContract {
-    func viewLoaded(employeeId: Int)
+    func viewLoaded(userId:Int, employeeId: Int)
 }
 
 protocol SearchClientRouterContract: AnyObject {

@@ -149,15 +149,49 @@ class Assembler {
         return view
     }
     
-    static func getCreateAvailableServiceView() -> CreateAvailableServiceView {
+    static func getCreateAvailableServiceView(serviceId: Int) -> CreateAvailableServiceView {
         let usecase = getCreateAvailableService()
         let presenter = CreateAvailableServicesPresenter(createAvailableService: usecase)
-        let view = CreateAvailableServiceView(serviceId: 36, serviceTitle: "random", serviceDescription: "random", presenter: presenter)
+        let view = CreateAvailableServiceView(serviceId: serviceId, serviceTitle: "random", serviceDescription: "random", presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         
         return view
     }
+    
+    static func getSearchClientView(userId:Int, employeeId: Int) -> SearchClientView {
+        let usecase = getSearchClientUsecase()
+        let presenter = SearchClientPresenter(searchClient: usecase)
+        let view = SearchClientView(userId: userId,employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    static func getSearchEmployeeView( employeeId: Int) -> SearchEmployeeView {
+        let usecase = getSearchEmployeeUsecase()
+        let presenter = SearchEmployeePresenter(searchEmployee: usecase)
+        let view = SearchEmployeeView(employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    
+    private static func getSearchEmployeeUsecase() -> SearchEmployee {
+        let database = SearchEmployeeDatabaseService()
+        let datamanager = SearchEmployeeDataManager(databaseService: database)
+        let usecase = SearchEmployee(dataManager: datamanager)
+        return usecase
+    }
+    
+    private static func getSearchClientUsecase() -> SearchClient {
+        let database = SearchClientDatabaseSevice()
+        let datamanager = SearchClientDataManager(databaseService: database)
+        let usecase = SearchClient(dataManager: datamanager)
+        return usecase
+    }
+    
     private static func getCreateAvailableService() -> CreateAvailableService {
         let database = CreateAvailableServicesDatabase()
         let datamanager = CreateAvaialableServicesDataManager(database: database  )

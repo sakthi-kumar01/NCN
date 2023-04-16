@@ -11,7 +11,7 @@ class Admin: Employee {
     var queries: [Query]?
     var services: [Service]?
     override public init(userName: String,
-                         email: String, password: String, mobileNumber: Int64, employeeId: Int, employeeType: EmploymentType, enterpriseId: Int)
+                         email: String, password: String, mobileNumber: Int, employeeId: Int, employeeType: EmploymentType, enterpriseId: Int)
     {
         super.init(userName: userName, email: email, password: password, mobileNumber: mobileNumber, employeeId: employeeId, employeeType: employeeType, enterpriseId: enterpriseId)
     }

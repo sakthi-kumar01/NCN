@@ -10,13 +10,14 @@ import Foundation
 import NCN_BackEnd
 class SearchClientView: NSView {
     public var employeeId: Int
-
+    public var userId: Int
     var presenter: SearchClientPresenter
 
-    init(employeeId: Int, presenter: SearchClientPresenter) {
+    init(userId: Int, employeeId: Int, presenter: SearchClientPresenter) {
         self.employeeId = employeeId
 
         self.presenter = presenter
+        self.userId = userId
         super.init(frame: NSZeroRect)
     }
 
@@ -27,7 +28,7 @@ class SearchClientView: NSView {
 
     override func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(employeeId: employeeId)
+            presenter.viewLoaded(userId: userId, employeeId: employeeId)
         }
     }
 }

@@ -18,8 +18,8 @@ class SearchClientPresenter {
 }
 
 extension SearchClientPresenter: SearchClientPresenterContract {
-    func viewLoaded(employeeId: Int) {
-        let request = SearchClientRequest(employeeId: employeeId)
+    func viewLoaded(userId: Int,employeeId: Int) {
+        let request = SearchClientRequest(userId: userId, employeeId: employeeId)
         searchClient.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in
@@ -31,10 +31,11 @@ extension SearchClientPresenter: SearchClientPresenterContract {
 extension SearchClientPresenter {
     func result(message: [User]) {
         for user in message {
-            view?.load(message: user.userName)
-            view?.load(message: user.password)
-            view?.load(message: user.email)
-            view?.load(message: user.mobileNumber.description)
+            view?.load(message: "UserName: "+user.userName)
+            view?.load(message: "password: "+user.password)
+            view?.load(message: "email id: "+user.email)
+            view?.load(message: "mobile number: "+user.mobileNumber.description)
+            view?.load(message: "")
         }
     }
 

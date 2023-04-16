@@ -11,9 +11,9 @@ public class User {
     public var userName: String
     public var email: String
     public var password: String
-    public var mobileNumber: Int64
+    public var mobileNumber: Int
     public var enterpriseId: Int
-    init(userName: String, email: String, password: String, mobileNumber: Int64, enterpriseId: Int) {
+    init(userName: String, email: String, password: String, mobileNumber: Int, enterpriseId: Int) {
         self.userName = userName
         self.email = email
         self.password = password

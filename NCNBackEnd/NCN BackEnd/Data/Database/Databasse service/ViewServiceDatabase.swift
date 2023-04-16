@@ -11,8 +11,7 @@ public class ViewServiceDatabase: ViewServiceDatabaseContract {
     let db = Database.shared
     var result: [AvailableService] = []
     
-    var returnService: [AvailableService] = []
-    
+        
     public func viewService(success: @escaping ([AvailableService]) -> Void, failure : @escaping (String) -> Void) {
         var res = db.selectQuery(columnString: "*", tableName: "availableService")
         

@@ -9,9 +9,11 @@ import Foundation
 import VTComponents
 public final class SearchClientRequest: Request {
     public var employeeId: Int
+    public var userId: Int
 
-    public init(employeeId: Int) {
+    public init(userId:Int, employeeId: Int) {
         self.employeeId = employeeId
+        self.userId = userId
     }
 }
 
@@ -38,7 +40,7 @@ public final class SearchClient: ZUsecase<SearchClientRequest, SearchClientRespo
     }
 
     override public func run(request: SearchClientRequest, success: @escaping (SearchClientResponse) -> Void, failure: @escaping (SearchClientError) -> Void) {
-        dataManager.searchClient(employeeId: request.employeeId, success: { [weak self] message in
+        dataManager.searchClient(userId: request.userId, employeeId: request.employeeId, success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: SearchClientError(error: error), callback: failure)

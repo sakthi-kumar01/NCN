@@ -39,22 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "01D82658-4E75-4323-835F-B839D91E4063"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NCNBackEnd/NCN BackEnd/Data/Database/Database.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
-            landmarkName = "selectQuery(columnString:tableName:whereClause:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8CF632EA-68B3-4C43-B2EB-7CADB23050E9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -96,6 +80,21 @@
                   startingLineNumber = "31"
                   endingLineNumber = "31"
                   offsetFromSymbolStart = "1196">
+               </Location>
+               <Location
+                  uuid = "8CF632EA-68B3-4C43-B2EB-7CADB23050E9 - afec5f611013b226"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NCN_BackEnd.CreateAvailableServicesDatabase.createAvailableServices(serviceId: Swift.Int, seviceTitle: Swift.String, serviceDescription: Swift.String, success: (NCN_BackEnd.AvailableService) -&gt; (), failure: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "NCN_BackEnd"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raja-16327/Desktop/NCN/NCNBackEnd/NCN%20BackEnd/Data/Database/Databasse%20service/CreateAvaialableServiceDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1224">
                </Location>
             </Locations>
          </BreakpointContent>
