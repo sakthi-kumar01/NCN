@@ -6,6 +6,6 @@
 //
 
 import Foundation
-public protocol ModifyStringDetailsDataContract {
+public protocol ModifyUserDetailsDataContract {
    func modifyStringDetails(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

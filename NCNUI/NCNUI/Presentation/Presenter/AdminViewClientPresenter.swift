@@ -31,11 +31,12 @@ extension AdminViewClientPresenter: AdminViewClientPresenterContract {
 extension AdminViewClientPresenter {
     func result(message: [User]) {
         for user in message {
-            view?.load(message: user.userId!.description)
-            view?.load(message: user.userName)
-            view?.load(message: user.password)
-            view?.load(message: user.email)
-            view?.load(message: user.mobileNumber.description)
+            view?.load(message: "")
+            view?.load(message: "Username: " + user.userName)
+            view?.load(message: "Password: " + user.password)
+            view?.load(message: "EMail: " + user.email)
+            view?.load(message: "Mobile Number: " + user.mobileNumber.description)
+            view?.load(message: "")
         }
     }
 

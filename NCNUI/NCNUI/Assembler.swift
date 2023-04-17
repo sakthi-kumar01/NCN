@@ -178,6 +178,74 @@ class Assembler {
         return view
     }
     
+    static func getEmployeeViewClient(employeeId: Int) -> EmployeeViewClientView{
+        let usecase = getEmployeeViewClientUsecase()
+        let presenter = EmployeeViewClientPresenter(employeeViewClient: usecase)
+        let view = EmployeeViewClientView(employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    
+    static func getAdminViewClient(employeeId: Int) -> AdminViewClientView{
+        let usecase = getAdminViewClientUsecase()
+        let presenter = AdminViewClientPresenter(adminViewClient: usecase)
+        let view = AdminViewClientView(employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    
+    
+    static func getAModifyUserDetailsView(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int) -> ModifyUserDetailsView{
+        let usecase = getModifyUserDetailsUsecase()
+        let presenter = ModifyUserDetailsPresenter(modifyUserDetails: usecase)
+        let view = ModifyUserDetailsView(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    
+    static func getAModifyEmployeeDetailsView(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int) -> ModifyEmployeeDetailsView{
+        let usecase = getModifyEmployeeDetailsUsecase()
+        let presenter = ModifyEmployeeDetailsPresenter(modifyEmployeeDetails: usecase)
+        let view = ModifyEmployeeDetailsView(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    private static func getModifyUserDetailsUsecase() -> ModifyUserDetails{
+        let database = ModifyUserDetailsDatabaseService()
+        let datamanager = ModifyUserDetailsDataManager(databaseService: database)
+        let usecase = ModifyUserDetails(dataManager: datamanager)
+        return usecase
+    }
+    private static func getModifyEmployeeDetailsUsecase() -> ModifyEmployeeDetails{
+        let database = ModifyEmployeeDetailsDatabaseService()
+        let datamanager = ModifyEmployeeDetailsDataManager(databaseService: database)
+        let usecase = ModifyEmployeeDetails(dataManager: datamanager)
+        return usecase
+    }
+    
+    private static func getAdminViewClientUsecase() -> AdminViewClient{
+        let database = AdminViewClientDatabaseService()
+        let datamanager = AdminViewClientDataManager(databaseService: database)
+        let usecase = AdminViewClient(dataManager: datamanager)
+        return usecase
+    }
+    
+    private static func getEmployeeViewClientUsecase() -> EmployeeViewClient{
+        let database = EmployeeViewClientDatabaseService()
+        let datamanager = EmployeeViewClientDataManager(databaseService: database)
+        let usecase = EmployeeViewClient(dataManager: datamanager)
+        return usecase
+    }
+    
+    
     private static func getSearchEmployeeUsecase() -> SearchEmployee {
         let database = SearchEmployeeDatabaseService()
         let datamanager = SearchEmployeeDataManager(databaseService: database)

@@ -35,6 +35,7 @@ extension EmployeeViewClientPresenter {
             view?.load(message: user.password)
             view?.load(message: user.email)
             view?.load(message: user.mobileNumber.description)
+            view?.load(message: "")
         }
     }
 

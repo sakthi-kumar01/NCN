@@ -6,14 +6,14 @@
 //
 
 import Foundation
-protocol ModifyStringDetailsViewContract: AnyObject {
+protocol ModifyUserDetailsViewContract: AnyObject {
     func load(message: String)
 }
 
-protocol ModifyStringDetailsPresenterContract {
+protocol ModifyUserDetailsPresenterContract {
     func viewLoaded(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int)
 }
 
-protocol ModifyStringDetailsRouterContract: AnyObject {
+protocol ModifyUserDetailsRouterContract: AnyObject {
     func selected(message: String)
 }

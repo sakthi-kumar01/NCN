@@ -18,7 +18,7 @@ class Router {
 
     func launch() {
         // for success case
-        window.contentView = Assembler.getSearchEmployeeView(employeeId: 2)
+        window.contentView = Assembler.getAModifyEmployeeDetailsView(userId: 1, userName: "sakthi", password: "sakthi", eMail: "qwertyuiop", mobileNo: 0987654321)
     }
 }
 

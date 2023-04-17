@@ -6,10 +6,10 @@
 //
 
 import Foundation
-public class ModifyStringDetailsDataManager {
-    public var databaseService: ModifyStringDetailsDatabaseContract
+public class ModifyUserDetailsDataManager {
+    public var databaseService: ModifyUserDetailsDatabaseContract
 
-    public init(databaseService: ModifyStringDetailsDatabaseContract) {
+    public init(databaseService: ModifyUserDetailsDatabaseContract) {
         self.databaseService = databaseService
     }
 
@@ -25,7 +25,7 @@ public class ModifyStringDetailsDataManager {
     }
 }
 
-extension ModifyStringDetailsDataManager: ModifyStringDetailsDataContract {
+extension ModifyUserDetailsDataManager: ModifyUserDetailsDataContract {
     
     
     public func modifyStringDetails(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void){

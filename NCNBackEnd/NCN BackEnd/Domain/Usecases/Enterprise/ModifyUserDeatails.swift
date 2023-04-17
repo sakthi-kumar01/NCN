@@ -8,7 +8,7 @@
 import Foundation
 import VTComponents
 
-public final class ModifyStringDetailsRequest: Request {
+public final class ModifyUserDetailsRequest: Request {
     public var userId: Int
     public var userName: String
     public var password: String
@@ -25,14 +25,14 @@ public final class ModifyStringDetailsRequest: Request {
     }
 }
 
-public final class ModifyStringDetailsResponse: ZResponse {
+public final class ModifyUserDetailsResponse: ZResponse {
     public var response: String
     public init(response: String) {
         self.response = response
     }
 }
 
-public final class ModifyStringDetailsError: ZError {
+public final class ModifyUserDetailsError: ZError {
     public var error: String
     init(error: String) {
         self.error = error
@@ -40,28 +40,28 @@ public final class ModifyStringDetailsError: ZError {
     }
 }
 
-public final class ModifyStringDetails: ZUsecase<ModifyStringDetailsRequest, ModifyStringDetailsResponse, ModifyStringDetailsError> {
-    var dataManager: ModifyStringDetailsDataContract
+public final class ModifyUserDetails: ZUsecase<ModifyUserDetailsRequest, ModifyUserDetailsResponse, ModifyUserDetailsError> {
+    var dataManager: ModifyUserDetailsDataContract
 
-    public init(dataManager: ModifyStringDetailsDataContract) {
+    public init(dataManager: ModifyUserDetailsDataContract) {
         self.dataManager = dataManager
     }
 
-    override public func run(request: ModifyStringDetailsRequest, success: @escaping (ModifyStringDetailsResponse) -> Void, failure: @escaping (ModifyStringDetailsError) -> Void) {
+    override public func run(request: ModifyUserDetailsRequest, success: @escaping (ModifyUserDetailsResponse) -> Void, failure: @escaping (ModifyUserDetailsError) -> Void) {
         dataManager.modifyStringDetails(userId: request.userId, userName: request.userName, password: request.password, eMail: request.eMail, mobileNo: request.mobileNo
                                         ,success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
-            self?.failure(error: ModifyStringDetailsError(error: error), callback: failure)
+            self?.failure(error: ModifyUserDetailsError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (ModifyStringDetailsResponse) -> Void) {
-        let response = ModifyStringDetailsResponse(response: message)
+    private func success(message: String, callback: @escaping (ModifyUserDetailsResponse) -> Void) {
+        let response = ModifyUserDetailsResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }
 
-    private func failure(error: ModifyStringDetailsError, callback: @escaping (ModifyStringDetailsError) -> Void) {
+    private func failure(error: ModifyUserDetailsError, callback: @escaping (ModifyUserDetailsError) -> Void) {
         invokeFailure(callback: callback, failure: error)
     }
 }

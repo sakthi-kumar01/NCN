@@ -8,20 +8,20 @@
 import Foundation
 import NCN_BackEnd
 
-class ModifyStringDetailsPresenter {
-    weak var view: ModifyStringDetailsViewContract?
-    var modifyStringDetails: ModifyStringDetails
-    weak var router: ModifyStringDetailsRouterContract?
+class ModifyUserDetailsPresenter {
+    weak var view: ModifyUserDetailsViewContract?
+    var modifyUserDetails: ModifyUserDetails
+    weak var router: ModifyUserDetailsRouterContract?
 
-    init(modifyStringDetails: ModifyStringDetails) {
-        self.modifyStringDetails = modifyStringDetails
+    init(modifyUserDetails: ModifyUserDetails) {
+        self.modifyUserDetails = modifyUserDetails
     }
 }
 
-extension ModifyStringDetailsPresenter: ModifyStringDetailsPresenterContract {
+extension ModifyUserDetailsPresenter: ModifyUserDetailsPresenterContract {
     func viewLoaded(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int) {
-        let request = ModifyStringDetailsRequest(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo)
-        modifyStringDetails.execute(request: request, onSuccess: { [weak self] response in
+        let request = ModifyUserDetailsRequest(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo)
+        modifyUserDetails.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
@@ -29,7 +29,7 @@ extension ModifyStringDetailsPresenter: ModifyStringDetailsPresenterContract {
     }
 }
 
-extension ModifyStringDetailsPresenter {
+extension ModifyUserDetailsPresenter {
     func result(message: String) {
         view?.load(message: message)
     }

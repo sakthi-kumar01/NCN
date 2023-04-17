@@ -14,7 +14,7 @@ enum SQLiteError: Error {
     case Step(message: String)
 }
 
-class Database {
+public class Database {
     var db: OpaquePointer?
     static let shared = Database()
 

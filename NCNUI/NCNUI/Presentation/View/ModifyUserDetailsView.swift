@@ -9,13 +9,13 @@ import Foundation
 import AppKit
 
 
-class ModifyStringDetailsView: NSView {
+class ModifyUserDetailsView: NSView {
     
     public var userId: Int, userName: String, password: String, eMail: String, mobileNo: Int
     
-    var presenter: ModifyStringDetailsPresenter
+    var presenter: ModifyUserDetailsPresenter
     
-    init(  userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, presenter: ModifyStringDetailsPresenter) {
+    init(  userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, presenter: ModifyUserDetailsPresenter) {
         
         self.userId = userId
         self.userName = userName
@@ -39,7 +39,7 @@ class ModifyStringDetailsView: NSView {
     }
 }
 
-extension ModifyStringDetailsView: ModifyStringDetailsViewContract {
+extension ModifyUserDetailsView: ModifyUserDetailsViewContract {
     func load(message: String) {
         print(message)
     }
