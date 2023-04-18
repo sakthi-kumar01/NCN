@@ -26,8 +26,8 @@ public class DeleteExpiredServiceDataManager {
 }
 
 extension DeleteExpiredServiceDataManager: DeleteExpiredServiceDataContract {
-    public func deleteExpiredService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.deleteExpiredService(serviceId: serviceId, success: {
+    public func deleteExpiredService( success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.deleteExpiredService( success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

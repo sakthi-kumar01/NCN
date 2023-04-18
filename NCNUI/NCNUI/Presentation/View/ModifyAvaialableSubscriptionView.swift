@@ -10,15 +10,15 @@ import Foundation
 
 class ModifyAvailableSubscriptionView: NSView {
     public var subscriptionId: Int
-    public var subscriptionPackageLimit: Float
+    public var subscriptionPackageType: String
     public var subscriptionCountLimit: Float
     public var subscriptionDayLimit: Int
 
     var presenter: ModifyAvailableSubscriptionPresenter
 
-    init(subscriptionId: Int, subscriptionPackageLimit: Float, subscriptionCountLimit: Float, subscriptionDayLimit: Int, presenter: ModifyAvailableSubscriptionPresenter) {
+    init(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int, presenter: ModifyAvailableSubscriptionPresenter) {
         self.subscriptionId = subscriptionId
-        self.subscriptionPackageLimit = subscriptionPackageLimit
+        self.subscriptionPackageType = subscriptionPackageType
         self.subscriptionCountLimit = subscriptionCountLimit
         self.subscriptionDayLimit = subscriptionDayLimit
         self.presenter = presenter
@@ -32,7 +32,7 @@ class ModifyAvailableSubscriptionView: NSView {
 
     override func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(subscriptionId: subscriptionId, subscriptionPackageLimit: subscriptionPackageLimit, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit)
+            presenter.viewLoaded(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit)
         }
     }
 }

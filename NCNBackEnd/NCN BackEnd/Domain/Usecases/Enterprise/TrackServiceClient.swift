@@ -17,8 +17,8 @@ public final class TrackClientServiceRequest: Request {
 }
 
 public final class TrackClientServiceResponse: ZResponse {
-    public var response: [Service]
-    public init(response: [Service]) {
+    public var response: String
+    public init(response: String) {
         self.response = response
     }
 }
@@ -46,7 +46,7 @@ public final class TrackClientService: ZUsecase<TrackClientServiceRequest, Track
         })
     }
 
-    private func success(message: [Service], callback: @escaping (TrackClientServiceResponse) -> Void) {
+    private func success(message: String, callback: @escaping (TrackClientServiceResponse) -> Void) {
         let response = TrackClientServiceResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }

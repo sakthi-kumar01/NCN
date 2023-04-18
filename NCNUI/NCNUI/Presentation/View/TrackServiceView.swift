@@ -9,12 +9,16 @@ import AppKit
 import Foundation
 import NCN_BackEnd
 
-class TrackServiceView: NSView {
+public class TrackServiceView: NSView {
+    public var id: Int
+    public var subscriptionUsage: Int
     public var employeeId: Int
 
     var presenter: TrackServicePresenter
 
-    init(employeeId: Int, presenter: TrackServicePresenter) {
+    public init(id:Int, subscriptionUsage: Int, employeeId: Int, presenter: TrackServicePresenter) {
+        self.id = id
+        self.subscriptionUsage = subscriptionUsage
         self.employeeId = employeeId
 
         self.presenter = presenter
@@ -26,9 +30,9 @@ class TrackServiceView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidMoveToSuperview() {
+    public override func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(employeeId: employeeId)
+            presenter.viewLoaded(id: id, subscriptionUsage: subscriptionUsage,employeeId: employeeId)
         }
     }
 }

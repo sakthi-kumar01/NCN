@@ -9,16 +9,19 @@ import Foundation
 import VTComponents
 
 public final class TrackServiceRequest: Request {
+    public var id: Int
     public var employeeId: Int
-
-    public init(employeeId: Int) {
+    public var subscriptionUsage: Int
+    public init(id: Int, subscriptionUsage: Int, employeeId: Int) {
+        self.id = id
         self.employeeId = employeeId
+        self.subscriptionUsage = subscriptionUsage
     }
 }
 
 public final class TrackServiceResponse: ZResponse {
-    public var response: [Service]
-    public init(response: [Service]) {
+    public var response: String
+    public init(response: String) {
         self.response = response
     }
 }
@@ -39,14 +42,14 @@ public final class TrackService: ZUsecase<TrackServiceRequest, TrackServiceRespo
     }
 
     override public func run(request: TrackServiceRequest, success: @escaping (TrackServiceResponse) -> Void, failure: @escaping (TrackServiceError) -> Void) {
-        dataManager.trackService(employeeId: request.employeeId, success: { [weak self] message in
+        dataManager.trackService(id: request.id, subscriptionUsage: request.subscriptionUsage, employeeId: request.employeeId, success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: TrackServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [Service], callback: @escaping (TrackServiceResponse) -> Void) {
+    private func success(message: String, callback: @escaping (TrackServiceResponse) -> Void) {
         let response = TrackServiceResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }

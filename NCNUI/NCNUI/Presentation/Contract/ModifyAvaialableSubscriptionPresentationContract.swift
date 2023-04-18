@@ -11,7 +11,7 @@ protocol ModifyAvailableSubscriptionViewContract: AnyObject {
 }
 
 protocol ModifyAvailableSubscriptionPresenterContract {
-    func viewLoaded(subscriptionId: Int, subscriptionPackageLimit: Float, subscriptionCountLimit: Float, subscriptionDayLimit: Int)
+    func viewLoaded(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int)
 }
 
 protocol ModifyAvailableSubscriptionRouterContract: AnyObject {

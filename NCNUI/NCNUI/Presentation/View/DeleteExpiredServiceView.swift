@@ -12,13 +12,13 @@ import AppKit
 
 class DeleteExpiredServiceView: NSView {
     
-    public var serviceId: Int
+   
     
     var presenter: DeleteExpiredServicePresenter
     
-    init(  serviceId: Int, presenter: DeleteExpiredServicePresenter) {
+    init(presenter: DeleteExpiredServicePresenter) {
         
-        self.serviceId = serviceId
+       
         
         self.presenter = presenter
         super.init(frame: NSZeroRect)
@@ -31,7 +31,7 @@ class DeleteExpiredServiceView: NSView {
     
     override func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(serviceId: serviceId )
+            presenter.viewLoaded( )
         }
     }
 }

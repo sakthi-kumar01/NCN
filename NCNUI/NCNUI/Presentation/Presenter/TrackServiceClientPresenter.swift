@@ -30,11 +30,8 @@ extension TrackClientServicePresenter: TrackClientServicePresenterContract {
 }
 
 extension TrackClientServicePresenter {
-    func result(message: [Service]) {
-        for service in message {
-            view?.load(message: service.serviceTitle)
-            view?.load(message: service.serviceDescription)
-        }
+    func result(message: String) {
+        view?.load(message: message)
     }
 
     func failed(loginError: String) {

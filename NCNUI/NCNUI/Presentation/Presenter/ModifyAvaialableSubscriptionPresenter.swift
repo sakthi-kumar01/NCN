@@ -18,8 +18,8 @@ class ModifyAvailableSubscriptionPresenter {
 }
 
 extension ModifyAvailableSubscriptionPresenter: ModifyAvailableSubscriptionPresenterContract {
-    func viewLoaded(subscriptionId: Int, subscriptionPackageLimit: Float, subscriptionCountLimit: Float, subscriptionDayLimit: Int) {
-        let request = ModifyAvailableSubscriptionRequest(subscriptionId: subscriptionId, subscriptionPackageLimit: subscriptionPackageLimit, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit)
+    func viewLoaded(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int) {
+        let request = ModifyAvailableSubscriptionRequest(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit)
         modifyAvailableSubscription.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in

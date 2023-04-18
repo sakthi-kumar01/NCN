@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol DeleteExpiredServiceDataContract {
-   func deleteExpiredService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+   func deleteExpiredService(success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

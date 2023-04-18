@@ -10,14 +10,14 @@ import VTComponents
 
 public final class ModifyAvailableSubscriptionRequest: Request {
     public var subscriptionId: Int
-    public var subscriptionPackageLimit: Float
+    public var subscriptionPackageType: String
     public var subscriptionCountLimit: Float
     public var subscriptionDayLimit: Int
 
-    public init(subscriptionId: Int, subscriptionPackageLimit: Float, subscriptionCountLimit: Float, subscriptionDayLimit: Int) {
+    public init(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int) {
         self.subscriptionId = subscriptionId
         self.subscriptionCountLimit = subscriptionCountLimit
-        self.subscriptionPackageLimit = subscriptionPackageLimit
+        self.subscriptionPackageType = subscriptionPackageType
         self.subscriptionDayLimit = subscriptionDayLimit
     }
 }
@@ -45,7 +45,7 @@ public final class ModifyAvailableSubscription: ZUsecase<ModifyAvailableSubscrip
     }
 
     override public func run(request: ModifyAvailableSubscriptionRequest, success: @escaping (ModifyAvailableSubscriptionResponse) -> Void, failure: @escaping (ModifyAvailableSubscriptionError) -> Void) {
-        dataManager.modifyAvailableSubscription(subscriptionId: request.subscriptionId, subscriptionPackageLimit: request.subscriptionPackageLimit, subscriptionCountLimit: request.subscriptionCountLimit, subscriptionDayLimit: request.subscriptionDayLimit, success: { [weak self] message in
+        dataManager.modifyAvailableSubscription(subscriptionId: request.subscriptionId, subscriptionPackageType: request.subscriptionPackageType, subscriptionCountLimit: request.subscriptionCountLimit, subscriptionDayLimit: request.subscriptionDayLimit, success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ModifyAvailableSubscriptionError(error: error), callback: failure)

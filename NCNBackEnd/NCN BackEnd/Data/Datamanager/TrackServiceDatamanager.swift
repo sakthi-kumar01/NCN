@@ -13,7 +13,7 @@ public class TrackServiceDataManager {
         self.databaseService = databaseService
     }
 
-    private func success(message: [Service], callback: ([Service]) -> Void) {
+    private func success(message: String, callback: (String) -> Void) {
         callback(message)
     }
 
@@ -26,8 +26,9 @@ public class TrackServiceDataManager {
 }
 
 extension TrackServiceDataManager: TrackServiceDataContract {
-    public func trackService(employeeId: Int, success: @escaping ([Service]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.trackService(employeeId: employeeId, success: {
+    public func trackService(id: Int, subscriptionUsage:Int ,employeeId: Int, success: @escaping (
+    String) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.trackService(id: id, subscriptionUsage: subscriptionUsage, employeeId: employeeId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

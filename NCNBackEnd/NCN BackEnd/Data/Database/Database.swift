@@ -489,8 +489,8 @@ extension Database {
         }
     }
 
-    func updateValue(tableName: String, columnValue: [Any], columnName: [String], rowIdColumnName: String, rowIdValue: Int,  success: @escaping (String)-> Void, failure: @escaping (String)-> Void)  {
-        var query = prepareUpdateStatement(tableName: tableName, columnName: columnName, columnValue: columnValue, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdValue)
+    func updateValue(tableName: String, columnValue: [Any], columnName: [String], whereClause: String? = nil, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        let query = prepareUpdateStatement(tableName: tableName, columnName: columnName, columnValue: columnValue, whereClause: whereClause)
         print(query)
         let prepareStatement: OpaquePointer? = Database.shared.prepareStatement(statement: query)
 
@@ -499,13 +499,11 @@ extension Database {
         } else {
             failure("Error : \(String(cString: sqlite3_errmsg(db)))")
         }
-        
-       
     }
 
-    func prepareUpdateStatement(tableName: String, columnName: [String], columnValue: [Any], rowIdColumnName: String, rowIdValue: Int) -> String {
+    func prepareUpdateStatement(tableName: String, columnName: [String], columnValue: [Any], whereClause: String? = nil) -> String {
         var columnsString = ""
-        for i in 0...columnName.count-1 {
+        for i in 0...columnName.count - 1 {
             if columnValue[i] is String {
                 columnsString = columnsString + "\(columnName[i])" + " = " + "\'" + "\(String(describing: columnValue[i]))" + "\'" + "," + " "
             } else {
@@ -514,13 +512,26 @@ extension Database {
         }
         columnsString = String(columnsString.dropLast(2))
 
-        let updateStatement = "UPDATE \(tableName) SET \(columnsString) WHERE \(rowIdColumnName) = \(rowIdValue);"
+        var updateStatement = "UPDATE \(tableName) SET \(columnsString)"
+        if let whereClause = whereClause {
+            updateStatement += " WHERE \(whereClause);"
+        } else {
+            updateStatement += ";"
+        }
 
         return updateStatement
     }
 
-    func deleteValue(tableName: String, columnName: String, columnValue: String,success: @escaping (String)-> Void, failure: @escaping (String)-> Void ) {
-        let deleteQuery = "DELETE FROM \(tableName) WHERE " + columnName + " = " + columnValue
+
+    func deleteValue(tableName: String, columnName: String = "", columnValue: String = "",whereClause:String = "", success: @escaping (String)-> Void, failure: @escaping (String)-> Void ) {
+        var deleteQuery = ""
+        if whereClause == "" {
+             deleteQuery = "DELETE FROM \(tableName) WHERE " + columnName + " = " + columnValue
+        } else {
+             deleteQuery =  "DELETE FROM \(tableName) WHERE " + whereClause
+        }
+        
+        print(deleteQuery)
         var deleteStatement: OpaquePointer?
         if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStatement, nil) == SQLITE_OK {
             if sqlite3_step(deleteStatement) == SQLITE_DONE {

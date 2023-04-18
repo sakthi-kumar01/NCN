@@ -11,7 +11,7 @@ protocol TrackServiceViewContract: AnyObject {
 }
 
 protocol TrackServicePresenterContract {
-    func viewLoaded(employeeId: Int)
+    func viewLoaded(id: Int, subscriptionUsage: Int, employeeId: Int)
 }
 
 protocol TrackServiceRouterContract: AnyObject {

@@ -19,6 +19,6 @@ extension AssignQueryDatabaseService: AssignQueryDatabaseContract {
         var columnName = ["queryId","employeeId"]
         var rowIdColumnName = "queryId"
         var rowIdColumnValue = queryId
-        db.updateValue(tableName: tableName, columnValue: columnsValue, columnName: columnName, rowIdColumnName: rowIdColumnName, rowIdValue: rowIdColumnValue, success: success, failure: failure)
+        db.updateValue(tableName: tableName, columnValue: columnsValue, columnName: columnName, whereClause: "\(rowIdColumnName) = \(rowIdColumnValue)", success: success, failure: failure)
     }
 }

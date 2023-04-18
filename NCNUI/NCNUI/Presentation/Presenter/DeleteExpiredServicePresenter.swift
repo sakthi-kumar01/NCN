@@ -19,8 +19,8 @@ class DeleteExpiredServicePresenter {
 }
 
 extension DeleteExpiredServicePresenter: DeleteExpiredServicePresenterContract {
-    func viewLoaded(serviceId: Int) {
-        let request = DeleteExpiredServiceRequest(serviceId: serviceId)
+    func viewLoaded() {
+        let request = DeleteExpiredServiceRequest()
         deleteExpiredService.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in

@@ -16,7 +16,7 @@ public class ModifyAvailableServiceDatabaseService {
     public func modifyAvailableService(serviceId: Int, serviceTitle: String, serviceDescription: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         let columnName = ["serviceTitle", "serviceDescription"]
         let columnValue = [serviceTitle, serviceDescription]
-        db.updateValue(tableName: "availableService", columnValue: columnValue, columnName: columnName, rowIdColumnName: "serviceId", rowIdValue: serviceId, success: success, failure: failure)
+        db.updateValue(tableName: "availableService", columnValue: columnValue, columnName: columnName, whereClause: "serviceId = \(serviceId)", success: success, failure: failure)
     }
 
 

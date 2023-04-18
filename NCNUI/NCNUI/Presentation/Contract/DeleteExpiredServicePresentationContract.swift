@@ -11,7 +11,7 @@ protocol DeleteExpiredServiceViewContract: AnyObject {
 }
 
 protocol DeleteExpiredServicePresenterContract {
-    func viewLoaded(serviceId: Int)
+    func viewLoaded()
 }
 
 protocol DeleteExpiredServiceRouterContract: AnyObject {

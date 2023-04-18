@@ -218,6 +218,86 @@ class Assembler {
         
         return view
     }
+    
+    static func getModifyAvailableSubscriptionDetailsView(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int) -> ModifyAvailableSubscriptionView{
+        let usecase = getModifyAvailableSubscriptionDetailsUsecase()
+        let presenter = ModifyAvailableSubscriptionPresenter(modifyAvailableSubscription: usecase)
+        let view = ModifyAvailableSubscriptionView(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        
+        return view
+    }
+    
+    static func getDeleteExpiredServiceView() -> DeleteExpiredServiceView {
+        let usecase = getDeleteExpiredService()
+        let presenter = DeleteExpiredServicePresenter(deleteExpiredService: usecase)
+        let view = DeleteExpiredServiceView( presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    static func getViewExpiredServiceView(employeeId: Int) -> ViewExpiredServiceView {
+        let usecase = getViewExpiredService()
+        let presenter = ViewExpiredServicePresenter(viewExpiredService: usecase)
+        let view = ViewExpiredServiceView( employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    static func getAssignQueryStatusView(queryId: Int) -> AssignQueryStatusView {
+        let usecase = getAssignQueryStatus()
+        let presenter = AssignQueryStatusPresenter(assignQueryStatus: usecase)
+        let view = AssignQueryStatusView( queryId: queryId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    static func getTrackServiceView(id: Int, subscriptionUsage:Int, employeeId: Int) -> TrackServiceView{
+        let usecase = getTrackServiceStatus()
+        let presenter = TrackServicePresenter(trackService: usecase)
+        let view = TrackServiceView(id: id, subscriptionUsage: subscriptionUsage, employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    private static func getTrackServiceStatus()-> TrackService {
+        let database = TrackServiceDatabaseService()
+        let datamanager = TrackServiceDataManager(databaseService: database)
+        let usecase = TrackService(dataManager: datamanager)
+        return usecase
+    }
+    
+    private static func getAssignQueryStatus() -> AssignQueryStatus{
+        let database = AssignQueryStatusDatabaseService()
+        let datamanager = AssignQueryStatusDataManager(databaseService: database)
+        let usecase = AssignQueryStatus(dataManager: datamanager)
+        return usecase
+    }
+    
+    private static func getViewExpiredService() -> ViewExpiredService {
+        let database = ViewExpiredServiceDatabaseService()
+        let datamanager = ViewExpiredServiceDataManager(databaseService: database)
+        let usecase = ViewExpiredService(dataManager: datamanager)
+        return usecase
+    }
+    private static func getDeleteExpiredService() -> DeleteExpiredService {
+        let database = DeleteExpiredServiceDatabaseService()
+        let datamanager = DeleteExpiredServiceDataManager(databaseService: database)
+        let usecase = DeleteExpiredService(dataManager: datamanager)
+        return usecase
+    }
+    private static func getModifyAvailableSubscriptionDetailsUsecase() -> ModifyAvailableSubscription{
+        let database = ModifyAvailableSubscriptionDatabaseService()
+        let datamanager = ModifyAvailableSubscriptionDataManager(databaseService: database)
+        let usecase = ModifyAvailableSubscription(dataManager: datamanager)
+        return usecase
+    }
+    
     private static func getModifyUserDetailsUsecase() -> ModifyUserDetails{
         let database = ModifyUserDetailsDatabaseService()
         let datamanager = ModifyUserDetailsDataManager(databaseService: database)

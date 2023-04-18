@@ -26,8 +26,8 @@ public class ModifyAvailableSubscriptionDataManager {
 }
 
 extension ModifyAvailableSubscriptionDataManager: ModifyAvailableSubscriptionDataContract {
-    public func modifyAvailableSubscription(subscriptionId: Int, subscriptionPackageLimit: Float, subscriptionCountLimit: Float, subscriptionDayLimit: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.modifyAvailableSubscription(subscriptionId: subscriptionId, subscriptionPackageLimit: subscriptionPackageLimit, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit, success: {
+    public func modifyAvailableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.modifyAvailableSubscription(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {
