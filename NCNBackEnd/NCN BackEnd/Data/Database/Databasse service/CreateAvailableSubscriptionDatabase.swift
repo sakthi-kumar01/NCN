@@ -6,12 +6,12 @@
 //
 
 import Foundation
-public class CreateAvaialableSubscriptionDatabaseService {
+public class CreateAvailableSubscriptionDatabaseService {
     public init() {}
     var db = Database.shared
 }
 
-extension CreateAvaialableSubscriptionDatabaseService : CreateAvailableSubscriptionDatabaseContract {
+extension CreateAvailableSubscriptionDatabaseService : CreateAvailableSubscriptionDatabaseContract {
     public func createAvaialableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionConuntLimit: Float, subscriptionDaylimit: Int, serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         let columnName = ["subscriptionId", "subscriptionPackageType", "subscriptionConuntLimit","subscriptionDaylimit", "serviceId", "enterpriseId"]
         let columnValue: [Any] = [subscriptionId, subscriptionPackageType, subscriptionConuntLimit, subscriptionDaylimit,serviceId, 11]

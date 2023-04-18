@@ -8,19 +8,19 @@
 import Foundation
 import NCN_BackEnd
 
-class TrackClientServicePresenter {
-    weak var view: TrackClientServiceViewContract?
-    var trackClientService: TrackClientService
-    weak var router: TrackClientServiceRouterContract?
+public class TrackClientServicePresenter {
+    public weak var view: TrackClientServiceViewContract?
+    public var trackClientService: TrackClientService
+    public weak var router: TrackClientServiceRouterContract?
 
-    init(trackClientService: TrackClientService) {
+    public init(trackClientService: TrackClientService) {
         self.trackClientService = trackClientService
     }
 }
 
 extension TrackClientServicePresenter: TrackClientServicePresenterContract {
-    func viewLoaded(userId: Int) {
-        let request = TrackClientServiceRequest(userId: userId)
+    public func viewLoaded(id: Int, subscriptionUsage: Int, userId: Int) {
+        let request = TrackClientServiceRequest(userId: userId, id: id, subscriptionUsage: subscriptionUsage)
         trackClientService.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in

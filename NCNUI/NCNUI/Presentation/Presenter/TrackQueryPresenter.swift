@@ -36,6 +36,10 @@ extension TrackQueryPresenter {
             view?.load(message: query.queryMessage)
             view?.load(message: String(query.queryType.rawValue))
             view?.load(message: query.querystatus.description)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            var queryDate = dateFormatter.string(from: query.queryDate)
+            view?.load(message: queryDate)
         }
     }
 

@@ -265,6 +265,38 @@ class Assembler {
         return view
     }
     
+    static func getTrackClientServiceView(id: Int, subscriptionUsage:Int, userId: Int) -> TrackClientServiceView{
+        let usecase = getTrackClientServiceStatus()
+        let presenter = TrackClientServicePresenter(trackClientService: usecase)
+        let view = TrackClientServiceView(id: id, subscriptionUsage: subscriptionUsage, userId: userId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    static func getTrackQueryView(employeeId: Int) -> TrackQueryView{
+        let usecase = getTrackQuery()
+        let presenter = TrackQueryPresenter(trackQuery: usecase)
+        let view = TrackQueryView(employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    private static func getTrackQuery()-> TrackQuery {
+        let database = TrackQueryDatabasService()
+        let datamanager = TrackQueryDataManager(databaseService: database)
+        let usecase = TrackQuery(dataManager: datamanager)
+        return usecase
+    }
+    
+    private static func getTrackClientServiceStatus()-> TrackClientService {
+        let database = TrackClientServiceDatabaseService()
+        let datamanager = TrackClientServiceDataManager(databaseService: database)
+        let usecase = TrackClientService(dataManager: datamanager)
+        return usecase
+    }
+    
     private static func getTrackServiceStatus()-> TrackService {
         let database = TrackServiceDatabaseService()
         let datamanager = TrackServiceDataManager(databaseService: database)

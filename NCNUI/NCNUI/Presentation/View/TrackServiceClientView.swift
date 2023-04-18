@@ -8,14 +8,16 @@
 import AppKit
 import Foundation
 import NCN_BackEnd
-class TrackClientServiceView: NSView {
+public class TrackClientServiceView: NSView {
     public var userId: Int
-
+    public var id: Int
+    public var subscriptionUsage: Int
     var presenter: TrackClientServicePresenter
 
-    init(userId: Int, presenter: TrackClientServicePresenter) {
+    public init(id: Int, subscriptionUsage: Int, userId: Int, presenter: TrackClientServicePresenter) {
+        self.id = id
+        self.subscriptionUsage = subscriptionUsage
         self.userId = userId
-
         self.presenter = presenter
         super.init(frame: NSZeroRect)
     }
@@ -25,15 +27,16 @@ class TrackClientServiceView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidMoveToSuperview() {
+    public override func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(userId: userId)
+            presenter.viewLoaded(id: id, subscriptionUsage: subscriptionUsage, userId: userId)
+            
         }
     }
 }
 
 extension TrackClientServiceView: TrackClientServiceViewContract {
-    func load(message: String) {
+    public func load(message: String) {
         print(message)
     }
 

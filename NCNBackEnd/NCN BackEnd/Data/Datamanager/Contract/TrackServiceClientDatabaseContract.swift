@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol TrackClientServiceDatabaseContract {
-    func trackClientService(userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+    func trackClientService(id: Int, subscriptionUsage: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

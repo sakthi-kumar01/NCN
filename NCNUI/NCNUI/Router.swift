@@ -9,19 +9,18 @@ import AppKit
 import Foundation
 class Router {
     var window: NSWindow
-
+    
     weak var userLoginView: UserLoginView?
-
+    
     init(window: NSWindow) {
         self.window = window
     }
-
+    
     func launch() {
         // for success case
-        window.contentView = Assembler.getTrackServiceView(id: 3, subscriptionUsage: 50, employeeId: 2)
+        window.contentView = Assembler.getTrackQueryView(employeeId: 1)
     }
 }
-
 extension Router: UserLoginRouterContract, CreateAvailableServiceRouterContract, ViewServiceRouterContract, AddNewUserRouterContract, AddNewEmployeeRouterContract, CreateAvailableSubscriptionRouterContract, ViewSubscriptionRouterContract, CreateQueryRouterContract, BuyServiceRouterContract {
     func selected(message: String) {
         print(message)

@@ -10,9 +10,12 @@ import VTComponents
 
 public final class TrackClientServiceRequest: Request {
     public var userId: Int
-
-    public init(userId: Int) {
+    public var id: Int
+    public var subscriptionUsage: Int
+    public init(userId: Int, id: Int, subscriptionUsage: Int) {
         self.userId = userId
+        self.id = id
+        self.subscriptionUsage = subscriptionUsage
     }
 }
 
@@ -39,7 +42,7 @@ public final class TrackClientService: ZUsecase<TrackClientServiceRequest, Track
     }
 
     override public func run(request: TrackClientServiceRequest, success: @escaping (TrackClientServiceResponse) -> Void, failure: @escaping (TrackClientServiceError) -> Void) {
-        dataManager.trackClientService(userId: request.userId, success: { [weak self] message in
+        dataManager.trackClientService(id: request.id, subscriptionUsage: request.subscriptionUsage, userId: request.userId, success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: TrackClientServiceError(error: error), callback: failure)

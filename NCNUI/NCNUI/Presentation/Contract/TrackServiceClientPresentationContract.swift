@@ -6,14 +6,14 @@
 //
 
 import Foundation
-protocol TrackClientServiceViewContract: AnyObject {
+public protocol TrackClientServiceViewContract: AnyObject {
     func load(message: String)
 }
 
-protocol TrackClientServicePresenterContract {
-    func viewLoaded(userId: Int)
+public protocol TrackClientServicePresenterContract {
+    func viewLoaded(id: Int, subscriptionUsage: Int, userId: Int)
 }
 
-protocol TrackClientServiceRouterContract: AnyObject {
+public protocol TrackClientServiceRouterContract: AnyObject {
     func selected(message: String)
 }
