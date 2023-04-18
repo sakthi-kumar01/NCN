@@ -180,6 +180,7 @@
 		4383D55B29D6F41900938DAB /* EmployeeviewClientDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D55A29D6F41900938DAB /* EmployeeviewClientDatamanager.swift */; };
 		4383D57729DACB7600938DAB /* Data_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D57629DACB7600938DAB /* Data_Base.swift */; };
 		438CFCD629C03AFB00B85225 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CFCD529C03AFB00B85225 /* Database.swift */; };
+		43C1B1D829EF023400EB4082 /* UserViewQueryDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1B1D729EF023400EB4082 /* UserViewQueryDatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -358,6 +359,7 @@
 		4383D57629DACB7600938DAB /* Data_Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Base.swift; sourceTree = "<group>"; };
 		438CFCD529C03AFB00B85225 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		439A42F229C069DC00A12BD7 /* AddUserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserDatabase.swift; sourceTree = "<group>"; };
+		43C1B1D729EF023400EB4082 /* UserViewQueryDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewQueryDatabaseService.swift; sourceTree = "<group>"; };
 		AD752DDA695B02ED728742BA /* Pods_NCN_BackEnd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NCN_BackEnd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE83FD604206AC307CB1725 /* Pods-NCN BackEnd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCN BackEnd.debug.xcconfig"; path = "Target Support Files/Pods-NCN BackEnd/Pods-NCN BackEnd.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -664,6 +666,7 @@
 				4360E5BB29EDAD0F00E02F05 /* TrackServiceDatabaseServcie.swift */,
 				4360E5BD29EE664D00E02F05 /* TrackClientServiceDatabaseService.swift */,
 				4360E5BF29EE9C9500E02F05 /* TrackQueryDatabaseService.swift */,
+				43C1B1D729EF023400EB4082 /* UserViewQueryDatabaseService.swift */,
 			);
 			path = "Databasse service";
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				43023AEF29E3F1BC00FC62BE /* DeleteQueryDataManager.swift in Sources */,
 				4329060129D2B575002EC379 /* CreateQueryDatamanager.swift in Sources */,
 				438386F229CC258000EAE655 /* User.swift in Sources */,
+				43C1B1D829EF023400EB4082 /* UserViewQueryDatabaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
