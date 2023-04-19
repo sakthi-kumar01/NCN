@@ -1,15 +1,15 @@
 //
-//  RemoveServiceDatManager.swift
+//  RemoveAvailableServiceDatManager.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 10/04/23.
 //
 
 import Foundation
-public class RemoveServiceDataManager {
-    public var databaseService: RemoveServiceDatabaseContract
+public class RemoveAvailableServiceDataManager {
+    public var databaseService: RemoveAvailableServiceDatabaseContract
 
-    public init(databaseService: RemoveServiceDatabaseContract) {
+    public init(databaseService: RemoveAvailableServiceDatabaseContract) {
         self.databaseService = databaseService
     }
 
@@ -25,9 +25,9 @@ public class RemoveServiceDataManager {
     }
 }
 
-extension RemoveServiceDataManager: RemoveServiceDataContract {
-    public func removeService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.removeService(serviceId: serviceId, success: {
+extension RemoveAvailableServiceDataManager: RemoveAvailableServiceDataContract {
+    public func removeAvailableService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.removeAvailableService(serviceId: serviceId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

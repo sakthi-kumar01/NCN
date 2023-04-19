@@ -181,6 +181,8 @@
 		4383D57729DACB7600938DAB /* Data_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D57629DACB7600938DAB /* Data_Base.swift */; };
 		438CFCD629C03AFB00B85225 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CFCD529C03AFB00B85225 /* Database.swift */; };
 		43C1B1D829EF023400EB4082 /* UserViewQueryDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1B1D729EF023400EB4082 /* UserViewQueryDatabaseService.swift */; };
+		43C1B1DA29EF026600EB4082 /* EmployeeViewQueryDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1B1D929EF026600EB4082 /* EmployeeViewQueryDatabaseService.swift */; };
+		43C1B1DC29EF0C4B00EB4082 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1B1DB29EF0C4B00EB4082 /* UserDefault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -360,6 +362,8 @@
 		438CFCD529C03AFB00B85225 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		439A42F229C069DC00A12BD7 /* AddUserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserDatabase.swift; sourceTree = "<group>"; };
 		43C1B1D729EF023400EB4082 /* UserViewQueryDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewQueryDatabaseService.swift; sourceTree = "<group>"; };
+		43C1B1D929EF026600EB4082 /* EmployeeViewQueryDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewQueryDatabaseService.swift; sourceTree = "<group>"; };
+		43C1B1DB29EF0C4B00EB4082 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		AD752DDA695B02ED728742BA /* Pods_NCN_BackEnd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NCN_BackEnd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE83FD604206AC307CB1725 /* Pods-NCN BackEnd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCN BackEnd.debug.xcconfig"; path = "Target Support Files/Pods-NCN BackEnd/Pods-NCN BackEnd.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -457,6 +461,7 @@
 				438386FF29CC6C8E00EAE655 /* Databasse service */,
 				438CFCD529C03AFB00B85225 /* Database.swift */,
 				4383D57629DACB7600938DAB /* Data_Base.swift */,
+				43C1B1DB29EF0C4B00EB4082 /* UserDefault.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -667,6 +672,7 @@
 				4360E5BD29EE664D00E02F05 /* TrackClientServiceDatabaseService.swift */,
 				4360E5BF29EE9C9500E02F05 /* TrackQueryDatabaseService.swift */,
 				43C1B1D729EF023400EB4082 /* UserViewQueryDatabaseService.swift */,
+				43C1B1D929EF026600EB4082 /* EmployeeViewQueryDatabaseService.swift */,
 			);
 			path = "Databasse service";
 			sourceTree = "<group>";
@@ -849,6 +855,7 @@
 				43023A5029E1E43400FC62BE /* AssignQueryDatabaseContract.swift in Sources */,
 				43023AFF29E40E7400FC62BE /* RemoveEmployeeDataManager.swift in Sources */,
 				4360E5AC29EC51F100E02F05 /* EmployeeViewClientDatabaseService.swift in Sources */,
+				43C1B1DA29EF026600EB4082 /* EmployeeViewQueryDatabaseService.swift in Sources */,
 				43023ABF29E3AC0F00FC62BE /* DeleteExpiredServiceDataContract.swift in Sources */,
 				438386B529C8799E00EAE655 /* SetEnterpriseDatabaseContract.swift in Sources */,
 				438386EC29CC255A00EAE655 /* Query.swift in Sources */,
@@ -902,6 +909,7 @@
 				43023ACD29E3CAD900FC62BE /* UserViewQueryDataContract.swift in Sources */,
 				43023A8629E3078A00FC62BE /* ModifyAvaialableSubscriptionDataManager.swift in Sources */,
 				438386C129C894A300EAE655 /* CreateAvailableServicesDataContract.swift in Sources */,
+				43C1B1DC29EF0C4B00EB4082 /* UserDefault.swift in Sources */,
 				4383D4E829D5809100938DAB /* EmployeeViewDataContract.swift in Sources */,
 				43023B1D29E42B4F00FC62BE /* RemoveServiceDatabaseService.swift in Sources */,
 				4383D50129D6B95000938DAB /* AdminViewClientDatabaseContract.swift in Sources */,

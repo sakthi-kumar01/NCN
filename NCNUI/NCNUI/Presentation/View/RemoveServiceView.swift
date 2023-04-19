@@ -1,5 +1,5 @@
 //
-//  RemoveServiceView.swift
+//  RemoveAvailableServiceView.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,13 +7,13 @@
 
 import Foundation
 import AppKit
-class RemoveServiceView: NSView {
+class RemoveAvailableServiceView: NSView {
     
     public var serviceId: Int
     
-    var presenter: RemoveServicePresenter
+    var presenter: RemoveAvailableServicePresenter
     
-    init(  serviceId: Int, presenter: RemoveServicePresenter) {
+    init(  serviceId: Int, presenter: RemoveAvailableServicePresenter) {
         
         self.serviceId = serviceId
         
@@ -33,7 +33,7 @@ class RemoveServiceView: NSView {
     }
 }
 
-extension RemoveServiceView: RemoveServiceViewContract {
+extension RemoveAvailableServiceView: RemoveAvailableServiceViewContract {
     func load(message: String) {
         print(message)
     }

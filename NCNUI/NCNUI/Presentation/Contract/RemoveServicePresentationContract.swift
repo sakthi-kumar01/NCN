@@ -1,5 +1,5 @@
 //
-//  RemoveServicePresentationContract.swift
+//  RemoveAvailableServicePresentationContract.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol RemoveServiceViewContract: AnyObject {
+protocol RemoveAvailableServiceViewContract: AnyObject {
     func load(message: String)
 }
 
-protocol RemoveServicePresenterContract {
+protocol RemoveAvailableServicePresenterContract {
     func viewLoaded(serviceId: Int)
 }
 
-protocol RemoveServiceRouterContract: AnyObject {
+protocol RemoveAvailableServiceRouterContract: AnyObject {
     func selected(message: String)
 }

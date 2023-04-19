@@ -18,8 +18,9 @@ class Router {
     
     func launch() {
         // for success case
-        window.contentView = Assembler.getTrackQueryView(employeeId: 1)
+        window.contentView = Assembler.getDeletQueryView(queryId: 28)
     }
+    
 }
 extension Router: UserLoginRouterContract, CreateAvailableServiceRouterContract, ViewServiceRouterContract, AddNewUserRouterContract, AddNewEmployeeRouterContract, CreateAvailableSubscriptionRouterContract, ViewSubscriptionRouterContract, CreateQueryRouterContract, BuyServiceRouterContract {
     func selected(message: String) {

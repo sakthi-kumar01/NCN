@@ -1,5 +1,5 @@
 //
-//  RemoveService.swift
+//  RemoveAvailableService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 10/04/23.
@@ -8,7 +8,7 @@
 import Foundation
 import VTComponents
 
-public final class RemoveServiceRequest: Request {
+public final class RemoveAvailableServiceRequest: Request {
     public var serviceId: Int
    
     public init(serviceId: Int) {
@@ -17,14 +17,14 @@ public final class RemoveServiceRequest: Request {
     }
 }
 
-public final class RemoveServiceResponse: ZResponse {
+public final class RemoveAvailableServiceResponse: ZResponse {
     public var response: String
     public init(response: String) {
         self.response = response
     }
 }
 
-public final class RemoveServiceError: ZError {
+public final class RemoveAvailableServiceError: ZError {
     public var error: String
     init(error: String) {
         self.error = error
@@ -32,27 +32,27 @@ public final class RemoveServiceError: ZError {
     }
 }
 
-public final class RemoveService: ZUsecase<RemoveServiceRequest, RemoveServiceResponse, RemoveServiceError> {
-    var dataManager: RemoveServiceDataContract
+public final class RemoveAvailableService: ZUsecase<RemoveAvailableServiceRequest, RemoveAvailableServiceResponse, RemoveAvailableServiceError> {
+    var dataManager: RemoveAvailableServiceDataContract
 
-    public init(dataManager: RemoveServiceDataContract) {
+    public init(dataManager: RemoveAvailableServiceDataContract) {
         self.dataManager = dataManager
     }
 
-    override public func run(request: RemoveServiceRequest, success: @escaping (RemoveServiceResponse) -> Void, failure: @escaping (RemoveServiceError) -> Void) {
-        dataManager.removeService(serviceId: request.serviceId, success: { [weak self] message in
+    override public func run(request: RemoveAvailableServiceRequest, success: @escaping (RemoveAvailableServiceResponse) -> Void, failure: @escaping (RemoveAvailableServiceError) -> Void) {
+        dataManager.removeAvailableService(serviceId: request.serviceId, success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
-            self?.failure(error: RemoveServiceError(error: error), callback: failure)
+            self?.failure(error: RemoveAvailableServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (RemoveServiceResponse) -> Void) {
-        let response = RemoveServiceResponse(response: message)
+    private func success(message: String, callback: @escaping (RemoveAvailableServiceResponse) -> Void) {
+        let response = RemoveAvailableServiceResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }
 
-    private func failure(error: RemoveServiceError, callback: @escaping (RemoveServiceError) -> Void) {
+    private func failure(error: RemoveAvailableServiceError, callback: @escaping (RemoveAvailableServiceError) -> Void) {
         invokeFailure(callback: callback, failure: error)
     }
 }

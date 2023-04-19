@@ -13,6 +13,7 @@ public class DeleteQueryDatabaseService {
 extension DeleteQueryDatabaseService : DeleteQueryDatabaseContract {
     public func deleteQuery(queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         db.deleteValue(tableName: "query", columnName: "queryId", columnValue: String(describing: queryId),success: success, failure: failure)
+        db.deleteValue(tableName: "query", columnName: "queryStatus", columnValue: "\'true\'",success: success, failure: failure)
 
     }
     

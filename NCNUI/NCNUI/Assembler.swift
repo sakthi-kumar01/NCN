@@ -140,10 +140,10 @@ class Assembler {
         return view
     }
     
-    static func getRemoveServiceView(serviceId: Int) -> RemoveServiceView {
-        let usecase = getRemoveService()
-        let presenter = RemoveServicePresenter(removeService: usecase)
-        let view = RemoveServiceView(serviceId: serviceId, presenter: presenter)
+    static func getRemoveAvailableServiceView(serviceId: Int) -> RemoveAvailableServiceView {
+        let usecase = getRemoveAvailableService()
+        let presenter = RemoveAvailableServicePresenter(removeAvailableService: usecase)
+        let view = RemoveAvailableServiceView(serviceId: serviceId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         return view
@@ -158,6 +158,8 @@ class Assembler {
         
         return view
     }
+    
+    
     
     static func getSearchClientView(userId:Int, employeeId: Int) -> SearchClientView {
         let usecase = getSearchClientUsecase()
@@ -282,7 +284,53 @@ class Assembler {
         presenter.view = view
         return view
     }
+    static func getEmployeeViewQueryView(employeeId: Int) -> EmployeeViewQueryView{
+        let usecase = getEmployeeViewQuery()
+        let presenter = EmployeeViewQueryPresenter(employeeViewQuery: usecase)
+        let view = EmployeeViewQueryView(employeeId: employeeId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    static func getUserViewQueryView(userId: Int) -> UserViewQueryView{
+        let usecase = getUserViewQuery()
+        let presenter = UserViewQueryPresenter(userViewQuery: usecase)
+        let view = UserViewQueryView(userId: userId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
     
+    static func getDeletQueryView(queryId: Int) -> DeleteQueryView {
+        let usecase = getDeleteQuery()
+        let presenter = DeleteQueryPresenter(deleteQuery: usecase)
+        let view = DeleteQueryView(queryId: queryId, presenter: presenter)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+        
+    }
+    
+    private static func getDeleteQuery() -> DeleteQuery {
+        let database = DeleteQueryDatabaseService()
+        let datamanager = DeleteQueryDataManager(databaseService: database)
+        let usecase = DeleteQuery(dataManager: datamanager)
+        return usecase
+    }
+    
+    
+    private static func getUserViewQuery()-> UserViewQuery {
+        let database = UserViewQueryDatabaseService()
+        let datamanager = UserViewQueryDataManager(databaseService: database)
+        let usecase = UserViewQuery(dataManager: datamanager)
+        return usecase
+    }
+    private static func getEmployeeViewQuery()-> EmployeeViewQuery {
+        let database = EmployeeViewQueryDatabaseService()
+        let datamanager = EmployeeViewQueryDataManager(databaseService: database)
+        let usecase = EmployeeViewQuery(dataManager: datamanager)
+        return usecase
+    }
     private static func getTrackQuery()-> TrackQuery {
         let database = TrackQueryDatabasService()
         let datamanager = TrackQueryDataManager(databaseService: database)
@@ -378,10 +426,10 @@ class Assembler {
         let usecase = CreateAvailableService(datamanager: datamanager)
         return usecase
     }
-    private static func getRemoveService() -> RemoveService{
-        let database = RemoveServiceDatabaseService()
-        let dataManager = RemoveServiceDataManager(databaseService: database)
-        let useCase = RemoveService(dataManager: dataManager)
+    private static func getRemoveAvailableService() -> RemoveAvailableService{
+        let database = RemoveAvailableServiceDatabaseService()
+        let dataManager = RemoveAvailableServiceDataManager(databaseService: database)
+        let useCase = RemoveAvailableService(dataManager: dataManager)
         return useCase
     }
     
