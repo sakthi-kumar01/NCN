@@ -32,11 +32,7 @@ extension SearchClientDatabaseSevice: SearchClientDatabaseContract {
         
         //for fetching user from user table
         for dict in resultedArray {
-//            if let userName = dict["userName"] as? String, let email = dict["email"] as? String, let password = dict["password"] as? String, let mobileNumber = dict["mobileNumber"] as? Int64, let enterpriseId = dict["enterpriseId"] as? Int {
-//                let newUser = User(userName: userName, email: email, password: password, mobileNumber: mobileNumber, enterpriseId: enterpriseId)
-//                resultUser.append(newUser)
-//            }
-            
+      
             if let userName = dict["userName"] as? String{
                 
                 if let email = dict["eMail"] as? String {
