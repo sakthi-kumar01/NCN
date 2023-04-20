@@ -1,5 +1,5 @@
 //
-//  UserViewQueryView.swift
+//  ViewUserQueryView.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -8,13 +8,13 @@
 import Foundation
 import AppKit
 
-class UserViewQueryView: NSView {
+class ViewUserQueryView: NSView {
     
     public var userId: Int
     
-    var presenter: UserViewQueryPresenter
+    var presenter: ViewUserQueryPresenter
     
-    init(  userId: Int, presenter: UserViewQueryPresenter) {
+    init(  userId: Int, presenter: ViewUserQueryPresenter) {
         
         self.userId = userId
         
@@ -34,7 +34,7 @@ class UserViewQueryView: NSView {
     }
 }
 
-extension UserViewQueryView: UserViewQueryViewContract {
+extension ViewUserQueryView: ViewUserQueryViewContract {
     func load(message: String) {
         print(message)
     }

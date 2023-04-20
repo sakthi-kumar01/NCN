@@ -1,5 +1,5 @@
 //
-//  EmployeeViewQueryView.swift
+//  ViewEmployeeQueryView.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,13 +7,13 @@
 
 import Foundation
 import AppKit
-class EmployeeViewQueryView: NSView {
+class ViewEmployeeQueryView: NSView {
     
     public var employeeId: Int
     
-    var presenter: EmployeeViewQueryPresenter
+    var presenter: ViewEmployeeQueryPresenter
     
-    init(  employeeId: Int, presenter: EmployeeViewQueryPresenter) {
+    init(  employeeId: Int, presenter: ViewEmployeeQueryPresenter) {
         
         self.employeeId = employeeId
         
@@ -33,7 +33,7 @@ class EmployeeViewQueryView: NSView {
     }
 }
 
-extension EmployeeViewQueryView: EmployeeViewQueryViewContract {
+extension ViewEmployeeQueryView: ViewEmployeeQueryViewContract {
     func load(message: String) {
         print(message)
     }

@@ -18,7 +18,7 @@ class Router {
     
     func launch() {
         // for success case
-        window.contentView = Assembler.getDeletQueryView(queryId: 28)
+        window.contentView = Assembler.getUserLoginView(userName: "sakthi", password: "sakthi", router: self)
     }
     
 }

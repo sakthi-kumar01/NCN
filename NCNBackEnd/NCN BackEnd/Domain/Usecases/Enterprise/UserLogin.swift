@@ -17,8 +17,8 @@ public final class UserLoginRequest: Request {
 }
 
 public final class UserLoginResponse: ZResponse {
-    public var response: String
-    public init(response: String) {
+    public var response: User
+    public init(response: User) {
         self.response = response
     }
 }
@@ -46,7 +46,7 @@ public final class UserLogin: ZUsecase<UserLoginRequest, UserLoginResponse, User
         })
     }
 
-    private func success(message: String, callback: @escaping (UserLoginResponse) -> Void) {
+    private func success(message: User, callback: @escaping (UserLoginResponse) -> Void) {
         let response = UserLoginResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }

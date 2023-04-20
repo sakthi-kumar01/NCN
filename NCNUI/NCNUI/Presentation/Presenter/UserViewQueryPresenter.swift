@@ -1,5 +1,5 @@
 //
-//  UserViewQueryPresenter.swift
+//  ViewUserQueryPresenter.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,20 +7,20 @@
 
 import Foundation
 import NCN_BackEnd
-class UserViewQueryPresenter {
-    weak var view: UserViewQueryViewContract?
-    var userViewQuery: UserViewQuery
-    weak var router: UserViewQueryRouterContract?
+class ViewUserQueryPresenter {
+    weak var view: ViewUserQueryViewContract?
+    var ViewUserQuery: ViewUserQuery
+    weak var router: ViewUserQueryRouterContract?
 
-    init(userViewQuery: UserViewQuery) {
-        self.userViewQuery = userViewQuery
+    init(ViewUserQuery: ViewUserQuery) {
+        self.ViewUserQuery = ViewUserQuery
     }
 }
 
-extension UserViewQueryPresenter: UserViewQueryPresenterContract {
+extension ViewUserQueryPresenter: ViewUserQueryPresenterContract {
     func viewLoaded(userId: Int) {
-        let request = UserViewQueryRequest(userId: userId)
-        userViewQuery.execute(request: request, onSuccess: { [weak self] response in
+        let request = ViewUserQueryRequest(userId: userId)
+        ViewUserQuery.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
@@ -28,7 +28,7 @@ extension UserViewQueryPresenter: UserViewQueryPresenterContract {
     }
 }
 
-extension UserViewQueryPresenter {
+extension ViewUserQueryPresenter {
     func result(message: [Query]) {
         for query in message{
             

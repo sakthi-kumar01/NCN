@@ -1,19 +1,19 @@
 //
-//  UserViewQueryPresentationContract.swift
+//  ViewUserQueryPresentationContract.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
 //
 
 import Foundation
-protocol UserViewQueryViewContract: AnyObject {
+protocol ViewUserQueryViewContract: AnyObject {
     func load(message: String)
 }
 
-protocol UserViewQueryPresenterContract {
+protocol ViewUserQueryPresenterContract {
     func viewLoaded(userId: Int)
 }
 
-protocol UserViewQueryRouterContract: AnyObject {
+protocol ViewUserQueryRouterContract: AnyObject {
     func selected(message: String)
 }

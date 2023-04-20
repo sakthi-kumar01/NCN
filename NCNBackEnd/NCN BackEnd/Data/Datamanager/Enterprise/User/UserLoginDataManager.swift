@@ -13,7 +13,7 @@ public final class UserLoginDataManager {
         self.dataBase = dataBase
     }
 
-    private func success(message: String, callback: (String) -> Void) {
+    private func success(message: User, callback: (User) -> Void) {
         callback(message)
     }
 
@@ -26,7 +26,7 @@ public final class UserLoginDataManager {
 }
 
 extension UserLoginDataManager: UserLoginDataContract {
-    public func userLogin(userName: String, password: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+    public func userLogin(userName: String, password: String, success: @escaping (User) -> Void, failure: @escaping (String) -> Void) {
         dataBase.userLogin(userName: userName, password: password, success: {
             [weak self] message in
             self?.success(message: message, callback: success)

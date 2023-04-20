@@ -1,5 +1,5 @@
 //
-//  UserViewQueryDataManager.swift
+//  ViewEmployeeQueryDataManager.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class UserViewQueryDataManager {
-    public var databaseService: UserViewQueryDatabaseContract
+public class ViewEmployeeQueryDataManager {
+    public var databaseService: ViewEmployeeQueryDatabaseContract
 
-    public init(databaseService: UserViewQueryDatabaseContract) {
+    public init(databaseService: ViewEmployeeQueryDatabaseContract) {
         self.databaseService = databaseService
     }
 
@@ -26,9 +26,9 @@ public class UserViewQueryDataManager {
     }
 }
 
-extension UserViewQueryDataManager: UserViewQueryDataContract {
-    public func userViewQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.userViewQuery(userId: userId, success: {
+extension ViewEmployeeQueryDataManager: ViewEmployeeQueryDataContract {
+    public func ViewEmployeeQuery(employeeId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.ViewEmployeeQuery(employeeId: employeeId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

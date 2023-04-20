@@ -284,18 +284,18 @@ class Assembler {
         presenter.view = view
         return view
     }
-    static func getEmployeeViewQueryView(employeeId: Int) -> EmployeeViewQueryView{
-        let usecase = getEmployeeViewQuery()
-        let presenter = EmployeeViewQueryPresenter(employeeViewQuery: usecase)
-        let view = EmployeeViewQueryView(employeeId: employeeId, presenter: presenter)
+    static func getViewEmployeeQueryView(employeeId: Int) -> ViewEmployeeQueryView{
+        let usecase = getViewEmployeeQuery()
+        let presenter = ViewEmployeeQueryPresenter(ViewEmployeeQuery: usecase)
+        let view = ViewEmployeeQueryView(employeeId: employeeId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         return view
     }
-    static func getUserViewQueryView(userId: Int) -> UserViewQueryView{
-        let usecase = getUserViewQuery()
-        let presenter = UserViewQueryPresenter(userViewQuery: usecase)
-        let view = UserViewQueryView(userId: userId, presenter: presenter)
+    static func getViewUserQueryView(userId: Int) -> ViewUserQueryView{
+        let usecase = getViewUserQuery()
+        let presenter = ViewUserQueryPresenter(ViewUserQuery: usecase)
+        let view = ViewUserQueryView(userId: userId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         return view
@@ -319,16 +319,16 @@ class Assembler {
     }
     
     
-    private static func getUserViewQuery()-> UserViewQuery {
-        let database = UserViewQueryDatabaseService()
-        let datamanager = UserViewQueryDataManager(databaseService: database)
-        let usecase = UserViewQuery(dataManager: datamanager)
+    private static func getViewUserQuery()-> ViewUserQuery {
+        let database = ViewUserQueryDatabaseService()
+        let datamanager = ViewUserQueryDataManager(databaseService: database)
+        let usecase = ViewUserQuery(dataManager: datamanager)
         return usecase
     }
-    private static func getEmployeeViewQuery()-> EmployeeViewQuery {
-        let database = EmployeeViewQueryDatabaseService()
-        let datamanager = EmployeeViewQueryDataManager(databaseService: database)
-        let usecase = EmployeeViewQuery(dataManager: datamanager)
+    private static func getViewEmployeeQuery()-> ViewEmployeeQuery {
+        let database = ViewEmployeeQueryDatabaseService()
+        let datamanager = ViewEmployeeQueryDataManager(databaseService: database)
+        let usecase = ViewEmployeeQuery(dataManager: datamanager)
         return usecase
     }
     private static func getTrackQuery()-> TrackQuery {

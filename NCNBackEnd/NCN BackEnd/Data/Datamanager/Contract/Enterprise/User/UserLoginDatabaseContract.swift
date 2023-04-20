@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol UserLoginDatabaseContract {
-    func userLogin(userName: String, password: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+    func userLogin(userName: String, password: String, success: @escaping (User) -> Void, failure: @escaping (String) -> Void)
 }

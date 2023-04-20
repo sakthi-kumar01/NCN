@@ -1,19 +1,19 @@
 //
-//  UserViewQueryDatabaseService.swift
+//  ViewUserQueryDatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 18/04/23.
 //
 
 import Foundation
-public class UserViewQueryDatabaseService {
+public class ViewUserQueryDatabaseService {
     public init() {}
     var db = Database.shared
     var resultQuery: [Query] = []
 }
 
-extension UserViewQueryDatabaseService: UserViewQueryDatabaseContract {
-    public func userViewQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
+extension ViewUserQueryDatabaseService: ViewUserQueryDatabaseContract {
+    public func viewUserQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
         var result =  db.selectQuery(columnString: "*", tableName: "query", whereClause: "userId = \(userId)")
         
         guard let resultantArray = result else {

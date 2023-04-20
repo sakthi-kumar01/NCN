@@ -1,19 +1,19 @@
 //
-//  EmployeeViewQueryDatabaseService.swift
+//  ViewEmployeeQueryDatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 18/04/23.
 //
 
 import Foundation
-public class EmployeeViewQueryDatabaseService {
+public class ViewEmployeeQueryDatabaseService {
     public init() {}
     var db = Database.shared
     var resultQuery: [Query] = []
 }
 
-extension EmployeeViewQueryDatabaseService: EmployeeViewQueryDatabaseContract {
-    public func employeeViewQuery(employeeId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
+extension ViewEmployeeQueryDatabaseService: ViewEmployeeQueryDatabaseContract {
+    public func viewEmployeeQuery(employeeId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
         var result =  db.selectQuery(columnString: "*", tableName: "query", whereClause: "employeeId = \(employeeId)")
         
         guard let resultantArray = result else {

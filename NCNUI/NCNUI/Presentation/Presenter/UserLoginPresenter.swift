@@ -30,8 +30,8 @@ extension UserLoginPresenter: UserLoginPresenterContract {
 }
 
 extension UserLoginPresenter {
-    func result(message: String) {
-        view?.load(message: message)
+    func result(message: User) {
+        view?.load(message: message.userName)
     }
 
     func failed(loginError: String) {

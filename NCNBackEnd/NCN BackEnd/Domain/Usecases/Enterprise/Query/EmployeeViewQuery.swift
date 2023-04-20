@@ -1,5 +1,5 @@
 //
-//  EmployeeViewQuery.swift
+//  ViewEmployeeQuery.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 import VTComponents
-public final class EmployeeViewQueryRequest: Request {
+public final class ViewEmployeeQueryRequest: Request {
     public var employeeId: Int
    
     public init(employeeId: Int) {
@@ -16,14 +16,14 @@ public final class EmployeeViewQueryRequest: Request {
     }
 }
 
-public final class EmployeeViewQueryResponse: ZResponse {
+public final class ViewEmployeeQueryResponse: ZResponse {
     public var response: [Query]
     public init(response: [Query]) {
         self.response = response
     }
 }
 
-public final class EmployeeViewQueryError: ZError {
+public final class ViewEmployeeQueryError: ZError {
     public var error: String
     init(error: String) {
         self.error = error
@@ -31,27 +31,27 @@ public final class EmployeeViewQueryError: ZError {
     }
 }
 
-public final class EmployeeViewQuery: ZUsecase<EmployeeViewQueryRequest, EmployeeViewQueryResponse, EmployeeViewQueryError> {
-    var dataManager: EmployeeViewQueryDataContract
+public final class ViewEmployeeQuery: ZUsecase<ViewEmployeeQueryRequest, ViewEmployeeQueryResponse, ViewEmployeeQueryError> {
+    var dataManager: ViewEmployeeQueryDataContract
 
-    public init(dataManager: EmployeeViewQueryDataContract) {
+    public init(dataManager: ViewEmployeeQueryDataContract) {
         self.dataManager = dataManager
     }
 
-    override public func run(request: EmployeeViewQueryRequest, success: @escaping (EmployeeViewQueryResponse) -> Void, failure: @escaping (EmployeeViewQueryError) -> Void) {
-        dataManager.employeeViewQuery(employeeId: request.employeeId, success: { [weak self] message in
+    override public func run(request: ViewEmployeeQueryRequest, success: @escaping (ViewEmployeeQueryResponse) -> Void, failure: @escaping (ViewEmployeeQueryError) -> Void) {
+        dataManager.viewEmployeeQuery(employeeId: request.employeeId, success: { [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: { [weak self] error in
-            self?.failure(error: EmployeeViewQueryError(error: error), callback: failure)
+            self?.failure(error: ViewEmployeeQueryError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [Query], callback: @escaping (EmployeeViewQueryResponse) -> Void) {
-        let response = EmployeeViewQueryResponse(response: message)
+    private func success(message: [Query], callback: @escaping (ViewEmployeeQueryResponse) -> Void) {
+        let response = ViewEmployeeQueryResponse(response: message)
         invokeSuccess(callback: callback, response: response)
     }
 
-    private func failure(error: EmployeeViewQueryError, callback: @escaping (EmployeeViewQueryError) -> Void) {
+    private func failure(error: ViewEmployeeQueryError, callback: @escaping (ViewEmployeeQueryError) -> Void) {
         invokeFailure(callback: callback, failure: error)
     }
 }

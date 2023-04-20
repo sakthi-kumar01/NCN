@@ -473,38 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				436BAD0529EFFFC400DE3820 /* Enterprise */,
-				432ADE8129BF114F00E9C70F /* UserLoginDataManager.swift */,
-				4383D50C29D6D1F000938DAB /* SearchClientDatamanager.swift */,
-				432905AC29CDCB26002EC379 /* AddNewEmployeeDatamanger.swift */,
-				4334389829C456AA0056CF03 /* AddNewUserDataManager.swift */,
-				438386B629C87A0900EAE655 /* SetEnterpriseDataManager.swift */,
-				438386C229C8985500EAE655 /* CreateAvailableDataManager.swift */,
-				438386F529CC431C00EAE655 /* ViewServiceDataManager.swift */,
-				432905C129D1845C002EC379 /* CreateAvailableSubscriptionDataManager.swift */,
-				432905EF29D1C889002EC379 /* ViewSubscriptionDatamanager.swift */,
-				4329060029D2B575002EC379 /* CreateQueryDatamanager.swift */,
-				4329061029D3F849002EC379 /* BuyServiceDatamanager.swift */,
-				4383D50229D6B97300938DAB /* AddViewClientDatamanager.swift */,
-				4383D51A29D6D9EE00938DAB /* SearchEmployeeDatamanager.swift */,
-				4383D52829D6DE9900938DAB /* TrackQueryDatamanager.swift */,
-				4383D54029D6E61700938DAB /* TrackServiceDatamanager.swift */,
-				4383D54E29D6ED1400938DAB /* TrackServiceClientDatamanager.swift */,
-				4383D55A29D6F41900938DAB /* EmployeeviewClientDatamanager.swift */,
-				43023A4D29E1E2E700FC62BE /* AssignQueryDataManager.swift */,
-				43023A5D29E1EB9000FC62BE /* AssingQueryStatusDataManager.swift */,
-				43023A7129E2ED5400FC62BE /* ModifyAvaialableServiceDataManager.swift */,
-				43023A8529E3078A00FC62BE /* ModifyAvaialableSubscriptionDataManager.swift */,
-				43023A9529E328FD00FC62BE /* ViewExpiredServiceDataManager.swift */,
-				43023AA329E3379D00FC62BE /* ModifyEmployeeDetailsDataManager.swift */,
-				43023AB429E393D200FC62BE /* ModifyUserDetailsDataManager.swift */,
-				43023AC229E3ACDE00FC62BE /* DeleteExpiredServiceDataManager.swift */,
-				43023AD229E3CB5F00FC62BE /* UserViewQueryDataManager.swift */,
-				43023ADC29E3DE0300FC62BE /* EmployeeViewQueryDataManager.swift */,
-				43023AEE29E3F1BC00FC62BE /* DeleteQueryDataManager.swift */,
-				43023AFE29E40E7400FC62BE /* RemoveEmployeeDataManager.swift */,
-				43023B0E29E415F600FC62BE /* RemoveUserDataManager.swift */,
-				43023B1E29E42B6800FC62BE /* RemoveServiceDatManager.swift */,
-				43023B2C29E439A600FC62BE /* RemoveSubscriptionDataManager.swift */,
 				4334389A29C457FA0056CF03 /* Contract */,
 			);
 			path = Datamanager;
@@ -639,6 +607,7 @@
 		436BAD0529EFFFC400DE3820 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
+				438386B629C87A0900EAE655 /* SetEnterpriseDataManager.swift */,
 				436BAD0A29EFFFF900DE3820 /* Subscription */,
 				436BAD0929EFFFF100DE3820 /* Service */,
 				436BAD0829EFFFEB00DE3820 /* Query */,
@@ -651,6 +620,9 @@
 		436BAD0629EFFFCF00DE3820 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				43023B0E29E415F600FC62BE /* RemoveUserDataManager.swift */,
+				43023AB429E393D200FC62BE /* ModifyUserDetailsDataManager.swift */,
+				432ADE8129BF114F00E9C70F /* UserLoginDataManager.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -658,6 +630,14 @@
 		436BAD0729EFFFDA00DE3820 /* Employee */ = {
 			isa = PBXGroup;
 			children = (
+				4383D50C29D6D1F000938DAB /* SearchClientDatamanager.swift */,
+				432905AC29CDCB26002EC379 /* AddNewEmployeeDatamanger.swift */,
+				4334389829C456AA0056CF03 /* AddNewUserDataManager.swift */,
+				4383D50229D6B97300938DAB /* AddViewClientDatamanager.swift */,
+				4383D51A29D6D9EE00938DAB /* SearchEmployeeDatamanager.swift */,
+				4383D55A29D6F41900938DAB /* EmployeeviewClientDatamanager.swift */,
+				43023AA329E3379D00FC62BE /* ModifyEmployeeDetailsDataManager.swift */,
+				43023AFE29E40E7400FC62BE /* RemoveEmployeeDataManager.swift */,
 			);
 			path = Employee;
 			sourceTree = "<group>";
@@ -665,6 +645,13 @@
 		436BAD0829EFFFEB00DE3820 /* Query */ = {
 			isa = PBXGroup;
 			children = (
+				4383D52829D6DE9900938DAB /* TrackQueryDatamanager.swift */,
+				4329060029D2B575002EC379 /* CreateQueryDatamanager.swift */,
+				43023A4D29E1E2E700FC62BE /* AssignQueryDataManager.swift */,
+				43023A5D29E1EB9000FC62BE /* AssingQueryStatusDataManager.swift */,
+				43023AD229E3CB5F00FC62BE /* UserViewQueryDataManager.swift */,
+				43023ADC29E3DE0300FC62BE /* EmployeeViewQueryDataManager.swift */,
+				43023AEE29E3F1BC00FC62BE /* DeleteQueryDataManager.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -672,6 +659,15 @@
 		436BAD0929EFFFF100DE3820 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				438386F529CC431C00EAE655 /* ViewServiceDataManager.swift */,
+				4383D54029D6E61700938DAB /* TrackServiceDatamanager.swift */,
+				438386C229C8985500EAE655 /* CreateAvailableDataManager.swift */,
+				4329061029D3F849002EC379 /* BuyServiceDatamanager.swift */,
+				43023A7129E2ED5400FC62BE /* ModifyAvaialableServiceDataManager.swift */,
+				4383D54E29D6ED1400938DAB /* TrackServiceClientDatamanager.swift */,
+				43023B1E29E42B6800FC62BE /* RemoveServiceDatManager.swift */,
+				43023A9529E328FD00FC62BE /* ViewExpiredServiceDataManager.swift */,
+				43023AC229E3ACDE00FC62BE /* DeleteExpiredServiceDataManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -679,6 +675,10 @@
 		436BAD0A29EFFFF900DE3820 /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
+				432905C129D1845C002EC379 /* CreateAvailableSubscriptionDataManager.swift */,
+				432905EF29D1C889002EC379 /* ViewSubscriptionDatamanager.swift */,
+				43023A8529E3078A00FC62BE /* ModifyAvaialableSubscriptionDataManager.swift */,
+				43023B2C29E439A600FC62BE /* RemoveSubscriptionDataManager.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";

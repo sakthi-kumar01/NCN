@@ -20,4 +20,12 @@ public class User {
         self.mobileNumber = mobileNumber
         self.enterpriseId = enterpriseId
     }
+    init(userId: Int, userName: String, email: String, password: String, mobileNumber: Int, enterpriseId: Int) {
+        self.userId = userId
+        self.userName = userName
+        self.email = email
+        self.password = password
+        self.mobileNumber = mobileNumber
+        self.enterpriseId = enterpriseId
+    }
 }

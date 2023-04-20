@@ -1,5 +1,5 @@
 //
-//  EmployeeViewQueryPresenter.swift
+//  ViewEmployeeQueryPresenter.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -7,20 +7,20 @@
 
 import Foundation
 import NCN_BackEnd
-class EmployeeViewQueryPresenter {
-    weak var view: EmployeeViewQueryViewContract?
-    var employeeViewQuery: EmployeeViewQuery
-    weak var router: EmployeeViewQueryRouterContract?
+class ViewEmployeeQueryPresenter {
+    weak var view: ViewEmployeeQueryViewContract?
+    var ViewEmployeeQuery: ViewEmployeeQuery
+    weak var router: ViewEmployeeQueryRouterContract?
 
-    init(employeeViewQuery: EmployeeViewQuery) {
-        self.employeeViewQuery = employeeViewQuery
+    init(ViewEmployeeQuery: ViewEmployeeQuery) {
+        self.ViewEmployeeQuery = ViewEmployeeQuery
     }
 }
 
-extension EmployeeViewQueryPresenter: EmployeeViewQueryPresenterContract {
+extension ViewEmployeeQueryPresenter: ViewEmployeeQueryPresenterContract {
     func viewLoaded(employeeId: Int) {
-        let request = EmployeeViewQueryRequest(employeeId: employeeId)
-        employeeViewQuery.execute(request: request, onSuccess: { [weak self] response in
+        let request = ViewEmployeeQueryRequest(employeeId: employeeId)
+        ViewEmployeeQuery.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
@@ -28,7 +28,7 @@ extension EmployeeViewQueryPresenter: EmployeeViewQueryPresenterContract {
     }
 }
 
-extension EmployeeViewQueryPresenter {
+extension ViewEmployeeQueryPresenter {
     func result(message: [Query]) {
         for query in message{
             

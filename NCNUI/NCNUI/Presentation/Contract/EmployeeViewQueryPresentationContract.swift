@@ -1,5 +1,5 @@
 //
-//  EmployeeViewQueryPresentationContract.swift
+//  ViewEmployeeQueryPresentationContract.swift
 //  NCNUI
 //
 //  Created by raja-16327 on 10/04/23.
@@ -8,14 +8,14 @@
 import Foundation
 
 
-protocol EmployeeViewQueryViewContract: AnyObject {
+protocol ViewEmployeeQueryViewContract: AnyObject {
     func load(message: String)
 }
 
-protocol EmployeeViewQueryPresenterContract {
+protocol ViewEmployeeQueryPresenterContract {
     func viewLoaded(employeeId: Int)
 }
 
-protocol EmployeeViewQueryRouterContract: AnyObject {
+protocol ViewEmployeeQueryRouterContract: AnyObject {
     func selected(message: String)
 }
