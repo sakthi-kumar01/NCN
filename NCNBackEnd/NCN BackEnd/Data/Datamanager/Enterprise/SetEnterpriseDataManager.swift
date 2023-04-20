@@ -13,12 +13,12 @@ public class SetEnterpriseNameDataManager {
         self.database = database
     }
 
-    private func success(message: String, callback: (String) -> Void) {
-        callback(message)
+    private func success(response: String, callback: (String) -> Void) {
+        callback(response)
     }
 
-    private func failure(message: String, callback: (String) -> Void) {
-        if message == "No Data" {
+    private func failure(response: String, callback: (String) -> Void) {
+        if response == "No Data" {
             let error = "User already exist"
             callback(error)
         }
@@ -29,10 +29,10 @@ extension SetEnterpriseNameDataManager: SetEnterpriseNameDataContract {
     public func setEnterpriseName(enterpriseName: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         database.setEnterpriseName(enterpriseName: enterpriseName, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 }

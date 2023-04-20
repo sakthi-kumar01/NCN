@@ -34,8 +34,8 @@ class RemoveAvailableServiceView: NSView {
 }
 
 extension RemoveAvailableServiceView: RemoveAvailableServiceViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
     
     func failed(error: String) {

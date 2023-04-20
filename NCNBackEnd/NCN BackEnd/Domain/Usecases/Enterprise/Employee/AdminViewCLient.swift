@@ -40,14 +40,14 @@ public final class ViewAdminClient: ZUsecase<ViewAdminClientRequest, ViewAdminCl
 
     override public func run(request: ViewAdminClientRequest, success: @escaping (ViewAdminClientResponse) -> Void, failure: @escaping (ViewAdminClientError) -> Void) {
         dataManager.ViewAdminClient(employeeId: request.employeeId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ViewAdminClientError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [User], callback: @escaping (ViewAdminClientResponse) -> Void) {
-        let response = ViewAdminClientResponse(response: message)
+    private func success(response: [User], callback: @escaping (ViewAdminClientResponse) -> Void) {
+        let response = ViewAdminClientResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

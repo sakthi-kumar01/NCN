@@ -38,7 +38,7 @@ class ModifyAvailableSubscriptionView: NSView {
 }
 
 extension ModifyAvailableSubscriptionView: ModifyAvailableSubscriptionViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
 

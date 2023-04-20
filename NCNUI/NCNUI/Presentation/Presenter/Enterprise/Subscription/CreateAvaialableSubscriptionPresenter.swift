@@ -20,7 +20,7 @@ extension CreateAvailableSubscriptionPresenter: CreateAvailableSubscriptionPrese
     func viewLoaded(subscriptionId: Int, subscriptionPackageType: String, subscriptionConuntLimit: Float, subscriptionDaylimit: Int, serviceId: Int) {
         let request = CreateAvailableSubscriptionRequest(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionConuntLimit: subscriptionConuntLimit, subscriptionDaylimit: subscriptionDaylimit, serviceId: serviceId)
         createAvailableSubscription.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(response: response)
+            self?.result(subscriptionResponse: response)
         }, onFailure: { [weak self] error in
             self?.failed(error: error)
         })
@@ -28,8 +28,8 @@ extension CreateAvailableSubscriptionPresenter: CreateAvailableSubscriptionPrese
 }
 
 extension CreateAvailableSubscriptionPresenter {
-    func result(response: CreateAvailableSubscriptionResponse) {
-        view?.load(message: response.response)
+    func result(subscriptionResponse: CreateAvailableSubscriptionResponse) {
+        view?.load(message: subscriptionResponse.response)
     }
 
     func failed(error: CreateAvailableSubscriptionError) {

@@ -30,7 +30,7 @@ extension ModifyAvailableServicePresenter: ModifyAvailableServicePresenterContra
 }
 
 extension ModifyAvailableServicePresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

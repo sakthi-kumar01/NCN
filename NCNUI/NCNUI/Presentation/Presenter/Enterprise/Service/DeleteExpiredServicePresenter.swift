@@ -30,7 +30,7 @@ extension DeleteExpiredServicePresenter: DeleteExpiredServicePresenterContract {
 }
 
 extension DeleteExpiredServicePresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

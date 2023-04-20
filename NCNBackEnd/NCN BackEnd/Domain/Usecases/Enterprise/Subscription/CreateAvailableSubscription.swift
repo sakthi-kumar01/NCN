@@ -49,15 +49,15 @@ public final class CreateAvailableSubscription: ZUsecase<CreateAvailableSubscrip
     override public func run(request: CreateAvailableSubscriptionRequest, success: @escaping (CreateAvailableSubscriptionResponse) -> Void, failure: @escaping (CreateAvailableSubscriptionError) -> Void) {
         datamanager.createAvailableSubscription(subscriptionId: request.subscriptionId, subscriptionPackageType: request.subscriptionPackageType, subscriptionConuntLimit: request.subscriptionConuntLimit, subscriptionDaylimit: request.subscriptionDaylimit, serviceId: request.serviceId, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(error: message, callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (CreateAvailableSubscriptionResponse) -> Void) {
-        let response = CreateAvailableSubscriptionResponse(response: message)
+    private func success(response: String, callback: @escaping (CreateAvailableSubscriptionResponse) -> Void) {
+        let response = CreateAvailableSubscriptionResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

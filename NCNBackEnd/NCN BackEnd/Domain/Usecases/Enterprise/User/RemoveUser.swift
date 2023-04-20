@@ -41,14 +41,14 @@ public final class RemoveUser: ZUsecase<RemoveUserRequest, RemoveUserResponse, R
 
     override public func run(request: RemoveUserRequest, success: @escaping (RemoveUserResponse) -> Void, failure: @escaping (RemoveUserError) -> Void) {
         dataManager.removeUser(userId: request.userId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: RemoveUserError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (RemoveUserResponse) -> Void) {
-        let response = RemoveUserResponse(response: message)
+    private func success(response: String, callback: @escaping (RemoveUserResponse) -> Void) {
+        let response = RemoveUserResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

@@ -35,8 +35,8 @@ class RemoveUserView: NSView {
 }
 
 extension RemoveUserView: RemoveUserViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
     
     func failed(error: String) {

@@ -39,7 +39,7 @@ public class CreateAvailableSubscriptionView: NSView {
 }
 
 extension CreateAvailableSubscriptionView: CreateAvailableSubscriptionViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
 

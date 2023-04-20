@@ -30,7 +30,7 @@ extension RemoveEmployeePresenter: RemoveEmployeePresenterContract {
 }
 
 extension RemoveEmployeePresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

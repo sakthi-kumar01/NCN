@@ -10,8 +10,8 @@ import SQLite3
 
 import VTComponents
 enum SQLiteError: Error {
-    case Preparestmt(message: String)
-    case Step(message: String)
+    case Preparestmt(response: String)
+    case Step(response: String)
 }
 
 public class Database {
@@ -419,14 +419,14 @@ extension Database {
     func prepareStatement(db: OpaquePointer?, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
         guard sqlite3_prepare_v2(db, sql, -1, &statement, nil) == SQLITE_OK else {
-            throw SQLiteError.Preparestmt(message: errorMessage(db: db))
+            throw SQLiteError.Preparestmt(response: errorMessage(db: db))
         }
         return statement
     }
 
     func stepStatement(db: OpaquePointer?, statement: OpaquePointer?) throws {
         guard sqlite3_step(statement) == SQLITE_DONE else {
-            throw SQLiteError.Step(message: errorMessage(db: db))
+            throw SQLiteError.Step(response: errorMessage(db: db))
         }
     }
 

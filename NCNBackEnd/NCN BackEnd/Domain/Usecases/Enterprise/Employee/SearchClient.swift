@@ -41,14 +41,14 @@ public final class SearchClient: ZUsecase<SearchClientRequest, SearchClientRespo
 
     override public func run(request: SearchClientRequest, success: @escaping (SearchClientResponse) -> Void, failure: @escaping (SearchClientError) -> Void) {
         dataManager.searchClient(userId: request.userId, employeeId: request.employeeId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: SearchClientError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [User], callback: @escaping (SearchClientResponse) -> Void) {
-        let response = SearchClientResponse(response: message)
+    private func success(response: [User], callback: @escaping (SearchClientResponse) -> Void) {
+        let response = SearchClientResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

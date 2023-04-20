@@ -10,7 +10,7 @@ import Foundation
 public class CreateAvailableServicesDatabaseService {
     public init() {}
      var db = Database.shared
-    func success (message: String) {
+    func success (response: String) {
         
     }
     

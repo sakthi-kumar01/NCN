@@ -36,7 +36,7 @@ class RemoveSubscriptionView: NSView {
 }
 
 extension RemoveSubscriptionView: RemoveSubscriptionViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
     

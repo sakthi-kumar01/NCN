@@ -28,7 +28,7 @@ public class AddNewUserView: NSView {
 }
 
 extension AddNewUserView: AddNewUserViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
 

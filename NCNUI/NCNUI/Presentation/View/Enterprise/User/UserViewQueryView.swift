@@ -35,7 +35,7 @@ class ViewUserQueryView: NSView {
 }
 
 extension ViewUserQueryView: ViewUserQueryViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
     

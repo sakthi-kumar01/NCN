@@ -35,8 +35,8 @@ class AssignQueryView: NSView {
 }
 
 extension AssignQueryView: AssignQueryViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
 
     func failed(error: String) {

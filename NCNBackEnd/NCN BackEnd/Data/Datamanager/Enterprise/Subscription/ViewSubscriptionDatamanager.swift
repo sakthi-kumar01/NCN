@@ -12,12 +12,12 @@ public class ViewSubscriptionDatamanager {
         self.databaseService = databaseService
     }
 
-    private func success(message: [AvailableSubscription], callback: ([AvailableSubscription]) -> Void) {
-        callback(message)
+    private func success(response: [AvailableSubscription], callback: ([AvailableSubscription]) -> Void) {
+        callback(response)
     }
 
-    private func failure(message: String, callback: (String) -> Void) {
-        if message == "No Data" {
+    private func failure(response: String, callback: (String) -> Void) {
+        if response == "No Data" {
             let error = "Service already exist"
             callback(error)
         }
@@ -28,10 +28,10 @@ extension ViewSubscriptionDatamanager: ViewSubscriptionDataContract {
     public func viewSubscription(success: @escaping ([AvailableSubscription]) -> Void, failure: @escaping (String) -> Void) {
         databaseService.viewSubscription(success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 }

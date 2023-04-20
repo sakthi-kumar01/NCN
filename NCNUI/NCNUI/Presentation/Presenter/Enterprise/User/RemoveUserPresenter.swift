@@ -29,7 +29,7 @@ extension RemoveUserPresenter: RemoveUserPresenterContract {
 }
 
 extension RemoveUserPresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
     func failed(loginError: String) {

@@ -43,14 +43,14 @@ public final class TrackService: ZUsecase<TrackServiceRequest, TrackServiceRespo
 
     override public func run(request: TrackServiceRequest, success: @escaping (TrackServiceResponse) -> Void, failure: @escaping (TrackServiceError) -> Void) {
         dataManager.trackService(id: request.id, subscriptionUsage: request.subscriptionUsage, employeeId: request.employeeId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: TrackServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (TrackServiceResponse) -> Void) {
-        let response = TrackServiceResponse(response: message)
+    private func success(response: String, callback: @escaping (TrackServiceResponse) -> Void) {
+        let response = TrackServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

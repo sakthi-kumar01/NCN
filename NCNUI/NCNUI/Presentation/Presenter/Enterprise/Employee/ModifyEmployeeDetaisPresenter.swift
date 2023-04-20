@@ -29,7 +29,7 @@ extension ModifyEmployeeDetailsPresenter: ModifyEmployeeDetailsPresenterContract
 }
 
 extension ModifyEmployeeDetailsPresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

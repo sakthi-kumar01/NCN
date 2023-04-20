@@ -33,15 +33,15 @@ public final class ViewService: ZUsecase<ViewServiceRequest, ViewServiceResponse
     override public func run(request _: ViewServiceRequest, success: @escaping (ViewServiceResponse) -> Void, failure: @escaping (ViewServiceError) -> Void) {
         dataManager.viewService(success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(error: message, callback: failure)
         })
     }
 
-    private func success(message: [AvailableService], callback: @escaping (ViewServiceResponse) -> Void) {
-        let response = ViewServiceResponse(response: message)
+    private func success(response: [AvailableService], callback: @escaping (ViewServiceResponse) -> Void) {
+        let response = ViewServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

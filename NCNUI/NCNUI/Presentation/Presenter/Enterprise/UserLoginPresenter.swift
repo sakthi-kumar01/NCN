@@ -22,20 +22,20 @@ extension UserLoginPresenter: UserLoginPresenterContract {
     func viewLoaded(userName: String, password: String) {
         let request = UserLoginRequest(userName: userName, password: password)
         userLogin.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(user: response.response)
         }, onFailure: { [weak self] loginError in
-            self?.failed(loginError: loginError.error)
+            self?.failed(error: loginError.error)
         })
     }
 }
 
 extension UserLoginPresenter {
-    func result(message: User) {
-        view?.load(message: message.userName)
+    func result(user: User) {
+        view?.load(message: user.userName)
     }
 
-    func failed(loginError: String) {
-        view?.load(message: loginError)
+    func failed(error: String) {
+        view?.load(message: error)
     }
     
     

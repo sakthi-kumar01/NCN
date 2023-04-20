@@ -34,7 +34,7 @@ public final class ViewSubscription: ZUsecase<ViewSubscriptionRequest, ViewSubsc
     override public func run(request _: ViewSubscriptionRequest, success: @escaping (ViewSubscriptionResponse) -> Void, failure: @escaping (ViewSubscriptionError) -> Void) {
         datamanger.viewSubscription(success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(error: message, callback: failure)
@@ -43,8 +43,8 @@ public final class ViewSubscription: ZUsecase<ViewSubscriptionRequest, ViewSubsc
 }
 
 extension ViewSubscription {
-    private func success(message: [AvailableSubscription], callback: @escaping (ViewSubscriptionResponse) -> Void) {
-        let response = ViewSubscriptionResponse(response: message)
+    private func success(response: [AvailableSubscription], callback: @escaping (ViewSubscriptionResponse) -> Void) {
+        let response = ViewSubscriptionResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

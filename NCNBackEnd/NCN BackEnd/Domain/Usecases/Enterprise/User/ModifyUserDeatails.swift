@@ -50,14 +50,14 @@ public final class ModifyUserDetails: ZUsecase<ModifyUserDetailsRequest, ModifyU
     override public func run(request: ModifyUserDetailsRequest, success: @escaping (ModifyUserDetailsResponse) -> Void, failure: @escaping (ModifyUserDetailsError) -> Void) {
         dataManager.modifyStringDetails(userId: request.userId, userName: request.userName, password: request.password, eMail: request.eMail, mobileNo: request.mobileNo
                                         ,success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ModifyUserDetailsError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (ModifyUserDetailsResponse) -> Void) {
-        let response = ModifyUserDetailsResponse(response: message)
+    private func success(response: String, callback: @escaping (ModifyUserDetailsResponse) -> Void) {
+        let response = ModifyUserDetailsResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

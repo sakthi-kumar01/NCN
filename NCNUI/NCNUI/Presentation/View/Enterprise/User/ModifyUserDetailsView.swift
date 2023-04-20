@@ -40,7 +40,7 @@ class ModifyUserDetailsView: NSView {
 }
 
 extension ModifyUserDetailsView: ModifyUserDetailsViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
     

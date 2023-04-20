@@ -33,7 +33,7 @@ class TrackQueryView: NSView {
 }
 
 extension TrackQueryView: TrackQueryViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
 

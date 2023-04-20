@@ -13,12 +13,12 @@ public class ViewServiceDataManager {
         self.database = database
     }
 
-    private func success(message: [AvailableService], callback: ([AvailableService]) -> Void) {
-        callback(message)
+    private func success(response: [AvailableService], callback: ([AvailableService]) -> Void) {
+        callback(response)
     }
 
-    private func failure(message: String, callback: (String) -> Void) {
-        if message == "No Data" {
+    private func failure(response: String, callback: (String) -> Void) {
+        if response == "No Data" {
             let error = "Service already exist"
             callback(error)
         }
@@ -29,10 +29,10 @@ extension ViewServiceDataManager: ViewServiceDatacontract {
     public func viewService(success: @escaping ([AvailableService]) -> Void, failure: @escaping (String) -> Void) {
         database.viewService(success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 }

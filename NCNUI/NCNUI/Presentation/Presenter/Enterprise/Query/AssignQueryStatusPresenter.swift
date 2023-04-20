@@ -30,7 +30,7 @@ extension AssignQueryStatusPresenter: AssignQueryStatusPresenterContract {
 }
 
 extension AssignQueryStatusPresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

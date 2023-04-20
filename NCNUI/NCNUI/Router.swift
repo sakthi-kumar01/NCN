@@ -23,7 +23,7 @@ class Router {
     
 }
 extension Router: UserLoginRouterContract, CreateAvailableServiceRouterContract, ViewServiceRouterContract, AddNewUserRouterContract, AddNewEmployeeRouterContract, CreateAvailableSubscriptionRouterContract, ViewSubscriptionRouterContract, CreateQueryRouterContract, BuyServiceRouterContract {
-    func selected(message: String) {
+    func selected(response: String) {
         print(message)
     }
 }

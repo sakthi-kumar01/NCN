@@ -32,7 +32,7 @@ extension ViewEmployeeQueryPresenter {
     func result(message: [Query]) {
         for query in message{
             
-            view?.load(message: String(query.queryId))
+            view?.load(response: String(query.queryId))
             view?.load(message: query.queryMessage)
             if (query.queryType.rawValue == 1 ) {
                 view?.load(message: "Feedback")

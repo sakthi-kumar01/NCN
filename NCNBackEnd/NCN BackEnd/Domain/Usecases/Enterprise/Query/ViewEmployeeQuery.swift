@@ -16,7 +16,7 @@ public final class ViewEmployeeQueryRequest: Request {
     }
 }
 
-public final class ViewEmployeeQueryResponse: ZResponse {
+public final class ViewEmployeequeryMessage: ZResponse {
     public var response: [Query]
     public init(response: [Query]) {
         self.response = response
@@ -31,23 +31,23 @@ public final class ViewEmployeeQueryError: ZError {
     }
 }
 
-public final class ViewEmployeeQuery: ZUsecase<ViewEmployeeQueryRequest, ViewEmployeeQueryResponse, ViewEmployeeQueryError> {
+public final class ViewEmployeeQuery: ZUsecase<ViewEmployeeQueryRequest, ViewEmployeequeryMessage, ViewEmployeeQueryError> {
     var dataManager: ViewEmployeeQueryDataContract
 
     public init(dataManager: ViewEmployeeQueryDataContract) {
         self.dataManager = dataManager
     }
 
-    override public func run(request: ViewEmployeeQueryRequest, success: @escaping (ViewEmployeeQueryResponse) -> Void, failure: @escaping (ViewEmployeeQueryError) -> Void) {
+    override public func run(request: ViewEmployeeQueryRequest, success: @escaping (ViewEmployeequeryMessage) -> Void, failure: @escaping (ViewEmployeeQueryError) -> Void) {
         dataManager.viewEmployeeQuery(employeeId: request.employeeId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ViewEmployeeQueryError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [Query], callback: @escaping (ViewEmployeeQueryResponse) -> Void) {
-        let response = ViewEmployeeQueryResponse(response: message)
+    private func success(response: [Query], callback: @escaping (ViewEmployeequeryMessage) -> Void) {
+        let response = ViewEmployeequeryMessage(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

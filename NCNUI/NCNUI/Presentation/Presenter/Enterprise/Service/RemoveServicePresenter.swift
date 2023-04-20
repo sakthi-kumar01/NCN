@@ -30,7 +30,7 @@ extension RemoveAvailableServicePresenter: RemoveAvailableServicePresenterContra
 }
 
 extension RemoveAvailableServicePresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

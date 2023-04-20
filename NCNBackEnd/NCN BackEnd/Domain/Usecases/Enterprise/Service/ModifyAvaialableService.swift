@@ -44,14 +44,14 @@ public final class ModifyAvailableService: ZUsecase<ModifyAvailableServiceReques
 
     override public func run(request: ModifyAvailableServiceRequest, success: @escaping (ModifyAvailableServiceResponse) -> Void, failure: @escaping (ModifyAvailableServiceError) -> Void) {
         dataManager.modifyAvailableService(serviceId: request.serviceId, serviceTitle: request.serviceTitle, serviceDescription: request.serviceDescription, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ModifyAvailableServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (ModifyAvailableServiceResponse) -> Void) {
-        let response = ModifyAvailableServiceResponse(response: message)
+    private func success(response: String, callback: @escaping (ModifyAvailableServiceResponse) -> Void) {
+        let response = ModifyAvailableServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

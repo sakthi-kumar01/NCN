@@ -35,8 +35,8 @@ class DeleteQueryView: NSView {
 }
 
 extension DeleteQueryView: DeleteQueryViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
     
     func failed(error: String) {

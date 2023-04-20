@@ -46,14 +46,14 @@ public final class AddNewUser: ZUsecase<AddNewUserRequest, AddNewUserResponse, A
 
     override public func run(request: AddNewUserRequest, success: @escaping (AddNewUserResponse) -> Void, failure: @escaping (AddNewUserError) -> Void) {
         dataManager.addNewUser(userName: request.UserName, password: request.password, email: request.email, mobileNumber: request.mobileNumber, enterpriseId: request.enterpriseId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: AddNewUserError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (AddNewUserResponse) -> Void) {
-        let response = AddNewUserResponse(response: message)
+    private func success(response: String, callback: @escaping (AddNewUserResponse) -> Void) {
+        let response = AddNewUserResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

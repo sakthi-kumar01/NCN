@@ -33,8 +33,8 @@ class ViewAdminClientView: NSView {
 }
 
 extension ViewAdminClientView: ViewAdminClientViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
 
     func failed(error: String) {

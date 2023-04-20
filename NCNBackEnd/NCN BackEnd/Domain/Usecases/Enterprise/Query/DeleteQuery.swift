@@ -18,7 +18,7 @@ public final class DeleteQueryRequest: Request {
     }
 }
 
-public final class DeleteQueryResponse: ZResponse {
+public final class DeletequeryMessage: ZResponse {
     public var response: String
     public init(response: String) {
         self.response = response
@@ -33,23 +33,23 @@ public final class DeleteQueryError: ZError {
     }
 }
 
-public final class DeleteQuery: ZUsecase<DeleteQueryRequest, DeleteQueryResponse, DeleteQueryError> {
+public final class DeleteQuery: ZUsecase<DeleteQueryRequest, DeletequeryMessage, DeleteQueryError> {
     var dataManager: DeleteQueryDataContract
 
     public init(dataManager: DeleteQueryDataContract) {
         self.dataManager = dataManager
     }
 
-    override public func run(request: DeleteQueryRequest, success: @escaping (DeleteQueryResponse) -> Void, failure: @escaping (DeleteQueryError) -> Void) {
+    override public func run(request: DeleteQueryRequest, success: @escaping (DeletequeryMessage) -> Void, failure: @escaping (DeleteQueryError) -> Void) {
         dataManager.deleteQuery(queryId: request.queryId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: DeleteQueryError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (DeleteQueryResponse) -> Void) {
-        let response = DeleteQueryResponse(response: message)
+    private func success(response: String, callback: @escaping (DeletequeryMessage) -> Void) {
+        let response = DeletequeryMessage(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

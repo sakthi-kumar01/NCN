@@ -39,14 +39,14 @@ public final class ViewEmployeeClient: ZUsecase<ViewEmployeeClientRequest, ViewE
 
     override public func run(request: ViewEmployeeClientRequest, success: @escaping (ViewEmployeeClientResponse) -> Void, failure: @escaping (ViewEmployeeClientError) -> Void) {
         dataManager.ViewEmployeeClient(employeeId: request.employeeId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ViewEmployeeClientError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [User], callback: @escaping (ViewEmployeeClientResponse) -> Void) {
-        let response = ViewEmployeeClientResponse(response: message)
+    private func success(response: [User], callback: @escaping (ViewEmployeeClientResponse) -> Void) {
+        let response = ViewEmployeeClientResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

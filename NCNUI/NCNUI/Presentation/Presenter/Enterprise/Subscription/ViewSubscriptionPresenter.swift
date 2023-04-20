@@ -20,7 +20,7 @@ extension ViewSubscriptionPresenter: ViewSubscriptionPresenterContract {
     func viewLoaded() {
         let request = ViewSubscriptionRequest()
         viewSubscription.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(response: response)
+            self?.result(subscriptionResponse: response)
         }, onFailure: { [weak self] loginError in
             self?.failed(error: loginError)
         })
@@ -28,8 +28,8 @@ extension ViewSubscriptionPresenter: ViewSubscriptionPresenterContract {
 }
 
 extension ViewSubscriptionPresenter {
-    func result(response: ViewSubscriptionResponse) {
-        for vals in response.response {
+    func result(subscriptionResponse: ViewSubscriptionResponse) {
+        for vals in subscriptionResponse.response {
             view?.load(subscriptionId: vals.subscriptionId, subscriptionPackageType: vals.subscriptionPackageType, subscriptionCountLimit: vals.subscriptionCountLimit, subscritptionDayLimit: vals.subscritptionDayLimit, serviceId: vals.serviceId)
         }
     }

@@ -40,14 +40,14 @@ public final class RemoveSubscription: ZUsecase<RemoveSubscriptionRequest, Remov
 
     override public func run(request: RemoveSubscriptionRequest, success: @escaping (RemoveSubscriptionResponse) -> Void, failure: @escaping (RemoveSubscriptionError) -> Void) {
         dataManager.removeSubscription(subscriptionId: request.subscriptionId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: RemoveSubscriptionError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (RemoveSubscriptionResponse) -> Void) {
-        let response = RemoveSubscriptionResponse(response: message)
+    private func success(response: String, callback: @escaping (RemoveSubscriptionResponse) -> Void) {
+        let response = RemoveSubscriptionResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

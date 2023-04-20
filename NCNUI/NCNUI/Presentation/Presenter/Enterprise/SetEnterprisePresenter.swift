@@ -25,20 +25,20 @@ extension SetEnterpriseNamePresenter: SetEnterpriseNamePresenterContract {
     func viewLoaded(enterpriseName: String) {
         let request = SetEnterpriseNameRequest(enterpriseName: enterpriseName)
         setEnterpriseName.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
-            self?.failed(loginError: loginError.error)
+            self?.failed(error: loginError.error)
         })
     }
 }
 
 extension SetEnterpriseNamePresenter {
-    func result(message: String) {
-        view?.load(message: message)
+    func result(response: String) {
+        view?.load(response: response)
     }
 
-    func failed(loginError: String) {
-        view?.load(message: loginError)
+    func failed(error: String) {
+        view?.load(response: error)
     }
     
     

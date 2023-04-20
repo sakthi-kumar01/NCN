@@ -39,14 +39,14 @@ public final class SearchEmployee: ZUsecase<SearchEmployeeRequest, SearchEmploye
 
     override public func run(request: SearchEmployeeRequest, success: @escaping (SearchEmployeeResponse) -> Void, failure: @escaping (SearchEmployeeError) -> Void) {
         dataManager.searchEmployee(employeeId: request.employeeId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: SearchEmployeeError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [Employee], callback: @escaping (SearchEmployeeResponse) -> Void) {
-        let response = SearchEmployeeResponse(response: message)
+    private func success(response: [Employee], callback: @escaping (SearchEmployeeResponse) -> Void) {
+        let response = SearchEmployeeResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

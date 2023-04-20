@@ -43,14 +43,14 @@ public final class RemoveEmployee: ZUsecase<RemoveEmployeeRequest, RemoveEmploye
 
     override public func run(request: RemoveEmployeeRequest, success: @escaping (RemoveEmployeeResponse) -> Void, failure: @escaping (RemoveEmployeeError) -> Void) {
         dataManager.removeEmployee(employeeId: request.employeeId, userId: request.userId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: RemoveEmployeeError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (RemoveEmployeeResponse) -> Void) {
-        let response = RemoveEmployeeResponse(response: message)
+    private func success(response: String, callback: @escaping (RemoveEmployeeResponse) -> Void) {
+        let response = RemoveEmployeeResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

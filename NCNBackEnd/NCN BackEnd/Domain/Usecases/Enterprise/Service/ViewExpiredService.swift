@@ -38,14 +38,14 @@ public final class ViewExpiredService: ZUsecase<ViewExpiredServiceRequest, ViewE
 
     override public func run(request: ViewExpiredServiceRequest, success: @escaping (ViewExpiredServiceResponse) -> Void, failure: @escaping (ViewExpiredServiceError) -> Void) {
         dataManager.viewExpiredService(success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ViewExpiredServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: [[String]], callback: @escaping (ViewExpiredServiceResponse) -> Void) {
-        let response = ViewExpiredServiceResponse(response: message)
+    private func success(response: [[String]], callback: @escaping (ViewExpiredServiceResponse) -> Void) {
+        let response = ViewExpiredServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

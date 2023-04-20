@@ -40,14 +40,14 @@ public final class AssignQueryStatus: ZUsecase<AssignQueryStatusRequest, AssignQ
 
     override public func run(request: AssignQueryStatusRequest, success: @escaping (AssignQueryStatusResponse) -> Void, failure: @escaping (AssignQueryStatusError) -> Void) {
         dataManager.assignQueryStatus(queryId: request.queryId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: AssignQueryStatusError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (AssignQueryStatusResponse) -> Void) {
-        let response = AssignQueryStatusResponse(response: message)
+    private func success(response: String, callback: @escaping (AssignQueryStatusResponse) -> Void) {
+        let response = AssignQueryStatusResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

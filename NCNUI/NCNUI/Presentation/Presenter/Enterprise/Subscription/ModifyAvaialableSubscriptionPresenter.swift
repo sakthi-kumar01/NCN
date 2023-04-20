@@ -21,7 +21,7 @@ extension ModifyAvailableSubscriptionPresenter: ModifyAvailableSubscriptionPrese
     func viewLoaded(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int) {
         let request = ModifyAvailableSubscriptionRequest(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscriptionDayLimit: subscriptionDayLimit)
         modifyAvailableSubscription.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
         })
@@ -29,8 +29,8 @@ extension ModifyAvailableSubscriptionPresenter: ModifyAvailableSubscriptionPrese
 }
 
 extension ModifyAvailableSubscriptionPresenter {
-    func result(message: String) {
-        view?.load(message: message)
+    func result(response: String) {
+        view?.load(message: response)
     }
 
     func failed(loginError: String) {

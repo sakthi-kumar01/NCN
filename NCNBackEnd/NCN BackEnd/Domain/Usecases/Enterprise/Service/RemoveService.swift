@@ -41,14 +41,14 @@ public final class RemoveAvailableService: ZUsecase<RemoveAvailableServiceReques
 
     override public func run(request: RemoveAvailableServiceRequest, success: @escaping (RemoveAvailableServiceResponse) -> Void, failure: @escaping (RemoveAvailableServiceError) -> Void) {
         dataManager.removeAvailableService(serviceId: request.serviceId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: RemoveAvailableServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (RemoveAvailableServiceResponse) -> Void) {
-        let response = RemoveAvailableServiceResponse(response: message)
+    private func success(response: String, callback: @escaping (RemoveAvailableServiceResponse) -> Void) {
+        let response = RemoveAvailableServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

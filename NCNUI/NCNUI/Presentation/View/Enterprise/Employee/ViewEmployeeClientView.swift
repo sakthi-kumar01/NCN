@@ -33,8 +33,8 @@ class ViewEmployeeClientView: NSView {
 }
 
 extension ViewEmployeeClientView: ViewEmployeeClientViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
 
     func failed(error: String) {

@@ -30,7 +30,7 @@ extension DeleteQueryPresenter: DeleteQueryPresenterContract {
 }
 
 extension DeleteQueryPresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

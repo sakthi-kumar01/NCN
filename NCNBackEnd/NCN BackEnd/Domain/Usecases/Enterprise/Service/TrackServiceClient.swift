@@ -43,14 +43,14 @@ public final class ClientTrackService: ZUsecase<ClientTrackServiceRequest, Clien
 
     override public func run(request: ClientTrackServiceRequest, success: @escaping (ClientTrackServiceResponse) -> Void, failure: @escaping (ClientTrackServiceError) -> Void) {
         dataManager.ClientTrackService(id: request.id, subscriptionUsage: request.subscriptionUsage, userId: request.userId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ClientTrackServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (ClientTrackServiceResponse) -> Void) {
-        let response = ClientTrackServiceResponse(response: message)
+    private func success(response: String, callback: @escaping (ClientTrackServiceResponse) -> Void) {
+        let response = ClientTrackServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

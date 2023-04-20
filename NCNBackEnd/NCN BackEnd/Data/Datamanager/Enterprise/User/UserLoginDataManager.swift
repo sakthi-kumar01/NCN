@@ -13,12 +13,12 @@ public final class UserLoginDataManager {
         self.dataBase = dataBase
     }
 
-    private func success(message: User, callback: (User) -> Void) {
-        callback(message)
+    private func success(response: User, callback: (User) -> Void) {
+        callback(response)
     }
 
-    private func failure(message: String, callback: (String) -> Void) {
-        if message == "No Data" {
+    private func failure(response: String, callback: (String) -> Void) {
+        if response == "No Data" {
             let error = "User doesn't exist"
             callback(error)
         }
@@ -29,12 +29,12 @@ extension UserLoginDataManager: UserLoginDataContract {
     public func userLogin(userName: String, password: String, success: @escaping (User) -> Void, failure: @escaping (String) -> Void) {
         dataBase.userLogin(userName: userName, password: password, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         },
         failure: {
             [weak self] message in
 
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 }

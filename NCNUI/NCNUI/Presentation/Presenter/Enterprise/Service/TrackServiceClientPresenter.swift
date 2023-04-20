@@ -22,7 +22,7 @@ extension ClientTrackServicePresenter: ClientTrackServicePresenterContract {
     public func viewLoaded(id: Int, subscriptionUsage: Int, userId: Int) {
         let request = ClientTrackServiceRequest(userId: userId, id: id, subscriptionUsage: subscriptionUsage)
         ClientTrackService.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
         })
@@ -30,8 +30,8 @@ extension ClientTrackServicePresenter: ClientTrackServicePresenterContract {
 }
 
 extension ClientTrackServicePresenter {
-    func result(message: String) {
-        view?.load(message: message)
+    func result(response: String) {
+        view?.load(message: response)
     }
 
     func failed(loginError: String) {

@@ -46,14 +46,14 @@ public final class ModifyAvailableSubscription: ZUsecase<ModifyAvailableSubscrip
 
     override public func run(request: ModifyAvailableSubscriptionRequest, success: @escaping (ModifyAvailableSubscriptionResponse) -> Void, failure: @escaping (ModifyAvailableSubscriptionError) -> Void) {
         dataManager.modifyAvailableSubscription(subscriptionId: request.subscriptionId, subscriptionPackageType: request.subscriptionPackageType, subscriptionCountLimit: request.subscriptionCountLimit, subscriptionDayLimit: request.subscriptionDayLimit, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ModifyAvailableSubscriptionError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (ModifyAvailableSubscriptionResponse) -> Void) {
-        let response = ModifyAvailableSubscriptionResponse(response: message)
+    private func success(response: String, callback: @escaping (ModifyAvailableSubscriptionResponse) -> Void) {
+        let response = ModifyAvailableSubscriptionResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

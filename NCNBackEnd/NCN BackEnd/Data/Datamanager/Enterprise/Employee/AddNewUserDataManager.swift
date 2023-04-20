@@ -13,12 +13,12 @@ public class AddNewUserDataManager {
         self.dataBase = dataBase
     }
 
-    private func success(message: String, callback: (String) -> Void) {
-        callback(message)
+    private func success(response: String, callback: (String) -> Void) {
+        callback(response)
     }
 
-    private func failure(message: String, callback: (String) -> Void) {
-        if message == "No Data" {
+    private func failure(response: String, callback: (String) -> Void) {
+        if response == "No Data" {
             let error = "User already exist"
             callback(error)
         }
@@ -29,12 +29,12 @@ extension AddNewUserDataManager: AddNewUserDataContract {
     public func addNewUser(userName: String, password: String, email: String, mobileNumber: Int64, enterpriseId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         dataBase.addNewUser(userName: userName, password: password, email: email, mobilePhone: mobileNumber, enterpriseId: enterpriseId, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         },
         failure: {
             [weak self] message in
 
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 }

@@ -40,14 +40,14 @@ public final class UserLogin: ZUsecase<UserLoginRequest, UserLoginResponse, User
 
     override public func run(request: UserLoginRequest, success: @escaping (UserLoginResponse) -> Void, failure: @escaping (UserLoginError) -> Void) {
         dataManager.userLogin(userName: request.userName, password: request.password, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: UserLoginError(error: error), callback: failure)
         })
     }
 
-    private func success(message: User, callback: @escaping (UserLoginResponse) -> Void) {
-        let response = UserLoginResponse(response: message)
+    private func success(response: User, callback: @escaping (UserLoginResponse) -> Void) {
+        let response = UserLoginResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

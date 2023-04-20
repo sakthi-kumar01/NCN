@@ -277,7 +277,7 @@
 		432ADE8529BF124300E9C70F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				432ADE8C29BF132300E9C70F /* Contract */,
+				432ADE8C29BF132300E9C70F /* Presentation Contract */,
 				432ADE8929BF128700E9C70F /* Presenter */,
 				432ADE8629BF125600E9C70F /* View */,
 			);
@@ -300,12 +300,12 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		432ADE8C29BF132300E9C70F /* Contract */ = {
+		432ADE8C29BF132300E9C70F /* Presentation Contract */ = {
 			isa = PBXGroup;
 			children = (
 				436BAD1529F1238C00DE3820 /* Enterprise */,
 			);
-			path = Contract;
+			path = "Presentation Contract";
 			sourceTree = "<group>";
 		};
 		436BAD1529F1238C00DE3820 /* Enterprise */ = {

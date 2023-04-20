@@ -29,7 +29,7 @@ extension CreateQueryPresenter: CreateQueryPresenterContract {
 
 extension CreateQueryPresenter {
     func result(response: CreateQueryResponse) {
-        view?.load(message: response.response)
+        view?.load(response: response.response)
     }
 
     func failed(error: CreateQueryError) {

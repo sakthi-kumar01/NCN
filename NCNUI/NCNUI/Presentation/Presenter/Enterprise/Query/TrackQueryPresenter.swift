@@ -32,9 +32,9 @@ extension TrackQueryPresenter: TrackQueryPresenterContract {
 extension TrackQueryPresenter {
     func result(message: [Query]) {
         for query in message {
-            view?.load(message: String(query.queryId))
+            view?.load(response: String(query.queryId))
             view?.load(message: query.queryMessage)
-            view?.load(message: String(query.queryType.rawValue))
+            view?.load(response: String(query.queryType.rawValue))
             view?.load(message: query.querystatus.description)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"

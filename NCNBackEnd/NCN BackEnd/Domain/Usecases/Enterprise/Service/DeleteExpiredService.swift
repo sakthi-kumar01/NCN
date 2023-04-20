@@ -38,14 +38,14 @@ public final class DeleteExpiredService: ZUsecase<DeleteExpiredServiceRequest, D
 
     override public func run(request: DeleteExpiredServiceRequest, success: @escaping (DeleteExpiredServiceResponse) -> Void, failure: @escaping (DeleteExpiredServiceError) -> Void) {
         dataManager.deleteExpiredService( success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: DeleteExpiredServiceError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (DeleteExpiredServiceResponse) -> Void) {
-        let response = DeleteExpiredServiceResponse(response: message)
+    private func success(response: String, callback: @escaping (DeleteExpiredServiceResponse) -> Void) {
+        let response = DeleteExpiredServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

@@ -43,8 +43,8 @@ class CreateQueryView: NSView {
 }
 
 extension CreateQueryView: CreateQueryViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
 
     func failed(error: String) {

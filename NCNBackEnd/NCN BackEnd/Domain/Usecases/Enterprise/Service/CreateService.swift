@@ -43,15 +43,15 @@ public final class CreateAvailableService: ZUsecase<CreateAvailableServiceReques
     override public func run(request: CreateAvailableServiceRequest, success: @escaping (CreateAvailableServiceResponse) -> Void, failure: @escaping (CreateAvailableServiceError) -> Void) {
         datamanager.createAvalableServices(serviceId: request.serviceId, serviceTitle: request.serviceTitle, serviceDescritpion: request.serviceDescription, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(error: CreateAvailableServiceError(error: message), callback: failure)
         })
     }
 
-    private func success(message: AvailableService, callback: @escaping (CreateAvailableServiceResponse) -> Void) {
-        let response = CreateAvailableServiceResponse(response: message)
+    private func success(response: AvailableService, callback: @escaping (CreateAvailableServiceResponse) -> Void) {
+        let response = CreateAvailableServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

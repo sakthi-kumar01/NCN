@@ -33,7 +33,7 @@ class UserLoginView: NSView {
 }
 
 extension UserLoginView: UserLoginViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
 }

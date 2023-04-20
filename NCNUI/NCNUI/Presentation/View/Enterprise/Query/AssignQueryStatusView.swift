@@ -32,8 +32,8 @@ class AssignQueryStatusView: NSView {
 }
 
 extension AssignQueryStatusView: AssignQueryStatusViewContract {
-    func load(message: String) {
-        print(message)
+    func load(response: String) {
+        print(response)
     }
 
     func failed(error: String) {

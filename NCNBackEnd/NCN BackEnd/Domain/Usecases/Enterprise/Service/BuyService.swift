@@ -46,15 +46,15 @@ public final class BuyService: ZUsecase<BuyServiceRequest, BuyServiceResponse, B
     override public func run(request: BuyServiceRequest, success: @escaping (BuyServiceResponse) -> Void, failure: @escaping (BuyServiceError) -> Void) {
         datamanager.buyService(userId: request.userId, employeeId: request.employeeId, serviceId: request.serviceId, subscriptionId: request.subscriptionId, enterpriseId: request.enterpriseId, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(error: message, callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (BuyServiceResponse) -> Void) {
-        let response = BuyServiceResponse(response: message)
+    private func success(response: String, callback: @escaping (BuyServiceResponse) -> Void) {
+        let response = BuyServiceResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

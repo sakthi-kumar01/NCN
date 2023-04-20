@@ -49,15 +49,15 @@ public final class AddNewEmployee: ZUsecase<AddNewEmployeeRequest, AddNewEmploye
     override public func run(request: AddNewEmployeeRequest, success: @escaping (AddNewEmployeeResponse) -> Void, failure: @escaping (AddNewEmployeeError) -> Void) {
         datamanager.addNewEmployee(userName: request.userName, password: request.password, email: request.email, mobileNumber: request.mobileNumber, employeeType: request.employeeType, enterpriseId: request.enterpriseId, success: ({
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }), failure: {
             [weak self] message in
             self?.failure(error: message, callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (AddNewEmployeeResponse) -> Void) {
-        let response = AddNewEmployeeResponse(response: message)
+    private func success(response: String, callback: @escaping (AddNewEmployeeResponse) -> Void) {
+        let response = AddNewEmployeeResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

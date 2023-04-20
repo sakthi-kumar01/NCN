@@ -12,12 +12,12 @@ public class CreateQueryDatamanager {
         self.databaseService = databaseService
     }
 
-    private func success(message: String, callback: (String) -> Void) {
-        callback(message)
+    private func success(response: String, callback: (String) -> Void) {
+        callback(response)
     }
 
-    private func failure(message: String, callback: (String) -> Void) {
-        if message == "Query type doesn't exist" {
+    private func failure(response: String, callback: (String) -> Void) {
+        if response == "Query type doesn't exist" {
             let error = "wrong querytype is used"
             callback(error)
         }
@@ -28,21 +28,21 @@ extension CreateQueryDatamanager: CreateQueryDataContract {
     public func createQuery(queryId: Int, queryType: QueryType, queryMessage: String, queryDate: Date, userId: Int, employeeId: Int, enterpriseId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         databaseService.createQuery(queryId: queryId, queryType: queryType, queryMessage: queryMessage, queryDate: queryDate, userId: userId, employeeId: employeeId, enterpriseId: enterpriseId, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 }
 
 //
-// private func success(message: String, callback: (String) -> Void) {
-//    callback(message)
+// private func success(response: String, callback: (String) -> Void) {
+//    callback(response)
 // }
 //
-// private func failure(message: String, callback: (String) -> Void) {
-//    if message == "No avaialable service is found " {
+// private func failure(response: String, callback: (String) -> Void) {
+//    if response == "No avaialable service is found " {
 //        let error = "Sevice with this service id Doesn't exist"
 //        callback(error)
 //    }

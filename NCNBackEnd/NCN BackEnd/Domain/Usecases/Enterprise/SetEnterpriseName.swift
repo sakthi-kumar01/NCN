@@ -38,15 +38,15 @@ public final class SetEnterpriseName: ZUsecase<SetEnterpriseNameRequest, SetEnte
     override public func run(request: SetEnterpriseNameRequest, success: @escaping (SetEnterpriseNameResponse) -> Void, failure: @escaping (SetEnterpriseNameError) -> Void) {
         dataManager.setEnterpriseName(enterpriseName: request.enterpriseName, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(error: SetEnterpriseNameError(error: message), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (SetEnterpriseNameResponse) -> Void) {
-        let response = SetEnterpriseNameResponse(response: message)
+    private func success(response: String, callback: @escaping (SetEnterpriseNameResponse) -> Void) {
+        let response = SetEnterpriseNameResponse(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

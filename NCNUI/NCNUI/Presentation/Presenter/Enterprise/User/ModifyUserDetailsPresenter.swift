@@ -30,7 +30,7 @@ extension ModifyUserDetailsPresenter: ModifyUserDetailsPresenterContract {
 }
 
 extension ModifyUserDetailsPresenter {
-    func result(message: String) {
+    func result(response: String) {
         view?.load(message: message)
     }
 

@@ -18,7 +18,7 @@ public final class AssignQueryRequest: Request {
     }
 }
 
-public final class AssignQueryResponse: ZResponse {
+public final class AssignqueryMessage: ZResponse {
     public var response: String
     public init(response: String) {
         self.response = response
@@ -33,23 +33,23 @@ public final class AssignQueryError: ZError {
     }
 }
 
-public final class AssignQuery: ZUsecase<AssignQueryRequest, AssignQueryResponse, AssignQueryError> {
+public final class AssignQuery: ZUsecase<AssignQueryRequest, AssignqueryMessage, AssignQueryError> {
     var dataManager: AssignQueryDataContract
 
     public init(dataManager: AssignQueryDataContract) {
         self.dataManager = dataManager
     }
 
-    override public func run(request: AssignQueryRequest, success: @escaping (AssignQueryResponse) -> Void, failure: @escaping (AssignQueryError) -> Void) {
+    override public func run(request: AssignQueryRequest, success: @escaping (AssignqueryMessage) -> Void, failure: @escaping (AssignQueryError) -> Void) {
         dataManager.assignQuery(employeeId: request.employeeId, queryId: request.queryId, success: { [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: AssignQueryError(error: error), callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (AssignQueryResponse) -> Void) {
-        let response = AssignQueryResponse(response: message)
+    private func success(response: String, callback: @escaping (AssignqueryMessage) -> Void) {
+        let response = AssignqueryMessage(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 

@@ -39,7 +39,7 @@ class BuyServiceView: NSView {
 }
 
 extension BuyServiceView: BuyServiceViewContract {
-    func load(message: String) {
+    func load(response: String) {
         print(message)
     }
 

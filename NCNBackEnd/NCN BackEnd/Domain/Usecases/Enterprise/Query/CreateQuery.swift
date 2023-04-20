@@ -27,7 +27,7 @@ public final class CreateQueryRequest: Request {
     }
 }
 
-public final class CreateQueryResponse: ZResponse {
+public final class CreatequeryMessage: ZResponse {
     public var response: String
     public init(response: String) {
         self.response = response
@@ -42,30 +42,30 @@ public final class CreateQueryError: ZError {
     }
 }
 
-public final class CreateQuery: ZUsecase<CreateQueryRequest, CreateQueryResponse, CreateQueryError> {
+public final class CreateQuery: ZUsecase<CreateQueryRequest, CreatequeryMessage, CreateQueryError> {
     public var datamanger: CreateQueryDataContract
 
     public init(datamanger: CreateQueryDataContract) {
         self.datamanger = datamanger
     }
 
-    override public func run(request: CreateQueryRequest, success: @escaping (CreateQueryResponse) -> Void, failure: @escaping (CreateQueryError) -> Void) {
+    override public func run(request: CreateQueryRequest, success: @escaping (CreatequeryMessage) -> Void, failure: @escaping (CreateQueryError) -> Void) {
         datamanger.createQuery(queryId: request.queryId, queryType: request.queryType, queryMessage: request.queryMessage, queryDate: request.queryDate, userId: request.userId, employeeId: request.employeeId, enterpriseId: request.enterpriseId, success: {
             [weak self] message in
-            self?.success(message: message, callback: success)
+            self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
-            self?.failure(message: message, callback: failure)
+            self?.failure(response: message, callback: failure)
         })
     }
 
-    private func success(message: String, callback: @escaping (CreateQueryResponse) -> Void) {
-        let response = CreateQueryResponse(response: message)
+    private func success(response: String, callback: @escaping (CreatequeryMessage) -> Void) {
+        let response = CreatequeryMessage(response: response)
         invokeSuccess(callback: callback, response: response)
     }
 
-    private func failure(message: String, callback: @escaping (CreateQueryError) -> Void) {
-        let error = CreateQueryError(error: message)
+    private func failure(response: String, callback: @escaping (CreateQueryError) -> Void) {
+        let error = CreateQueryError(error: response)
         invokeFailure(callback: callback, failure: error)
     }
 }
