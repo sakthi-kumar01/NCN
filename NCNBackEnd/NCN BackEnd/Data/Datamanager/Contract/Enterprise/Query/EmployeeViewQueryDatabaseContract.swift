@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol ViewEmployeeQueryDatabaseContract {
-    func ViewEmployeeQuery(employeeId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void)
+    func viewEmployeeQuery(employeeId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void)
 }

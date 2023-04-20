@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol ViewUserQueryDatabaseContract {
-    func ViewUserQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void)
+    func viewUserQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void)
 }
