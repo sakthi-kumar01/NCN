@@ -180,20 +180,20 @@ class Assembler {
         return view
     }
     
-    static func getEmployeeViewClient(employeeId: Int) -> EmployeeViewClientView{
-        let usecase = getEmployeeViewClientUsecase()
-        let presenter = EmployeeViewClientPresenter(employeeViewClient: usecase)
-        let view = EmployeeViewClientView(employeeId: employeeId, presenter: presenter)
+    static func getViewEmployeeClient(employeeId: Int) -> ViewEmployeeClientView{
+        let usecase = getViewEmployeeClientUsecase()
+        let presenter = ViewEmployeeClientPresenter(ViewEmployeeClient: usecase)
+        let view = ViewEmployeeClientView(employeeId: employeeId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         
         return view
     }
     
-    static func getAdminViewClient(employeeId: Int) -> AdminViewClientView{
-        let usecase = getAdminViewClientUsecase()
-        let presenter = AdminViewClientPresenter(adminViewClient: usecase)
-        let view = AdminViewClientView(employeeId: employeeId, presenter: presenter)
+    static func getViewAdminClient(employeeId: Int) -> ViewAdminClientView{
+        let usecase = getViewAdminClientUsecase()
+        let presenter = ViewAdminClientPresenter(ViewAdminClient: usecase)
+        let view = ViewAdminClientView(employeeId: employeeId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         
@@ -267,10 +267,10 @@ class Assembler {
         return view
     }
     
-    static func getTrackClientServiceView(id: Int, subscriptionUsage:Int, userId: Int) -> TrackClientServiceView{
-        let usecase = getTrackClientServiceStatus()
-        let presenter = TrackClientServicePresenter(trackClientService: usecase)
-        let view = TrackClientServiceView(id: id, subscriptionUsage: subscriptionUsage, userId: userId, presenter: presenter)
+    static func getClientTrackServiceView(id: Int, subscriptionUsage:Int, userId: Int) -> ClientTrackServiceView{
+        let usecase = getClientTrackServiceStatus()
+        let presenter = ClientTrackServicePresenter(ClientTrackService: usecase)
+        let view = ClientTrackServiceView(id: id, subscriptionUsage: subscriptionUsage, userId: userId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
         return view
@@ -338,10 +338,10 @@ class Assembler {
         return usecase
     }
     
-    private static func getTrackClientServiceStatus()-> TrackClientService {
-        let database = TrackClientServiceDatabaseService()
-        let datamanager = TrackClientServiceDataManager(databaseService: database)
-        let usecase = TrackClientService(dataManager: datamanager)
+    private static func getClientTrackServiceStatus()-> ClientTrackService {
+        let database = ClientTrackServiceDatabaseService()
+        let datamanager = ClientTrackServiceDataManager(databaseService: database)
+        let usecase = ClientTrackService(dataManager: datamanager)
         return usecase
     }
     
@@ -391,17 +391,17 @@ class Assembler {
         return usecase
     }
     
-    private static func getAdminViewClientUsecase() -> AdminViewClient{
-        let database = AdminViewClientDatabaseService()
-        let datamanager = AdminViewClientDataManager(databaseService: database)
-        let usecase = AdminViewClient(dataManager: datamanager)
+    private static func getViewAdminClientUsecase() -> ViewAdminClient{
+        let database = ViewAdminClientDatabaseService()
+        let datamanager = ViewAdminClientDataManager(databaseService: database)
+        let usecase = ViewAdminClient(dataManager: datamanager)
         return usecase
     }
     
-    private static func getEmployeeViewClientUsecase() -> EmployeeViewClient{
-        let database = EmployeeViewClientDatabaseService()
-        let datamanager = EmployeeViewClientDataManager(databaseService: database)
-        let usecase = EmployeeViewClient(dataManager: datamanager)
+    private static func getViewEmployeeClientUsecase() -> ViewEmployeeClient{
+        let database = ViewEmployeeClientDatabaseService()
+        let datamanager = ViewEmployeeClientDataManager(databaseService: database)
+        let usecase = ViewEmployeeClient(dataManager: datamanager)
         return usecase
     }
     

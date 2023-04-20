@@ -7,9 +7,9 @@
 
 import Foundation
 public class AddNewUserDataManager {
-    public var dataBase: AddNewUserDatabaseContract
+    public var dataBase: AddNewUserDatabaseServiceContract
 
-    public init(dataBase: AddNewUserDatabaseContract) {
+    public init(dataBase: AddNewUserDatabaseServiceContract) {
         self.dataBase = dataBase
     }
 

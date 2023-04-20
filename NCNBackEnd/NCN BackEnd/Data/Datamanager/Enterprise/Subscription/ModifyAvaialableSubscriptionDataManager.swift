@@ -7,9 +7,9 @@
 
 import Foundation
 public class ModifyAvailableSubscriptionDataManager {
-    public var databaseService: ModifyAvailableSubscriptionDatabaseContract
+    public var databaseService: ModifyAvailableSubscriptionDatabaseServiceContract
 
-    public init(databaseService: ModifyAvailableSubscriptionDatabaseContract) {
+    public init(databaseService: ModifyAvailableSubscriptionDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

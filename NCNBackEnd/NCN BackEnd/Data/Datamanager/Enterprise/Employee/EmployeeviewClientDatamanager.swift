@@ -1,15 +1,15 @@
 //
-//  EmployeeviewClientDatamanager.swift
+//  ViewEmployeeClientDatamanager.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 31/03/23.
 //
 
 import Foundation
-public class EmployeeViewClientDataManager {
-    public var databaseService: EmployeeViewClientDatabaseContract
+public class ViewEmployeeClientDataManager {
+    public var databaseService: ViewEmployeeClientDatabaseServiceContract
 
-    public init(databaseService: EmployeeViewClientDatabaseContract) {
+    public init(databaseService: ViewEmployeeClientDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 
@@ -25,9 +25,9 @@ public class EmployeeViewClientDataManager {
     }
 }
 
-extension EmployeeViewClientDataManager: EmployeeViewClientDataContract {
-    public func employeeViewClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.employeeViewClient(employeeId: employeeId, success: {
+extension ViewEmployeeClientDataManager: ViewEmployeeClientDataContract {
+    public func ViewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.ViewEmployeeClient(employeeId: employeeId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

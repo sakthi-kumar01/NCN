@@ -1,5 +1,5 @@
 //
-//  TrackServiceClientDatamanager.swift
+//  ClientTrackServiceDatamanager.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 31/03/23.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class TrackClientServiceDataManager {
-    public var databaseService: TrackClientServiceDatabaseContract
+public class ClientTrackServiceDataManager {
+    public var databaseService: ClientTrackServiceDatabaseServiceContract
 
-    public init(databaseService: TrackClientServiceDatabaseContract) {
+    public init(databaseService: ClientTrackServiceDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 
@@ -26,9 +26,9 @@ public class TrackClientServiceDataManager {
     }
 }
 
-extension TrackClientServiceDataManager: TrackClientServiceDataContract {
-    public func trackClientService(id: Int, subscriptionUsage: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.trackClientService(id: id, subscriptionUsage: subscriptionUsage, userId: userId, success: {
+extension ClientTrackServiceDataManager: ClientTrackServiceDataContract {
+    public func ClientTrackService(id: Int, subscriptionUsage: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.ClientTrackService(id: id, subscriptionUsage: subscriptionUsage, userId: userId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

@@ -8,9 +8,9 @@
 import Foundation
 
 public class ViewUserQueryDataManager {
-    public var databaseService: ViewUserQueryDatabaseContract
+    public var databaseService: ViewUserQueryDatabaseServiceContract
 
-    public init(databaseService: ViewUserQueryDatabaseContract) {
+    public init(databaseService: ViewUserQueryDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 
@@ -27,15 +27,17 @@ public class ViewUserQueryDataManager {
 }
 
 extension ViewUserQueryDataManager: ViewUserQueryDataContract {
-    public func ViewUserQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.ViewUserQuery(userId: userId, success: {
+    public func viewUserQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.viewUserQuery(userId: userId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(message: message, callback: failure)
         })
-        
     }
+    
+    
+    
     
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 public class CreateQueryDatamanager {
-    var databaseService: CreateQueryDatabaseContract
-    public init(databaseService: CreateQueryDatabaseContract) {
+    var databaseService: CreateQueryDatabaseServiceContract
+    public init(databaseService: CreateQueryDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

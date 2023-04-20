@@ -7,9 +7,9 @@
 
 import Foundation
 public class RemoveSubscriptionDataManager {
-    public var databaseService: RemoveSubscriptionDatabaseContract
+    public var databaseService: RemoveSubscriptionDatabaseServiceContract
 
-    public init(databaseService: RemoveSubscriptionDatabaseContract) {
+    public init(databaseService: RemoveSubscriptionDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

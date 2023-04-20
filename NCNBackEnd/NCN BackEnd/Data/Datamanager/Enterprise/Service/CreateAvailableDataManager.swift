@@ -7,9 +7,9 @@
 
 import Foundation
 public class CreateAvaialableServicesDataManager {
-    var database: CreateAvailableServicesDatabaseContract
+    var database: CreateAvailableServicesDatabaseServiceContract
 
-    public init(database: CreateAvailableServicesDatabaseContract) {
+    public init(database: CreateAvailableServicesDatabaseServiceContract) {
         self.database = database
     }
 

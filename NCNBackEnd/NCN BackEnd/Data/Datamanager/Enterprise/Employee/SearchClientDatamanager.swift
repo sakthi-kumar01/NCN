@@ -7,9 +7,9 @@
 
 import Foundation
 public class SearchClientDataManager {
-    public var databaseService: SearchClientDatabaseContract
+    public var databaseService: SearchClientDatabaseServiceContract
 
-    public init(databaseService: SearchClientDatabaseContract) {
+    public init(databaseService: SearchClientDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

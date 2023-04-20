@@ -7,9 +7,9 @@
 
 import Foundation
 public class BuyServiceDataManager {
-    public var databaseService: BuyServiceDatabaseContract
+    public var databaseService: BuyServiceDatabaseServiceContract
 
-    public init(databaseService: BuyServiceDatabaseContract) {
+    public init(databaseService: BuyServiceDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

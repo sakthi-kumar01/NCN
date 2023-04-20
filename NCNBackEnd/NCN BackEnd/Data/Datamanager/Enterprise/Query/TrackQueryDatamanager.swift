@@ -8,9 +8,9 @@
 import Foundation
 import VTComponents
 public class TrackQueryDataManager {
-    public var databaseService: TrackQueryDatabaseContract
+    public var databaseService: TrackQueryDatabaseServiceContract
 
-    public init(databaseService: TrackQueryDatabaseContract) {
+    public init(databaseService: TrackQueryDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

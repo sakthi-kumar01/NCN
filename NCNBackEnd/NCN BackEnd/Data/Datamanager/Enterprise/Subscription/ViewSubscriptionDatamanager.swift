@@ -7,8 +7,8 @@
 
 import Foundation
 public class ViewSubscriptionDatamanager {
-    var databaseService: ViewSubscriptionDatabaseContract
-    public init(databaseService: ViewSubscriptionDatabaseContract) {
+    var databaseService: ViewSubscriptionDatabaseServiceContract
+    public init(databaseService: ViewSubscriptionDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

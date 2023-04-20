@@ -8,9 +8,9 @@
 import Foundation
 import VTComponents
 public class SearchEmployeeDataManager {
-    public var databaseService: SearchEmployeeDatabaseContract
+    public var databaseService: SearchEmployeeDatabaseServiceContract
 
-    public init(databaseService: SearchEmployeeDatabaseContract) {
+    public init(databaseService: SearchEmployeeDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

@@ -1,5 +1,5 @@
 //
-//  EmployeeViewClientDatabaseContract.swift
+//  ViewEmployeeClientDatabaseServiceContract.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 31/03/23.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol EmployeeViewClientDatabaseContract {
-    func employeeViewClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
+public protocol ViewEmployeeClientDatabaseServiceContract {
+    func ViewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
 }

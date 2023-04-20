@@ -7,9 +7,9 @@
 
 import Foundation
 public class SetEnterpriseNameDataManager {
-    var database: SetEnterpriseDatabaseContract
+    var database: SetEnterpriseDatabaseServiceContract
 
-    public init(database: SetEnterpriseDatabaseContract) {
+    public init(database: SetEnterpriseDatabaseServiceContract) {
         self.database = database
     }
 

@@ -8,9 +8,9 @@
 import Foundation
 
 public class DeleteQueryDataManager {
-    public var databaseService: DeleteQueryDatabaseContract
+    public var databaseService: DeleteQueryDatabaseServiceContract
 
-    public init(databaseService: DeleteQueryDatabaseContract) {
+    public init(databaseService: DeleteQueryDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

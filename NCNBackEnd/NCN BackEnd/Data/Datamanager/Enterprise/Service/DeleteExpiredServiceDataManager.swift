@@ -7,9 +7,9 @@
 
 import Foundation
 public class DeleteExpiredServiceDataManager {
-    public var databaseService: DeleteExpiredServiceDatabaseContract
+    public var databaseService: DeleteExpiredServiceDatabaseServiceContract
 
-    public init(databaseService: DeleteExpiredServiceDatabaseContract) {
+    public init(databaseService: DeleteExpiredServiceDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

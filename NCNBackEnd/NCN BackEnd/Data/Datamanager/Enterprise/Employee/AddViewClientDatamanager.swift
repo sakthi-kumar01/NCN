@@ -6,10 +6,10 @@
 //
 
 import Foundation
-public class AdminViewClientDataManager {
-    public var databaseService: AdminViewClientDatabaseContract
+public class ViewAdminClientDataManager {
+    public var databaseService: ViewAdminClientDatabaseServiceContract
 
-    public init(databaseService: AdminViewClientDatabaseContract) {
+    public init(databaseService: ViewAdminClientDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 
@@ -25,9 +25,9 @@ public class AdminViewClientDataManager {
     }
 }
 
-extension AdminViewClientDataManager: AdminViewClientDataContract {
-    public func adminViewClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.adminViewClient(employeeId: employeeId, success: {
+extension ViewAdminClientDataManager: ViewAdminClientDataContract {
+    public func ViewAdminClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.ViewAdminClient(employeeId: employeeId, success: {
             [weak self] message in
             self?.success(message: message, callback: success)
         }, failure: {

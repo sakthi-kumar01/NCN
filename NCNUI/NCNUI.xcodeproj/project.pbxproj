@@ -82,6 +82,8 @@
 		432ADE8829BF126700E9C70F /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432ADE8729BF126700E9C70F /* UserLoginView.swift */; };
 		432ADE8B29BF12C000E9C70F /* UserLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432ADE8A29BF12C000E9C70F /* UserLoginPresenter.swift */; };
 		432ADE8E29BF134700E9C70F /* UserLoginPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */; };
+		436BAD0C29F11F5500DE3820 /* ViewEmployeeClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD0B29F11F5500DE3820 /* ViewEmployeeClientView.swift */; };
+		436BAD0E29F11FB000DE3820 /* ViewAdminClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD0D29F11FB000DE3820 /* ViewAdminClientView.swift */; };
 		438386CD29C9A45B00EAE655 /* CreateAvailableServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386CC29C9A45B00EAE655 /* CreateAvailableServiceView.swift */; };
 		438386CF29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386CE29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift */; };
 		438386D129C9C82800EAE655 /* CreateAvailableServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */; };
@@ -90,7 +92,6 @@
 		438386FE29CC50B500EAE655 /* ViewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386FD29CC50B500EAE655 /* ViewServiceView.swift */; };
 		4383D4F429D5C7D100938DAB /* AdminViewClientPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D4F329D5C7D100938DAB /* AdminViewClientPresentationContract.swift */; };
 		4383D4F629D5C8CC00938DAB /* AdminViewClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */; };
-		4383D50929D6BEE900938DAB /* AdminViewClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D50829D6BEE900938DAB /* AdminViewClientView.swift */; };
 		4383D50F29D6D28700938DAB /* SerachClientPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D50E29D6D28700938DAB /* SerachClientPresentationContract.swift */; };
 		4383D51129D6D45D00938DAB /* SearchClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */; };
 		4383D51329D6D51100938DAB /* SearchClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D51229D6D51100938DAB /* SearchClientView.swift */; };
@@ -102,7 +103,6 @@
 		4383D53129D6E0AE00938DAB /* TrackQueryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53029D6E0AE00938DAB /* TrackQueryView.swift */; };
 		4383D53529D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53429D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift */; };
 		4383D53729D6E40B00938DAB /* EmployeeViewClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */; };
-		4383D53929D6E43E00938DAB /* EmployeeViewClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53829D6E43E00938DAB /* EmployeeViewClientView.swift */; };
 		4383D54329D6E6A200938DAB /* TrackServicePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D54229D6E6A200938DAB /* TrackServicePresentationContract.swift */; };
 		4383D54529D6E8FE00938DAB /* TrackServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */; };
 		4383D54729D6EA0200938DAB /* TrackServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D54629D6EA0200938DAB /* TrackServiceView.swift */; };
@@ -191,6 +191,8 @@
 		432ADE8729BF126700E9C70F /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 		432ADE8A29BF12C000E9C70F /* UserLoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginPresenter.swift; sourceTree = "<group>"; };
 		432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginPresentationContract.swift; sourceTree = "<group>"; };
+		436BAD0B29F11F5500DE3820 /* ViewEmployeeClientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEmployeeClientView.swift; sourceTree = "<group>"; };
+		436BAD0D29F11FB000DE3820 /* ViewAdminClientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAdminClientView.swift; sourceTree = "<group>"; };
 		438386CC29C9A45B00EAE655 /* CreateAvailableServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailableServiceView.swift; sourceTree = "<group>"; };
 		438386CE29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailabaleServicePresentationContract.swift; sourceTree = "<group>"; };
 		438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailableServicesPresenter.swift; sourceTree = "<group>"; };
@@ -199,7 +201,6 @@
 		438386FD29CC50B500EAE655 /* ViewServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewServiceView.swift; sourceTree = "<group>"; };
 		4383D4F329D5C7D100938DAB /* AdminViewClientPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewClientPresentationContract.swift; sourceTree = "<group>"; };
 		4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewClientPresenter.swift; sourceTree = "<group>"; };
-		4383D50829D6BEE900938DAB /* AdminViewClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewClientView.swift; sourceTree = "<group>"; };
 		4383D50E29D6D28700938DAB /* SerachClientPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerachClientPresentationContract.swift; sourceTree = "<group>"; };
 		4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClientPresenter.swift; sourceTree = "<group>"; };
 		4383D51229D6D51100938DAB /* SearchClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClientView.swift; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		4383D53029D6E0AE00938DAB /* TrackQueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackQueryView.swift; sourceTree = "<group>"; };
 		4383D53429D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewClientPresentationContract.swift; sourceTree = "<group>"; };
 		4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewClientPresenter.swift; sourceTree = "<group>"; };
-		4383D53829D6E43E00938DAB /* EmployeeViewClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewClientView.swift; sourceTree = "<group>"; };
 		4383D54229D6E6A200938DAB /* TrackServicePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackServicePresentationContract.swift; sourceTree = "<group>"; };
 		4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackServicePresenter.swift; sourceTree = "<group>"; };
 		4383D54629D6EA0200938DAB /* TrackServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackServiceView.swift; sourceTree = "<group>"; };
@@ -287,38 +287,7 @@
 		432ADE8629BF125600E9C70F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				432ADE8729BF126700E9C70F /* UserLoginView.swift */,
-				43217ED129E80AA4002AD70C /* SetEnterpriseView.swift */,
-				438386CC29C9A45B00EAE655 /* CreateAvailableServiceView.swift */,
-				438386FD29CC50B500EAE655 /* ViewServiceView.swift */,
-				432905F729D1FAB0002EC379 /* ViewSubscriptionView.swift */,
-				432905A029CD8E05002EC379 /* AddNewUserview.swift */,
-				432905B829CDDA15002EC379 /* AddNewEmployeeView.swift */,
-				432905E729D19054002EC379 /* CreateAvaialableSubscriptionView.swift */,
-				4329060A29D2D5CE002EC379 /* CreateQueryView.swift */,
-				4383D51229D6D51100938DAB /* SearchClientView.swift */,
-				431EA66529D41F20004900B0 /* BuyServiceView.swift */,
-				4383D50829D6BEE900938DAB /* AdminViewClientView.swift */,
-				4383D53829D6E43E00938DAB /* EmployeeViewClientView.swift */,
-				4383D51E29D6DA8A00938DAB /* SearchEmployeeView.swift */,
-				4383D53029D6E0AE00938DAB /* TrackQueryView.swift */,
-				4383D54629D6EA0200938DAB /* TrackServiceView.swift */,
-				4383D55629D6EE6E00938DAB /* TrackServiceClientView.swift */,
-				43023A6929E2418900FC62BE /* AssignQueryView.swift */,
-				43023A6729E1EDA600FC62BE /* AssignQueryStatusView.swift */,
-				43023A7929E2F00200FC62BE /* ModifyAvaialableServiceView.swift */,
-				43023A8D29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift */,
-				43023A9B29E3307200FC62BE /* ViewExpiredServiceView.swift */,
-				43023AA929E33BA400FC62BE /* ModifyEmployeeDetailsView.swift */,
-				43023ABA29E3976500FC62BE /* ModifyUserDetailsView.swift */,
-				43023AC829E3AEB000FC62BE /* DeleteExpiredServiceView.swift */,
-				43023AD829E3D48500FC62BE /* UserViewQueryView.swift */,
-				43023AE629E3E14800FC62BE /* EmployeeViewQueryView.swift */,
-				43023AF429E3F2EA00FC62BE /* DeleteQueryView.swift */,
-				43023B0829E4146600FC62BE /* RemoveEmployeeView.swift */,
-				43023B1429E4172800FC62BE /* RemoveUserView.swift */,
-				43023B2429E42CDA00FC62BE /* RemoveServiceView.swift */,
-				43023B3229E6556E00FC62BE /* RemoveSubscriptionView.swift */,
+				436BAD2229F1260B00DE3820 /* Enterprise */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,38 +295,7 @@
 		432ADE8929BF128700E9C70F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				432ADE8A29BF12C000E9C70F /* UserLoginPresenter.swift */,
-				4315EB5729E7F17900860BF3 /* SetEnterprisePresenter.swift */,
-				438386FB29CC4F0400EAE655 /* ViewServicePresenter.swift */,
-				432905F529D1F802002EC379 /* ViewSubscriptionPresenter.swift */,
-				432905A229CD8EDE002EC379 /* AddNewUserPresenter.swift */,
-				432905B429CDD791002EC379 /* AddNewEmployeePresnter.swift */,
-				438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */,
-				432905E529D18ED1002EC379 /* CreateAvaialableSubscriptionPresenter.swift */,
-				4329060829D2D345002EC379 /* CreateQueryPresenter.swift */,
-				4329061829D41969002EC379 /* BuyServicePresenter.swift */,
-				4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */,
-				4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */,
-				4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */,
-				4383D52029D6DABE00938DAB /* SearchEmployeePresenter.swift */,
-				4383D52C29D6DF3700938DAB /* TrackQueryPresenter.swift */,
-				4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */,
-				4383D55429D6EDD100938DAB /* TrackServiceClientPresenter.swift */,
-				43023A5329E1E5F700FC62BE /* AssignQueryPresenter.swift */,
-				43023A6329E1EC5C00FC62BE /* AssignQueryStatusPresenter.swift */,
-				43023A7729E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift */,
-				43023A8929E3084800FC62BE /* ModifyAvaialableSubscriptionPresenter.swift */,
-				43023A9929E32F0300FC62BE /* ViewExpiredServicePresenter.swift */,
-				43023AA729E3392C00FC62BE /* ModifyEmployeeDetaisPresenter.swift */,
-				43023AB829E396D700FC62BE /* ModifyUserDetailsPresenter.swift */,
-				43023AC629E3AE1600FC62BE /* DeleteExpiredServicePresenter.swift */,
-				43023AD629E3D36E00FC62BE /* UserViewQueryPresenter.swift */,
-				43023AE429E3E0F700FC62BE /* EmployeeViewQueryPresenter.swift */,
-				43023AF229E3F2A800FC62BE /* DeleteQueryPresenter.swift */,
-				43023B0229E40F4F00FC62BE /* RemoveEmployeePresenter.swift */,
-				43023B1229E416C300FC62BE /* RemoveUserPresenter.swift */,
-				43023B2229E42C6F00FC62BE /* RemoveServicePresenter.swift */,
-				43023B3029E6547B00FC62BE /* RemoveSubscriptionPresenter.swift */,
+				436BAD1C29F124D200DE3820 /* Enterprise */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -365,41 +303,247 @@
 		432ADE8C29BF132300E9C70F /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */,
-				4315EB5929E7F19D00860BF3 /* SetEnterprisePresentationContract.swift */,
-				438386CE29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift */,
-				432905E129D18E10002EC379 /* CreateAvaialableSubscriptionPresentationContract.swift */,
-				438386F929CC4CC600EAE655 /* ViewServicePresentationContract.swift */,
-				4329059E29CD85FA002EC379 /* AddNewUserPresentationContract.swift */,
-				432905B229CDD6C7002EC379 /* AddNewEmployeePresentationContract.swift */,
-				432905F329D1F682002EC379 /* ViewSubscriptionPresentationContract.swift */,
-				4329060629D2D1ED002EC379 /* CreateQueryPresentationContract.swift */,
-				4329061629D417F0002EC379 /* BuyServicePresentationContract.swift */,
-				4383D4F329D5C7D100938DAB /* AdminViewClientPresentationContract.swift */,
-				4383D50E29D6D28700938DAB /* SerachClientPresentationContract.swift */,
-				4383D53429D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift */,
-				4383D51C29D6DA3400938DAB /* SearchEmployeePresentationContract.swift */,
-				4383D52A29D6DF0900938DAB /* TrackQueryPresentationContract.swift */,
-				4383D54229D6E6A200938DAB /* TrackServicePresentationContract.swift */,
-				4383D55029D6ED5700938DAB /* TrackServiceClientPresentationContract.swift */,
-				43023A5129E1E57700FC62BE /* AssignQueryPresentationContract.swift */,
-				43023A6129E1EC2A00FC62BE /* AssignQueryStatusPresentationContract.swift */,
-				43023A7529E2EE9200FC62BE /* ModifyAvaialableServicePresentationContract.swift */,
-				43023A8729E3081400FC62BE /* ModifyAvaialableSubscriptionPresentationContract.swift */,
-				43023A9729E32EB200FC62BE /* ViewExpiredServicePresentationContract.swift */,
-				43023AA529E338C100FC62BE /* ModifyEmployeeDetailsPresentationContract.swift */,
-				4315EB5529E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift */,
-				43023AB629E396AA00FC62BE /* ModifyUserDetailsPresentationcontract.swift */,
-				43023AC429E3ADE700FC62BE /* DeleteExpiredServicePresentationContract.swift */,
-				43023AD429E3D34300FC62BE /* UserViewQueryPresentationContract.swift */,
-				43023AE229E3E0B500FC62BE /* EmployeeViewQueryPresentationContract.swift */,
-				43023AF029E3F28D00FC62BE /* DeleteQueryPresentationContract.swift */,
-				43023B0029E40F2600FC62BE /* RemoveEmployeePresentationContract.swift */,
-				43023B1029E4169C00FC62BE /* RemoveUserPresentationContract.swift */,
-				43023B2029E42BE500FC62BE /* RemoveServicePresentationContract.swift */,
-				43023B2E29E6543100FC62BE /* RemoveSubscriptionPresentaitonContract.swift */,
+				436BAD1529F1238C00DE3820 /* Enterprise */,
 			);
 			path = Contract;
+			sourceTree = "<group>";
+		};
+		436BAD1529F1238C00DE3820 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				4315EB5929E7F19D00860BF3 /* SetEnterprisePresentationContract.swift */,
+				4315EB5529E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift */,
+				436BAD1B29F123E700DE3820 /* Query */,
+				436BAD1A29F123B800DE3820 /* Subscription */,
+				436BAD1929F123B000DE3820 /* Service */,
+				436BAD1829F123A900DE3820 /* Employee */,
+				436BAD1729F123A300DE3820 /* User */,
+			);
+			path = Enterprise;
+			sourceTree = "<group>";
+		};
+		436BAD1729F123A300DE3820 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				43023B1029E4169C00FC62BE /* RemoveUserPresentationContract.swift */,
+				43023AD429E3D34300FC62BE /* UserViewQueryPresentationContract.swift */,
+				43023AB629E396AA00FC62BE /* ModifyUserDetailsPresentationcontract.swift */,
+				4329059E29CD85FA002EC379 /* AddNewUserPresentationContract.swift */,
+				432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		436BAD1829F123A900DE3820 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				4383D50E29D6D28700938DAB /* SerachClientPresentationContract.swift */,
+				432905B229CDD6C7002EC379 /* AddNewEmployeePresentationContract.swift */,
+				4383D4F329D5C7D100938DAB /* AdminViewClientPresentationContract.swift */,
+				4383D53429D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift */,
+				4383D51C29D6DA3400938DAB /* SearchEmployeePresentationContract.swift */,
+				43023AA529E338C100FC62BE /* ModifyEmployeeDetailsPresentationContract.swift */,
+				43023B0029E40F2600FC62BE /* RemoveEmployeePresentationContract.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		436BAD1929F123B000DE3820 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				43023A9729E32EB200FC62BE /* ViewExpiredServicePresentationContract.swift */,
+				43023A7529E2EE9200FC62BE /* ModifyAvaialableServicePresentationContract.swift */,
+				4383D55029D6ED5700938DAB /* TrackServiceClientPresentationContract.swift */,
+				4383D54229D6E6A200938DAB /* TrackServicePresentationContract.swift */,
+				438386CE29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift */,
+				438386F929CC4CC600EAE655 /* ViewServicePresentationContract.swift */,
+				4329061629D417F0002EC379 /* BuyServicePresentationContract.swift */,
+				43023AC429E3ADE700FC62BE /* DeleteExpiredServicePresentationContract.swift */,
+				43023B2029E42BE500FC62BE /* RemoveServicePresentationContract.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		436BAD1A29F123B800DE3820 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				43023B2E29E6543100FC62BE /* RemoveSubscriptionPresentaitonContract.swift */,
+				432905E129D18E10002EC379 /* CreateAvaialableSubscriptionPresentationContract.swift */,
+				432905F329D1F682002EC379 /* ViewSubscriptionPresentationContract.swift */,
+				43023A8729E3081400FC62BE /* ModifyAvaialableSubscriptionPresentationContract.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		436BAD1B29F123E700DE3820 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				43023AE229E3E0B500FC62BE /* EmployeeViewQueryPresentationContract.swift */,
+				43023AF029E3F28D00FC62BE /* DeleteQueryPresentationContract.swift */,
+				4329060629D2D1ED002EC379 /* CreateQueryPresentationContract.swift */,
+				4383D52A29D6DF0900938DAB /* TrackQueryPresentationContract.swift */,
+				43023A5129E1E57700FC62BE /* AssignQueryPresentationContract.swift */,
+				43023A6129E1EC2A00FC62BE /* AssignQueryStatusPresentationContract.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		436BAD1C29F124D200DE3820 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				432ADE8A29BF12C000E9C70F /* UserLoginPresenter.swift */,
+				4315EB5729E7F17900860BF3 /* SetEnterprisePresenter.swift */,
+				436BAD2129F1251000DE3820 /* Subscription */,
+				436BAD2029F1250A00DE3820 /* Service */,
+				436BAD1F29F1250200DE3820 /* Query */,
+				436BAD1E29F124F000DE3820 /* Employee */,
+				436BAD1D29F124DC00DE3820 /* User */,
+			);
+			path = Enterprise;
+			sourceTree = "<group>";
+		};
+		436BAD1D29F124DC00DE3820 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				43023B1229E416C300FC62BE /* RemoveUserPresenter.swift */,
+				43023AB829E396D700FC62BE /* ModifyUserDetailsPresenter.swift */,
+				43023AD629E3D36E00FC62BE /* UserViewQueryPresenter.swift */,
+				432905A229CD8EDE002EC379 /* AddNewUserPresenter.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		436BAD1E29F124F000DE3820 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				432905B429CDD791002EC379 /* AddNewEmployeePresnter.swift */,
+				4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */,
+				4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */,
+				4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */,
+				4383D52029D6DABE00938DAB /* SearchEmployeePresenter.swift */,
+				43023AA729E3392C00FC62BE /* ModifyEmployeeDetaisPresenter.swift */,
+				43023AE429E3E0F700FC62BE /* EmployeeViewQueryPresenter.swift */,
+				43023B0229E40F4F00FC62BE /* RemoveEmployeePresenter.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		436BAD1F29F1250200DE3820 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				4329060829D2D345002EC379 /* CreateQueryPresenter.swift */,
+				4383D52C29D6DF3700938DAB /* TrackQueryPresenter.swift */,
+				43023A5329E1E5F700FC62BE /* AssignQueryPresenter.swift */,
+				43023A6329E1EC5C00FC62BE /* AssignQueryStatusPresenter.swift */,
+				43023AF229E3F2A800FC62BE /* DeleteQueryPresenter.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		436BAD2029F1250A00DE3820 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4383D55429D6EDD100938DAB /* TrackServiceClientPresenter.swift */,
+				4329061829D41969002EC379 /* BuyServicePresenter.swift */,
+				438386FB29CC4F0400EAE655 /* ViewServicePresenter.swift */,
+				438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */,
+				4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */,
+				43023A7729E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift */,
+				43023A9929E32F0300FC62BE /* ViewExpiredServicePresenter.swift */,
+				43023AC629E3AE1600FC62BE /* DeleteExpiredServicePresenter.swift */,
+				43023B2229E42C6F00FC62BE /* RemoveServicePresenter.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		436BAD2129F1251000DE3820 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				432905F529D1F802002EC379 /* ViewSubscriptionPresenter.swift */,
+				432905E529D18ED1002EC379 /* CreateAvaialableSubscriptionPresenter.swift */,
+				43023A8929E3084800FC62BE /* ModifyAvaialableSubscriptionPresenter.swift */,
+				43023B3029E6547B00FC62BE /* RemoveSubscriptionPresenter.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		436BAD2229F1260B00DE3820 /* Enterprise */ = {
+			isa = PBXGroup;
+			children = (
+				43217ED129E80AA4002AD70C /* SetEnterpriseView.swift */,
+				436BAD2729F1262B00DE3820 /* Subscription */,
+				436BAD2629F1262600DE3820 /* Service */,
+				436BAD2529F1261F00DE3820 /* Query */,
+				436BAD2429F1261800DE3820 /* Employee */,
+				436BAD2329F1261200DE3820 /* User */,
+			);
+			path = Enterprise;
+			sourceTree = "<group>";
+		};
+		436BAD2329F1261200DE3820 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				43023B1429E4172800FC62BE /* RemoveUserView.swift */,
+				43023AD829E3D48500FC62BE /* UserViewQueryView.swift */,
+				43023ABA29E3976500FC62BE /* ModifyUserDetailsView.swift */,
+				432905A029CD8E05002EC379 /* AddNewUserview.swift */,
+				432ADE8729BF126700E9C70F /* UserLoginView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		436BAD2429F1261800DE3820 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				436BAD0D29F11FB000DE3820 /* ViewAdminClientView.swift */,
+				4383D51229D6D51100938DAB /* SearchClientView.swift */,
+				432905B829CDDA15002EC379 /* AddNewEmployeeView.swift */,
+				4383D51E29D6DA8A00938DAB /* SearchEmployeeView.swift */,
+				43023AA929E33BA400FC62BE /* ModifyEmployeeDetailsView.swift */,
+				43023AE629E3E14800FC62BE /* EmployeeViewQueryView.swift */,
+				43023B0829E4146600FC62BE /* RemoveEmployeeView.swift */,
+				436BAD0B29F11F5500DE3820 /* ViewEmployeeClientView.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		436BAD2529F1261F00DE3820 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				43023AF429E3F2EA00FC62BE /* DeleteQueryView.swift */,
+				4329060A29D2D5CE002EC379 /* CreateQueryView.swift */,
+				4383D53029D6E0AE00938DAB /* TrackQueryView.swift */,
+				43023A6929E2418900FC62BE /* AssignQueryView.swift */,
+				43023A6729E1EDA600FC62BE /* AssignQueryStatusView.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		436BAD2629F1262600DE3820 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				438386CC29C9A45B00EAE655 /* CreateAvailableServiceView.swift */,
+				438386FD29CC50B500EAE655 /* ViewServiceView.swift */,
+				431EA66529D41F20004900B0 /* BuyServiceView.swift */,
+				4383D54629D6EA0200938DAB /* TrackServiceView.swift */,
+				4383D55629D6EE6E00938DAB /* TrackServiceClientView.swift */,
+				43023A7929E2F00200FC62BE /* ModifyAvaialableServiceView.swift */,
+				43023A9B29E3307200FC62BE /* ViewExpiredServiceView.swift */,
+				43023AC829E3AEB000FC62BE /* DeleteExpiredServiceView.swift */,
+				43023B2429E42CDA00FC62BE /* RemoveServiceView.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		436BAD2729F1262B00DE3820 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				432905F729D1FAB0002EC379 /* ViewSubscriptionView.swift */,
+				432905E729D19054002EC379 /* CreateAvaialableSubscriptionView.swift */,
+				43023A8D29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift */,
+				43023B3229E6556E00FC62BE /* RemoveSubscriptionView.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		4A9B1CA964FE39E0DB6226FF /* Pods */ = {
@@ -534,6 +678,7 @@
 				4329060729D2D1ED002EC379 /* CreateQueryPresentationContract.swift in Sources */,
 				431EA66629D41F20004900B0 /* BuyServiceView.swift in Sources */,
 				4383D50F29D6D28700938DAB /* SerachClientPresentationContract.swift in Sources */,
+				436BAD0C29F11F5500DE3820 /* ViewEmployeeClientView.swift in Sources */,
 				43023AD929E3D48500FC62BE /* UserViewQueryView.swift in Sources */,
 				4329060B29D2D5CE002EC379 /* CreateQueryView.swift in Sources */,
 				4383D51F29D6DA8A00938DAB /* SearchEmployeeView.swift in Sources */,
@@ -559,6 +704,7 @@
 				432905F829D1FAB0002EC379 /* ViewSubscriptionView.swift in Sources */,
 				43023AE329E3E0B500FC62BE /* EmployeeViewQueryPresentationContract.swift in Sources */,
 				432905A129CD8E05002EC379 /* AddNewUserview.swift in Sources */,
+				436BAD0E29F11FB000DE3820 /* ViewAdminClientView.swift in Sources */,
 				43023A5229E1E57700FC62BE /* AssignQueryPresentationContract.swift in Sources */,
 				43023AAA29E33BA400FC62BE /* ModifyEmployeeDetailsView.swift in Sources */,
 				438386FC29CC4F0400EAE655 /* ViewServicePresenter.swift in Sources */,
@@ -582,7 +728,6 @@
 				43023A6229E1EC2A00FC62BE /* AssignQueryStatusPresentationContract.swift in Sources */,
 				43023B2129E42BE500FC62BE /* RemoveServicePresentationContract.swift in Sources */,
 				4383D54329D6E6A200938DAB /* TrackServicePresentationContract.swift in Sources */,
-				4383D53929D6E43E00938DAB /* EmployeeViewClientView.swift in Sources */,
 				4383D4F629D5C8CC00938DAB /* AdminViewClientPresenter.swift in Sources */,
 				432ADE8E29BF134700E9C70F /* UserLoginPresentationContract.swift in Sources */,
 				43023B3129E6547B00FC62BE /* RemoveSubscriptionPresenter.swift in Sources */,
@@ -611,7 +756,6 @@
 				43023A8A29E3084800FC62BE /* ModifyAvaialableSubscriptionPresenter.swift in Sources */,
 				43023AD529E3D34300FC62BE /* UserViewQueryPresentationContract.swift in Sources */,
 				4383D55729D6EE6E00938DAB /* TrackServiceClientView.swift in Sources */,
-				4383D50929D6BEE900938DAB /* AdminViewClientView.swift in Sources */,
 				43023AF329E3F2A800FC62BE /* DeleteQueryPresenter.swift in Sources */,
 				4383D54529D6E8FE00938DAB /* TrackServicePresenter.swift in Sources */,
 				4329059F29CD85FA002EC379 /* AddNewUserPresentationContract.swift in Sources */,

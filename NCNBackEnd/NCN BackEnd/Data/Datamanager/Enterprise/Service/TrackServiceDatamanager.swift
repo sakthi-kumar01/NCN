@@ -7,9 +7,9 @@
 
 import Foundation
 public class TrackServiceDataManager {
-    public var databaseService: TrackServiceDatabaseContract
+    public var databaseService: TrackServiceDatabaseServiceContract
 
-    public init(databaseService: TrackServiceDatabaseContract) {
+    public init(databaseService: TrackServiceDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 

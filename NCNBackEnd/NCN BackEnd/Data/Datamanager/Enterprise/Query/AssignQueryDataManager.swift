@@ -7,9 +7,9 @@
 
 import Foundation
 public class AssignQueryDataManager {
-    public var databaseService: AssignQueryDatabaseContract
+    public var databaseService: AssignQueryDatabaseServiceContract
 
-    public init(databaseService: AssignQueryDatabaseContract) {
+    public init(databaseService: AssignQueryDatabaseServiceContract) {
         self.databaseService = databaseService
     }
 
