@@ -26,8 +26,8 @@ public class ViewEmployeeClientDataManager {
 }
 
 extension ViewEmployeeClientDataManager: ViewEmployeeClientDataContract {
-    public func ViewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.ViewEmployeeClient(employeeId: employeeId, success: {
+    public func viewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.viewEmployeeClient(employeeId: employeeId, success: {
             [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: {

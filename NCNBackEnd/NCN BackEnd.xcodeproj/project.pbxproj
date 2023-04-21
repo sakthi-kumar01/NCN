@@ -130,12 +130,12 @@
 		436BAD6D29F127BB00DE3820 /* DeleteQueryDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD4C29F127BB00DE3820 /* DeleteQueryDataContract.swift */; };
 		436BAD6E29F127BB00DE3820 /* TrackQueryDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD4D29F127BB00DE3820 /* TrackQueryDataContract.swift */; };
 		436BAD6F29F127BB00DE3820 /* SearchClientDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD4F29F127BB00DE3820 /* SearchClientDataContract.swift */; };
-		436BAD7029F127BB00DE3820 /* EmployeeViewDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5029F127BB00DE3820 /* EmployeeViewDataContract.swift */; };
+		436BAD7029F127BB00DE3820 /* ViewEmployeeDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5029F127BB00DE3820 /* ViewEmployeeDataContract.swift */; };
 		436BAD7129F127BB00DE3820 /* SearchEmployeeDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5129F127BB00DE3820 /* SearchEmployeeDataContract.swift */; };
 		436BAD7229F127BB00DE3820 /* RemoveEmployeeDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5229F127BB00DE3820 /* RemoveEmployeeDataContract.swift */; };
 		436BAD7329F127BB00DE3820 /* ModifyEmployeeDetailsDataContracrt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5329F127BB00DE3820 /* ModifyEmployeeDetailsDataContracrt.swift */; };
 		436BAD7429F127BB00DE3820 /* AddNewEmployeeDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5429F127BB00DE3820 /* AddNewEmployeeDataContract.swift */; };
-		436BAD7529F127BB00DE3820 /* AdminViewClientDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5529F127BB00DE3820 /* AdminViewClientDataContract.swift */; };
+		436BAD7529F127BB00DE3820 /* ViewAdminClientDataContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD5529F127BB00DE3820 /* ViewAdminClientDataContract.swift */; };
 		4376FE8A29F1AA1F008270FE /* GetEntetpriseDatabaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE8929F1AA1F008270FE /* GetEntetpriseDatabaseContract.swift */; };
 		4376FE8C29F1AB46008270FE /* GetEnterpriseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE8B29F1AB46008270FE /* GetEnterpriseDataManager.swift */; };
 		4376FE8E29F1AB6B008270FE /* GetEnterprise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE8D29F1AB6B008270FE /* GetEnterprise.swift */; };
@@ -320,12 +320,12 @@
 		436BAD4C29F127BB00DE3820 /* DeleteQueryDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteQueryDataContract.swift; sourceTree = "<group>"; };
 		436BAD4D29F127BB00DE3820 /* TrackQueryDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackQueryDataContract.swift; sourceTree = "<group>"; };
 		436BAD4F29F127BB00DE3820 /* SearchClientDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchClientDataContract.swift; sourceTree = "<group>"; };
-		436BAD5029F127BB00DE3820 /* EmployeeViewDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeViewDataContract.swift; sourceTree = "<group>"; };
+		436BAD5029F127BB00DE3820 /* ViewEmployeeDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEmployeeDataContract.swift; sourceTree = "<group>"; };
 		436BAD5129F127BB00DE3820 /* SearchEmployeeDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEmployeeDataContract.swift; sourceTree = "<group>"; };
 		436BAD5229F127BB00DE3820 /* RemoveEmployeeDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveEmployeeDataContract.swift; sourceTree = "<group>"; };
 		436BAD5329F127BB00DE3820 /* ModifyEmployeeDetailsDataContracrt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyEmployeeDetailsDataContracrt.swift; sourceTree = "<group>"; };
 		436BAD5429F127BB00DE3820 /* AddNewEmployeeDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewEmployeeDataContract.swift; sourceTree = "<group>"; };
-		436BAD5529F127BB00DE3820 /* AdminViewClientDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewClientDataContract.swift; sourceTree = "<group>"; };
+		436BAD5529F127BB00DE3820 /* ViewAdminClientDataContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAdminClientDataContract.swift; sourceTree = "<group>"; };
 		4376FE8929F1AA1F008270FE /* GetEntetpriseDatabaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEntetpriseDatabaseContract.swift; sourceTree = "<group>"; };
 		4376FE8B29F1AB46008270FE /* GetEnterpriseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnterpriseDataManager.swift; sourceTree = "<group>"; };
 		4376FE8D29F1AB6B008270FE /* GetEnterprise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnterprise.swift; sourceTree = "<group>"; };
@@ -800,12 +800,12 @@
 			isa = PBXGroup;
 			children = (
 				436BAD4F29F127BB00DE3820 /* SearchClientDataContract.swift */,
-				436BAD5029F127BB00DE3820 /* EmployeeViewDataContract.swift */,
+				436BAD5029F127BB00DE3820 /* ViewEmployeeDataContract.swift */,
 				436BAD5129F127BB00DE3820 /* SearchEmployeeDataContract.swift */,
 				436BAD5229F127BB00DE3820 /* RemoveEmployeeDataContract.swift */,
 				436BAD5329F127BB00DE3820 /* ModifyEmployeeDetailsDataContracrt.swift */,
 				436BAD5429F127BB00DE3820 /* AddNewEmployeeDataContract.swift */,
-				436BAD5529F127BB00DE3820 /* AdminViewClientDataContract.swift */,
+				436BAD5529F127BB00DE3820 /* ViewAdminClientDataContract.swift */,
 			);
 			path = Employee;
 			sourceTree = "<group>";
@@ -1104,7 +1104,7 @@
 				4383D52729D6DE6A00938DAB /* TrackQueryDatabaseContract.swift in Sources */,
 				4360E5C029EE9C9500E02F05 /* TrackQueryDatabaseService.swift in Sources */,
 				43023B1B29E429E200FC62BE /* RemoveService.swift in Sources */,
-				436BAD7029F127BB00DE3820 /* EmployeeViewDataContract.swift in Sources */,
+				436BAD7029F127BB00DE3820 /* ViewEmployeeDataContract.swift in Sources */,
 				43023A4E29E1E2E700FC62BE /* AssignQueryDataManager.swift in Sources */,
 				4360E5A029E9889500E02F05 /* RemoveUserDatabaseService.swift in Sources */,
 				438386E429CC253500EAE655 /* Client.swift in Sources */,
@@ -1153,7 +1153,7 @@
 				43023A7029E2EC7900FC62BE /* ModifyAvaialableServiceDatabaseContract.swift in Sources */,
 				432905C429D184D3002EC379 /* CreateAvailableSubscriptionDatabaseContract.swift in Sources */,
 				43023AE129E3E06900FC62BE /* ViewEmployeeQuery.swift in Sources */,
-				436BAD7529F127BB00DE3820 /* AdminViewClientDataContract.swift in Sources */,
+				436BAD7529F127BB00DE3820 /* ViewAdminClientDataContract.swift in Sources */,
 				438386F029CC257700EAE655 /* Subscription.swift in Sources */,
 				4360E5B029EC695200E02F05 /* ModifyUserDetailsDatabaseService.swift in Sources */,
 				4383D51929D6D9C600938DAB /* SearchEmployee.swift in Sources */,

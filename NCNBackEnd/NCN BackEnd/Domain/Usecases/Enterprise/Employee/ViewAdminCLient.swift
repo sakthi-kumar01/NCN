@@ -39,7 +39,7 @@ public final class ViewAdminClient: ZUsecase<ViewAdminClientRequest, ViewAdminCl
     }
 
     override public func run(request: ViewAdminClientRequest, success: @escaping (ViewAdminClientResponse) -> Void, failure: @escaping (ViewAdminClientError) -> Void) {
-        dataManager.ViewAdminClient(employeeId: request.employeeId, success: { [weak self] message in
+        dataManager.viewAdminClient(employeeId: request.employeeId, success: { [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: ViewAdminClientError(error: error), callback: failure)
@@ -56,6 +56,3 @@ public final class ViewAdminClient: ZUsecase<ViewAdminClientRequest, ViewAdminCl
     }
 }
 
-public protocol ViewAdminClientDataContract {
-    func ViewAdminClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
-}

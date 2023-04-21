@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol ViewEmployeeClientDataContract {
-    func ViewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
+    func viewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void)
 }

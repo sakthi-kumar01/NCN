@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol ModifyUserDetailsDatabaseServiceContract {
-    func modifyStringDetails(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+    func modifyUserDetails(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

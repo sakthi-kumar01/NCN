@@ -13,7 +13,7 @@ public class ViewEmployeeClientDatabaseService {
 }
 
 extension ViewEmployeeClientDatabaseService: ViewEmployeeClientDatabaseServiceContract {
-    public func ViewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
+    public func viewEmployeeClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
         let joinClause = "JOIN serviceLinkTable ON users.userId = serviceLinkTable.userId"
         let whereClause = "serviceLinkTable.employeeId = \(employeeId)"
         var result = db.selectQuery(columnString: "*", tableName: "users",joinClause: joinClause, whereClause: whereClause)

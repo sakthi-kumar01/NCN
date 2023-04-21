@@ -26,8 +26,8 @@ public class ViewAdminClientDataManager {
 }
 
 extension ViewAdminClientDataManager: ViewAdminClientDataContract {
-    public func ViewAdminClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.ViewAdminClient(employeeId: employeeId, success: {
+    public func viewAdminClient(employeeId: Int, success: @escaping ([User]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.viewAdminClient(employeeId: employeeId, success: {
             [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: {
