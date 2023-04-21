@@ -14,11 +14,11 @@
 		43023A6829E1EDA600FC62BE /* AssignQueryStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A6729E1EDA600FC62BE /* AssignQueryStatusView.swift */; };
 		43023A6A29E2418900FC62BE /* AssignQueryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A6929E2418900FC62BE /* AssignQueryView.swift */; };
 		43023A7629E2EE9200FC62BE /* ModifyAvaialableServicePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A7529E2EE9200FC62BE /* ModifyAvaialableServicePresentationContract.swift */; };
-		43023A7829E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A7729E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift */; };
-		43023A7A29E2F00200FC62BE /* ModifyAvaialableServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A7929E2F00200FC62BE /* ModifyAvaialableServiceView.swift */; };
+		43023A7829E2EF8B00FC62BE /* ModifyAvailableServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A7729E2EF8B00FC62BE /* ModifyAvailableServicePresenter.swift */; };
+		43023A7A29E2F00200FC62BE /* ModifyAvailableServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A7929E2F00200FC62BE /* ModifyAvailableServiceView.swift */; };
 		43023A8829E3081400FC62BE /* ModifyAvaialableSubscriptionPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A8729E3081400FC62BE /* ModifyAvaialableSubscriptionPresentationContract.swift */; };
 		43023A8A29E3084800FC62BE /* ModifyAvaialableSubscriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A8929E3084800FC62BE /* ModifyAvaialableSubscriptionPresenter.swift */; };
-		43023A8E29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A8D29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift */; };
+		43023A8E29E3091000FC62BE /* ModifyAvailableSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A8D29E3091000FC62BE /* ModifyAvailableSubscriptionView.swift */; };
 		43023A9829E32EB200FC62BE /* ViewExpiredServicePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A9729E32EB200FC62BE /* ViewExpiredServicePresentationContract.swift */; };
 		43023A9A29E32F0300FC62BE /* ViewExpiredServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A9929E32F0300FC62BE /* ViewExpiredServicePresenter.swift */; };
 		43023A9C29E3307200FC62BE /* ViewExpiredServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023A9B29E3307200FC62BE /* ViewExpiredServiceView.swift */; };
@@ -52,7 +52,7 @@
 		43023B2F29E6543100FC62BE /* RemoveSubscriptionPresentaitonContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B2E29E6543100FC62BE /* RemoveSubscriptionPresentaitonContract.swift */; };
 		43023B3129E6547B00FC62BE /* RemoveSubscriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B3029E6547B00FC62BE /* RemoveSubscriptionPresenter.swift */; };
 		43023B3329E6556E00FC62BE /* RemoveSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43023B3229E6556E00FC62BE /* RemoveSubscriptionView.swift */; };
-		4315EB5629E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4315EB5529E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift */; };
+		4315EB5629E7E7F500860BF3 /* GetEnterprisePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4315EB5529E7E7F500860BF3 /* GetEnterprisePresentationContract.swift */; };
 		4315EB5829E7F17900860BF3 /* SetEnterprisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4315EB5729E7F17900860BF3 /* SetEnterprisePresenter.swift */; };
 		4315EB5A29E7F19D00860BF3 /* SetEnterprisePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4315EB5929E7F19D00860BF3 /* SetEnterprisePresentationContract.swift */; };
 		431EA66629D41F20004900B0 /* BuyServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431EA66529D41F20004900B0 /* BuyServiceView.swift */; };
@@ -65,7 +65,7 @@
 		432905B929CDDA15002EC379 /* AddNewEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905B829CDDA15002EC379 /* AddNewEmployeeView.swift */; };
 		432905E229D18E10002EC379 /* CreateAvaialableSubscriptionPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905E129D18E10002EC379 /* CreateAvaialableSubscriptionPresentationContract.swift */; };
 		432905E629D18ED1002EC379 /* CreateAvaialableSubscriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905E529D18ED1002EC379 /* CreateAvaialableSubscriptionPresenter.swift */; };
-		432905E829D19054002EC379 /* CreateAvaialableSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905E729D19054002EC379 /* CreateAvaialableSubscriptionView.swift */; };
+		432905E829D19054002EC379 /* CreateAvailableSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905E729D19054002EC379 /* CreateAvailableSubscriptionView.swift */; };
 		432905F429D1F682002EC379 /* ViewSubscriptionPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905F329D1F682002EC379 /* ViewSubscriptionPresentationContract.swift */; };
 		432905F629D1F802002EC379 /* ViewSubscriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905F529D1F802002EC379 /* ViewSubscriptionPresenter.swift */; };
 		432905F829D1FAB0002EC379 /* ViewSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432905F729D1FAB0002EC379 /* ViewSubscriptionView.swift */; };
@@ -84,6 +84,11 @@
 		432ADE8E29BF134700E9C70F /* UserLoginPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */; };
 		436BAD0C29F11F5500DE3820 /* ViewEmployeeClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD0B29F11F5500DE3820 /* ViewEmployeeClientView.swift */; };
 		436BAD0E29F11FB000DE3820 /* ViewAdminClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436BAD0D29F11FB000DE3820 /* ViewAdminClientView.swift */; };
+		4376FE9229F1AD0B008270FE /* GetEnterpriseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE9129F1AD0B008270FE /* GetEnterpriseView.swift */; };
+		4376FE9429F1AD4F008270FE /* GetEnterprisePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE9329F1AD4F008270FE /* GetEnterprisePresenter.swift */; };
+		4376FE9E29F1B57C008270FE /* UserSignUpPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE9D29F1B57C008270FE /* UserSignUpPresentationContract.swift */; };
+		4376FEA029F1B7CF008270FE /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FE9F29F1B7CF008270FE /* UserSignUpView.swift */; };
+		4376FEA229F1B80A008270FE /* UserSignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376FEA129F1B80A008270FE /* UserSignUpPresenter.swift */; };
 		438386CD29C9A45B00EAE655 /* CreateAvailableServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386CC29C9A45B00EAE655 /* CreateAvailableServiceView.swift */; };
 		438386CF29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386CE29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift */; };
 		438386D129C9C82800EAE655 /* CreateAvailableServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */; };
@@ -91,7 +96,7 @@
 		438386FC29CC4F0400EAE655 /* ViewServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386FB29CC4F0400EAE655 /* ViewServicePresenter.swift */; };
 		438386FE29CC50B500EAE655 /* ViewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438386FD29CC50B500EAE655 /* ViewServiceView.swift */; };
 		4383D4F429D5C7D100938DAB /* AdminViewClientPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D4F329D5C7D100938DAB /* AdminViewClientPresentationContract.swift */; };
-		4383D4F629D5C8CC00938DAB /* AdminViewClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */; };
+		4383D4F629D5C8CC00938DAB /* ViewAdminClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D4F529D5C8CC00938DAB /* ViewAdminClientPresenter.swift */; };
 		4383D50F29D6D28700938DAB /* SerachClientPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D50E29D6D28700938DAB /* SerachClientPresentationContract.swift */; };
 		4383D51129D6D45D00938DAB /* SearchClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */; };
 		4383D51329D6D51100938DAB /* SearchClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D51229D6D51100938DAB /* SearchClientView.swift */; };
@@ -102,7 +107,7 @@
 		4383D52D29D6DF3700938DAB /* TrackQueryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D52C29D6DF3700938DAB /* TrackQueryPresenter.swift */; };
 		4383D53129D6E0AE00938DAB /* TrackQueryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53029D6E0AE00938DAB /* TrackQueryView.swift */; };
 		4383D53529D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53429D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift */; };
-		4383D53729D6E40B00938DAB /* EmployeeViewClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */; };
+		4383D53729D6E40B00938DAB /* ViewEmployeeClientPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D53629D6E40B00938DAB /* ViewEmployeeClientPresenter.swift */; };
 		4383D54329D6E6A200938DAB /* TrackServicePresentationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D54229D6E6A200938DAB /* TrackServicePresentationContract.swift */; };
 		4383D54529D6E8FE00938DAB /* TrackServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */; };
 		4383D54729D6EA0200938DAB /* TrackServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383D54629D6EA0200938DAB /* TrackServiceView.swift */; };
@@ -121,11 +126,11 @@
 		43023A6729E1EDA600FC62BE /* AssignQueryStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignQueryStatusView.swift; sourceTree = "<group>"; };
 		43023A6929E2418900FC62BE /* AssignQueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignQueryView.swift; sourceTree = "<group>"; };
 		43023A7529E2EE9200FC62BE /* ModifyAvaialableServicePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvaialableServicePresentationContract.swift; sourceTree = "<group>"; };
-		43023A7729E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyavaialableServicePresenter.swift; sourceTree = "<group>"; };
-		43023A7929E2F00200FC62BE /* ModifyAvaialableServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvaialableServiceView.swift; sourceTree = "<group>"; };
+		43023A7729E2EF8B00FC62BE /* ModifyAvailableServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvailableServicePresenter.swift; sourceTree = "<group>"; };
+		43023A7929E2F00200FC62BE /* ModifyAvailableServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvailableServiceView.swift; sourceTree = "<group>"; };
 		43023A8729E3081400FC62BE /* ModifyAvaialableSubscriptionPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvaialableSubscriptionPresentationContract.swift; sourceTree = "<group>"; };
 		43023A8929E3084800FC62BE /* ModifyAvaialableSubscriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvaialableSubscriptionPresenter.swift; sourceTree = "<group>"; };
-		43023A8D29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvaialableSubscriptionView.swift; sourceTree = "<group>"; };
+		43023A8D29E3091000FC62BE /* ModifyAvailableSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAvailableSubscriptionView.swift; sourceTree = "<group>"; };
 		43023A9729E32EB200FC62BE /* ViewExpiredServicePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExpiredServicePresentationContract.swift; sourceTree = "<group>"; };
 		43023A9929E32F0300FC62BE /* ViewExpiredServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExpiredServicePresenter.swift; sourceTree = "<group>"; };
 		43023A9B29E3307200FC62BE /* ViewExpiredServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExpiredServiceView.swift; sourceTree = "<group>"; };
@@ -159,7 +164,7 @@
 		43023B2E29E6543100FC62BE /* RemoveSubscriptionPresentaitonContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveSubscriptionPresentaitonContract.swift; sourceTree = "<group>"; };
 		43023B3029E6547B00FC62BE /* RemoveSubscriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveSubscriptionPresenter.swift; sourceTree = "<group>"; };
 		43023B3229E6556E00FC62BE /* RemoveSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveSubscriptionView.swift; sourceTree = "<group>"; };
-		4315EB5529E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEnterpriseNamePresentationContract.swift; sourceTree = "<group>"; };
+		4315EB5529E7E7F500860BF3 /* GetEnterprisePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnterprisePresentationContract.swift; sourceTree = "<group>"; };
 		4315EB5729E7F17900860BF3 /* SetEnterprisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEnterprisePresenter.swift; sourceTree = "<group>"; };
 		4315EB5929E7F19D00860BF3 /* SetEnterprisePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEnterprisePresentationContract.swift; sourceTree = "<group>"; };
 		431EA66529D41F20004900B0 /* BuyServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyServiceView.swift; sourceTree = "<group>"; };
@@ -172,7 +177,7 @@
 		432905B829CDDA15002EC379 /* AddNewEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEmployeeView.swift; sourceTree = "<group>"; };
 		432905E129D18E10002EC379 /* CreateAvaialableSubscriptionPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvaialableSubscriptionPresentationContract.swift; sourceTree = "<group>"; };
 		432905E529D18ED1002EC379 /* CreateAvaialableSubscriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvaialableSubscriptionPresenter.swift; sourceTree = "<group>"; };
-		432905E729D19054002EC379 /* CreateAvaialableSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvaialableSubscriptionView.swift; sourceTree = "<group>"; };
+		432905E729D19054002EC379 /* CreateAvailableSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailableSubscriptionView.swift; sourceTree = "<group>"; };
 		432905F329D1F682002EC379 /* ViewSubscriptionPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSubscriptionPresentationContract.swift; sourceTree = "<group>"; };
 		432905F529D1F802002EC379 /* ViewSubscriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSubscriptionPresenter.swift; sourceTree = "<group>"; };
 		432905F729D1FAB0002EC379 /* ViewSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSubscriptionView.swift; sourceTree = "<group>"; };
@@ -193,6 +198,11 @@
 		432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginPresentationContract.swift; sourceTree = "<group>"; };
 		436BAD0B29F11F5500DE3820 /* ViewEmployeeClientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEmployeeClientView.swift; sourceTree = "<group>"; };
 		436BAD0D29F11FB000DE3820 /* ViewAdminClientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAdminClientView.swift; sourceTree = "<group>"; };
+		4376FE9129F1AD0B008270FE /* GetEnterpriseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnterpriseView.swift; sourceTree = "<group>"; };
+		4376FE9329F1AD4F008270FE /* GetEnterprisePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEnterprisePresenter.swift; sourceTree = "<group>"; };
+		4376FE9D29F1B57C008270FE /* UserSignUpPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpPresentationContract.swift; sourceTree = "<group>"; };
+		4376FE9F29F1B7CF008270FE /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
+		4376FEA129F1B80A008270FE /* UserSignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpPresenter.swift; sourceTree = "<group>"; };
 		438386CC29C9A45B00EAE655 /* CreateAvailableServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailableServiceView.swift; sourceTree = "<group>"; };
 		438386CE29C9A6B700EAE655 /* CreateAvailabaleServicePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailabaleServicePresentationContract.swift; sourceTree = "<group>"; };
 		438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvailableServicesPresenter.swift; sourceTree = "<group>"; };
@@ -200,7 +210,7 @@
 		438386FB29CC4F0400EAE655 /* ViewServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewServicePresenter.swift; sourceTree = "<group>"; };
 		438386FD29CC50B500EAE655 /* ViewServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewServiceView.swift; sourceTree = "<group>"; };
 		4383D4F329D5C7D100938DAB /* AdminViewClientPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewClientPresentationContract.swift; sourceTree = "<group>"; };
-		4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewClientPresenter.swift; sourceTree = "<group>"; };
+		4383D4F529D5C8CC00938DAB /* ViewAdminClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAdminClientPresenter.swift; sourceTree = "<group>"; };
 		4383D50E29D6D28700938DAB /* SerachClientPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerachClientPresentationContract.swift; sourceTree = "<group>"; };
 		4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClientPresenter.swift; sourceTree = "<group>"; };
 		4383D51229D6D51100938DAB /* SearchClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClientView.swift; sourceTree = "<group>"; };
@@ -211,7 +221,7 @@
 		4383D52C29D6DF3700938DAB /* TrackQueryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackQueryPresenter.swift; sourceTree = "<group>"; };
 		4383D53029D6E0AE00938DAB /* TrackQueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackQueryView.swift; sourceTree = "<group>"; };
 		4383D53429D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewClientPresentationContract.swift; sourceTree = "<group>"; };
-		4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewClientPresenter.swift; sourceTree = "<group>"; };
+		4383D53629D6E40B00938DAB /* ViewEmployeeClientPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmployeeClientPresenter.swift; sourceTree = "<group>"; };
 		4383D54229D6E6A200938DAB /* TrackServicePresentationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackServicePresentationContract.swift; sourceTree = "<group>"; };
 		4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackServicePresenter.swift; sourceTree = "<group>"; };
 		4383D54629D6EA0200938DAB /* TrackServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackServiceView.swift; sourceTree = "<group>"; };
@@ -312,7 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				4315EB5929E7F19D00860BF3 /* SetEnterprisePresentationContract.swift */,
-				4315EB5529E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift */,
+				4315EB5529E7E7F500860BF3 /* GetEnterprisePresentationContract.swift */,
 				436BAD1B29F123E700DE3820 /* Query */,
 				436BAD1A29F123B800DE3820 /* Subscription */,
 				436BAD1929F123B000DE3820 /* Service */,
@@ -330,6 +340,7 @@
 				43023AB629E396AA00FC62BE /* ModifyUserDetailsPresentationcontract.swift */,
 				4329059E29CD85FA002EC379 /* AddNewUserPresentationContract.swift */,
 				432ADE8D29BF134700E9C70F /* UserLoginPresentationContract.swift */,
+				4376FE9D29F1B57C008270FE /* UserSignUpPresentationContract.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -391,8 +402,8 @@
 		436BAD1C29F124D200DE3820 /* Enterprise */ = {
 			isa = PBXGroup;
 			children = (
-				432ADE8A29BF12C000E9C70F /* UserLoginPresenter.swift */,
 				4315EB5729E7F17900860BF3 /* SetEnterprisePresenter.swift */,
+				4376FE9329F1AD4F008270FE /* GetEnterprisePresenter.swift */,
 				436BAD2129F1251000DE3820 /* Subscription */,
 				436BAD2029F1250A00DE3820 /* Service */,
 				436BAD1F29F1250200DE3820 /* Query */,
@@ -405,10 +416,12 @@
 		436BAD1D29F124DC00DE3820 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				432ADE8A29BF12C000E9C70F /* UserLoginPresenter.swift */,
 				43023B1229E416C300FC62BE /* RemoveUserPresenter.swift */,
 				43023AB829E396D700FC62BE /* ModifyUserDetailsPresenter.swift */,
 				43023AD629E3D36E00FC62BE /* UserViewQueryPresenter.swift */,
 				432905A229CD8EDE002EC379 /* AddNewUserPresenter.swift */,
+				4376FEA129F1B80A008270FE /* UserSignUpPresenter.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -417,8 +430,8 @@
 			isa = PBXGroup;
 			children = (
 				432905B429CDD791002EC379 /* AddNewEmployeePresnter.swift */,
-				4383D4F529D5C8CC00938DAB /* AdminViewClientPresenter.swift */,
-				4383D53629D6E40B00938DAB /* EmployeeViewClientPresenter.swift */,
+				4383D4F529D5C8CC00938DAB /* ViewAdminClientPresenter.swift */,
+				4383D53629D6E40B00938DAB /* ViewEmployeeClientPresenter.swift */,
 				4383D51029D6D45D00938DAB /* SearchClientPresenter.swift */,
 				4383D52029D6DABE00938DAB /* SearchEmployeePresenter.swift */,
 				43023AA729E3392C00FC62BE /* ModifyEmployeeDetaisPresenter.swift */,
@@ -448,7 +461,7 @@
 				438386FB29CC4F0400EAE655 /* ViewServicePresenter.swift */,
 				438386D029C9C82800EAE655 /* CreateAvailableServicesPresenter.swift */,
 				4383D54429D6E8FE00938DAB /* TrackServicePresenter.swift */,
-				43023A7729E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift */,
+				43023A7729E2EF8B00FC62BE /* ModifyAvailableServicePresenter.swift */,
 				43023A9929E32F0300FC62BE /* ViewExpiredServicePresenter.swift */,
 				43023AC629E3AE1600FC62BE /* DeleteExpiredServicePresenter.swift */,
 				43023B2229E42C6F00FC62BE /* RemoveServicePresenter.swift */,
@@ -471,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				43217ED129E80AA4002AD70C /* SetEnterpriseView.swift */,
+				4376FE9129F1AD0B008270FE /* GetEnterpriseView.swift */,
 				436BAD2729F1262B00DE3820 /* Subscription */,
 				436BAD2629F1262600DE3820 /* Service */,
 				436BAD2529F1261F00DE3820 /* Query */,
@@ -483,6 +497,7 @@
 		436BAD2329F1261200DE3820 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				4376FE9F29F1B7CF008270FE /* UserSignUpView.swift */,
 				43023B1429E4172800FC62BE /* RemoveUserView.swift */,
 				43023AD829E3D48500FC62BE /* UserViewQueryView.swift */,
 				43023ABA29E3976500FC62BE /* ModifyUserDetailsView.swift */,
@@ -527,7 +542,7 @@
 				431EA66529D41F20004900B0 /* BuyServiceView.swift */,
 				4383D54629D6EA0200938DAB /* TrackServiceView.swift */,
 				4383D55629D6EE6E00938DAB /* TrackServiceClientView.swift */,
-				43023A7929E2F00200FC62BE /* ModifyAvaialableServiceView.swift */,
+				43023A7929E2F00200FC62BE /* ModifyAvailableServiceView.swift */,
 				43023A9B29E3307200FC62BE /* ViewExpiredServiceView.swift */,
 				43023AC829E3AEB000FC62BE /* DeleteExpiredServiceView.swift */,
 				43023B2429E42CDA00FC62BE /* RemoveServiceView.swift */,
@@ -539,8 +554,8 @@
 			isa = PBXGroup;
 			children = (
 				432905F729D1FAB0002EC379 /* ViewSubscriptionView.swift */,
-				432905E729D19054002EC379 /* CreateAvaialableSubscriptionView.swift */,
-				43023A8D29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift */,
+				432905E729D19054002EC379 /* CreateAvailableSubscriptionView.swift */,
+				43023A8D29E3091000FC62BE /* ModifyAvailableSubscriptionView.swift */,
 				43023B3229E6556E00FC62BE /* RemoveSubscriptionView.swift */,
 			);
 			path = Subscription;
@@ -685,6 +700,7 @@
 				43023AC729E3AE1600FC62BE /* DeleteExpiredServicePresenter.swift in Sources */,
 				432905B329CDD6C7002EC379 /* AddNewEmployeePresentationContract.swift in Sources */,
 				43023B1529E4172800FC62BE /* RemoveUserView.swift in Sources */,
+				4376FEA029F1B7CF008270FE /* UserSignUpView.swift in Sources */,
 				4383D4F429D5C7D100938DAB /* AdminViewClientPresentationContract.swift in Sources */,
 				432905E629D18ED1002EC379 /* CreateAvaialableSubscriptionPresenter.swift in Sources */,
 				432905B529CDD791002EC379 /* AddNewEmployeePresnter.swift in Sources */,
@@ -696,23 +712,26 @@
 				43023AF529E3F2EA00FC62BE /* DeleteQueryView.swift in Sources */,
 				43023AD729E3D36E00FC62BE /* UserViewQueryPresenter.swift in Sources */,
 				432ADE7029BF0F8A00E9C70F /* Router.swift in Sources */,
+				4376FE9429F1AD4F008270FE /* GetEnterprisePresenter.swift in Sources */,
 				432ADE8829BF126700E9C70F /* UserLoginView.swift in Sources */,
 				4315EB5A29E7F19D00860BF3 /* SetEnterprisePresentationContract.swift in Sources */,
-				43023A7A29E2F00200FC62BE /* ModifyAvaialableServiceView.swift in Sources */,
+				43023A7A29E2F00200FC62BE /* ModifyAvailableServiceView.swift in Sources */,
 				432905A329CD8EDE002EC379 /* AddNewUserPresenter.swift in Sources */,
 				4383D54729D6EA0200938DAB /* TrackServiceView.swift in Sources */,
 				432905F829D1FAB0002EC379 /* ViewSubscriptionView.swift in Sources */,
+				4376FE9E29F1B57C008270FE /* UserSignUpPresentationContract.swift in Sources */,
 				43023AE329E3E0B500FC62BE /* EmployeeViewQueryPresentationContract.swift in Sources */,
 				432905A129CD8E05002EC379 /* AddNewUserview.swift in Sources */,
 				436BAD0E29F11FB000DE3820 /* ViewAdminClientView.swift in Sources */,
 				43023A5229E1E57700FC62BE /* AssignQueryPresentationContract.swift in Sources */,
 				43023AAA29E33BA400FC62BE /* ModifyEmployeeDetailsView.swift in Sources */,
 				438386FC29CC4F0400EAE655 /* ViewServicePresenter.swift in Sources */,
-				43023A8E29E3091000FC62BE /* ModifyAvaialableSubscriptionView.swift in Sources */,
+				43023A8E29E3091000FC62BE /* ModifyAvailableSubscriptionView.swift in Sources */,
 				43023B2F29E6543100FC62BE /* RemoveSubscriptionPresentaitonContract.swift in Sources */,
 				43217ED229E80AA4002AD70C /* SetEnterpriseView.swift in Sources */,
+				4376FE9229F1AD0B008270FE /* GetEnterpriseView.swift in Sources */,
 				43023B3329E6556E00FC62BE /* RemoveSubscriptionView.swift in Sources */,
-				43023A7829E2EF8B00FC62BE /* ModifyavaialableServicePresenter.swift in Sources */,
+				43023A7829E2EF8B00FC62BE /* ModifyAvailableServicePresenter.swift in Sources */,
 				4383D52B29D6DF0900938DAB /* TrackQueryPresentationContract.swift in Sources */,
 				432ADE7229BF0FBB00E9C70F /* Assembler.swift in Sources */,
 				43023B1129E4169C00FC62BE /* RemoveUserPresentationContract.swift in Sources */,
@@ -726,15 +745,16 @@
 				4329060929D2D346002EC379 /* CreateQueryPresenter.swift in Sources */,
 				43023AE729E3E14800FC62BE /* EmployeeViewQueryView.swift in Sources */,
 				43023A6229E1EC2A00FC62BE /* AssignQueryStatusPresentationContract.swift in Sources */,
+				4376FEA229F1B80A008270FE /* UserSignUpPresenter.swift in Sources */,
 				43023B2129E42BE500FC62BE /* RemoveServicePresentationContract.swift in Sources */,
 				4383D54329D6E6A200938DAB /* TrackServicePresentationContract.swift in Sources */,
-				4383D4F629D5C8CC00938DAB /* AdminViewClientPresenter.swift in Sources */,
+				4383D4F629D5C8CC00938DAB /* ViewAdminClientPresenter.swift in Sources */,
 				432ADE8E29BF134700E9C70F /* UserLoginPresentationContract.swift in Sources */,
 				43023B3129E6547B00FC62BE /* RemoveSubscriptionPresenter.swift in Sources */,
 				43023A9C29E3307200FC62BE /* ViewExpiredServiceView.swift in Sources */,
 				4383D51D29D6DA3400938DAB /* SearchEmployeePresentationContract.swift in Sources */,
 				432905B929CDDA15002EC379 /* AddNewEmployeeView.swift in Sources */,
-				4315EB5629E7E7F500860BF3 /* SetEnterpriseNamePresentationContract.swift in Sources */,
+				4315EB5629E7E7F500860BF3 /* GetEnterprisePresentationContract.swift in Sources */,
 				43023B2329E42C6F00FC62BE /* RemoveServicePresenter.swift in Sources */,
 				43023AF129E3F28D00FC62BE /* DeleteQueryPresentationContract.swift in Sources */,
 				4383D55529D6EDD100938DAB /* TrackServiceClientPresenter.swift in Sources */,
@@ -749,7 +769,7 @@
 				43023A6429E1EC5C00FC62BE /* AssignQueryStatusPresenter.swift in Sources */,
 				4329061929D41969002EC379 /* BuyServicePresenter.swift in Sources */,
 				438386CD29C9A45B00EAE655 /* CreateAvailableServiceView.swift in Sources */,
-				432905E829D19054002EC379 /* CreateAvaialableSubscriptionView.swift in Sources */,
+				432905E829D19054002EC379 /* CreateAvailableSubscriptionView.swift in Sources */,
 				43023B2529E42CDA00FC62BE /* RemoveServiceView.swift in Sources */,
 				4383D53529D6E3EE00938DAB /* EmployeeViewClientPresentationContract.swift in Sources */,
 				432ADE8B29BF12C000E9C70F /* UserLoginPresenter.swift in Sources */,
@@ -762,7 +782,7 @@
 				43023AE529E3E0F700FC62BE /* EmployeeViewQueryPresenter.swift in Sources */,
 				4315EB5829E7F17900860BF3 /* SetEnterprisePresenter.swift in Sources */,
 				43023B0329E40F4F00FC62BE /* RemoveEmployeePresenter.swift in Sources */,
-				4383D53729D6E40B00938DAB /* EmployeeViewClientPresenter.swift in Sources */,
+				4383D53729D6E40B00938DAB /* ViewEmployeeClientPresenter.swift in Sources */,
 				43023A9829E32EB200FC62BE /* ViewExpiredServicePresentationContract.swift in Sources */,
 				43023B1329E416C300FC62BE /* RemoveUserPresenter.swift in Sources */,
 				43023AA629E338C100FC62BE /* ModifyEmployeeDetailsPresentationContract.swift in Sources */,

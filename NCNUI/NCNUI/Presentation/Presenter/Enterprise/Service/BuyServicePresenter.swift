@@ -30,7 +30,7 @@ extension BuyServicePresenter: BuyServicePresenterContract {
 
 extension BuyServicePresenter {
     func result(response: BuyServiceResponse) {
-        view?.load(message: response.response)
+        view?.load(response: response.response)
     }
 
     func failed(error: BuyServiceError) {

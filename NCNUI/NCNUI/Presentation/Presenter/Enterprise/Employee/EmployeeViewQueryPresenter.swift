@@ -33,17 +33,17 @@ extension ViewEmployeeQueryPresenter {
         for query in message{
             
             view?.load(response: String(query.queryId))
-            view?.load(message: query.queryMessage)
+            view?.load(response: query.queryMessage)
             if (query.queryType.rawValue == 1 ) {
-                view?.load(message: "Feedback")
+                view?.load(response: "Feedback")
             } else {
-                view?.load(message: "Complaint")
+                view?.load(response: "Complaint")
             }
-            view?.load(message: query.querystatus.description)
+            view?.load(response: query.querystatus.description)
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

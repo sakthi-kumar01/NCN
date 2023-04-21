@@ -6,15 +6,14 @@
 //
 
 import Foundation
-protocol SetEnterpriseViewContract: AnyObject {
+protocol GetEnterpriseNameViewContract: AnyObject {
     func load(response: String)
 }
 
-protocol SetEnterprisePresenterContract {
-    func viewLoaded(enterPreiseName: String)
+protocol GetEnterpriseNamePresenterContract {
+    func viewLoaded()
 }
 
-protocol SetEnterpriseRouterContract: AnyObject {
+protocol GetEnterpriseNameRouterContract: AnyObject {
     func selected(response: String)
 }
- 

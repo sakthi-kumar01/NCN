@@ -40,7 +40,7 @@ public class CreateAvailableSubscriptionView: NSView {
 
 extension CreateAvailableSubscriptionView: CreateAvailableSubscriptionViewContract {
     func load(response: String) {
-        print(message)
+        print(response)
     }
 
     func failed(error: String) {

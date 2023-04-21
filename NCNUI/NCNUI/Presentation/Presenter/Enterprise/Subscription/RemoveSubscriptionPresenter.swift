@@ -31,10 +31,10 @@ extension RemoveSubscriptionPresenter: RemoveSubscriptionPresenterContract {
 
 extension RemoveSubscriptionPresenter {
     func result(response: String) {
-        view?.load(message: response)
+        view?.load(response: response)
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

@@ -31,16 +31,16 @@ extension ViewAdminClientPresenter: ViewAdminClientPresenterContract {
 extension ViewAdminClientPresenter {
     func result(message: [User]) {
         for user in message {
-            view?.load(message: "")
-            view?.load(message: "Username: " + user.userName)
-            view?.load(message: "Password: " + user.password)
-            view?.load(message: "EMail: " + user.email)
-            view?.load(message: "Mobile Number: " + user.mobileNumber.description)
-            view?.load(message: "")
+            view?.load(response: "")
+            view?.load(response: "Username: " + user.userName)
+            view?.load(response: "Password: " + user.password)
+            view?.load(response: "EMail: " + user.email)
+            view?.load(response: "Mobile Number: " + user.mobileNumber.description)
+            view?.load(response: "")
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

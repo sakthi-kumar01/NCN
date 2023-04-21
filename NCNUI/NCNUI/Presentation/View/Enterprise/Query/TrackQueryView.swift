@@ -34,7 +34,7 @@ class TrackQueryView: NSView {
 
 extension TrackQueryView: TrackQueryViewContract {
     func load(response: String) {
-        print(message)
+        print(response)
     }
 
     func failed(error: String) {

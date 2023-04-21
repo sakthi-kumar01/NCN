@@ -6,10 +6,10 @@
 //
 
 import Foundation
-class Admin: Employee {
-    var employees: [Employee]?
-    var queries: [Query]?
-    var services: [Service]?
+public class Admin: Employee {
+    public var employees: [Employee]?
+    public var queries: [Query]?
+    public var services: [Service]?
     override public init(userName: String,
                          email: String, password: String, mobileNumber: Int, employeeId: Int, employeeType: EmploymentType, enterpriseId: Int)
     {

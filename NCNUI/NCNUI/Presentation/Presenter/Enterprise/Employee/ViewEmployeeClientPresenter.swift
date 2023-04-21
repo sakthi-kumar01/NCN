@@ -31,15 +31,15 @@ extension ViewEmployeeClientPresenter: ViewEmployeeClientPresenterContract {
 extension ViewEmployeeClientPresenter {
     func result(message: [User]) {
         for user in message {
-            view?.load(message: user.userName)
-            view?.load(message: user.password)
-            view?.load(message: user.email)
-            view?.load(message: user.mobileNumber.description)
-            view?.load(message: "")
+            view?.load(response: user.userName)
+            view?.load(response: user.password)
+            view?.load(response: user.email)
+            view?.load(response: user.mobileNumber.description)
+            view?.load(response: "")
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

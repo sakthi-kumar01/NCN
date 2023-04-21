@@ -31,7 +31,7 @@ extension AddNewUserPresenter: AddNewUserPresenterContract {
 
 extension AddNewUserPresenter {
     func result(response: AddNewUserResponse) {
-        view?.load(message: response.response)
+        view?.load(response: response.response)
     }
 
     func failed(error: AddNewUserError) {

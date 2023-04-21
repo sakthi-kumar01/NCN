@@ -31,15 +31,15 @@ extension SearchEmployeePresenter: SearchEmployeePresenterContract {
 extension SearchEmployeePresenter {
     func result(message: [Employee]) {
         for user in message {
-            view?.load(message: "userName: "+user.userName)
-            view?.load(message: "password: "+user.password)
-            view?.load(message: "email: "+user.email)
-            view?.load(message: "mobile number: "+user.mobileNumber.description)
-            view?.load(message: "")
+            view?.load(response: "userName: "+user.userName)
+            view?.load(response: "password: "+user.password)
+            view?.load(response: "email: "+user.email)
+            view?.load(response: "mobile number: "+user.mobileNumber.description)
+            view?.load(response: "")
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

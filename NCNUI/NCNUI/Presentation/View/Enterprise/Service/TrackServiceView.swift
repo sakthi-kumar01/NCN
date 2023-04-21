@@ -39,7 +39,7 @@ public class TrackServiceView: NSView {
 
 extension TrackServiceView: TrackServiceViewContract {
     func load(response: String) {
-        print(message)
+        print(response)
     }
 
     func failed(error: String) {

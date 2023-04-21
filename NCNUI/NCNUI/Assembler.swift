@@ -19,7 +19,7 @@ class Assembler {
         return view
     }
 
-    static func createAvailableServiceView(serviceId: Int, serviceTitle: String, serviceDescription: String, router _: CreateAvailableServiceRouterContract?) -> CreateAvailableServiceView {
+    static func createAvailableServiceView(serviceId: Int, serviceTitle: String, serviceDescription: String, router : CreateAvailableServiceRouterContract) -> CreateAvailableServiceView {
         let usecase = getCreateAvailableServiceUsecase()
         let presenter = CreateAvailableServicesPresenter(createAvailableService: usecase)
 
@@ -30,7 +30,7 @@ class Assembler {
         return view
     }
 
-    static func getViewServiceView(router _: ViewServiceRouterContract?) -> ViewServiceView {
+    static func getViewServiceView(router : ViewServiceRouterContract?) -> ViewServiceView {
         print("View func called")
         let useCase = getViewServiceUseCase()
         let presenter = ViewServicePresenter(viewService: useCase)
@@ -40,7 +40,7 @@ class Assembler {
         return view
     }
 
-    static func getAddNewUserView(router _: AddNewUserRouterContract?) -> AddNewUserView {
+    static func getAddNewUserView(router : AddNewUserRouterContract?) -> AddNewUserView {
         let usecase = getAddNewUserUsecase()
         let presenter = AddNewUserPresenter(addUNewUser: usecase)
         let view = AddNewUserView(presenter: presenter)
@@ -49,7 +49,7 @@ class Assembler {
         return view
     }
 
-    static func getAddNewEmployeeView(router _: AddNewEmployeeRouterContract?) -> AddNewEmployeeView {
+    static func getAddNewEmployeeView(router : AddNewEmployeeRouterContract?) -> AddNewEmployeeView {
         let usecase = getAddNewEmployeeUseCase()
         let presenter = AddNewEmployeePresenter(addNewEmployee: usecase)
         let view = AddNewEmployeeView(presenter: presenter)
@@ -58,7 +58,7 @@ class Assembler {
         return view
     }
 
-    static func getCreateAvailableSubscriptionView(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscritptionDayLimit: Int, serviceId: Int, router _: CreateAvailableSubscriptionRouterContract) -> CreateAvailableSubscriptionView {
+    static func getCreateAvailableSubscriptionView(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscritptionDayLimit: Int, serviceId: Int, router : CreateAvailableSubscriptionRouterContract) -> CreateAvailableSubscriptionView {
         let usecase = getCreateavailableSubscription()
         let presenter = CreateAvailableSubscriptionPresenter(createAvailableSubscription: usecase)
         let view = CreateAvailableSubscriptionView(subscriptionId: subscriptionId, subscriptionPackageType: subscriptionPackageType, subscriptionCountLimit: subscriptionCountLimit, subscritptionDayLimit: subscritptionDayLimit, serviceId: serviceId, presenter: presenter)
@@ -67,7 +67,7 @@ class Assembler {
         return view
     }
 
-    static func getViewSubscriptionView() -> ViewSubscriptionView {
+    static func getViewSubscriptionView(router: ViewServiceRouterContract) -> ViewSubscriptionView {
         let usecase = getViewSubscriptionUsecase()
         let presenter = ViewSubscriptionPresenter(viewSubscription: usecase)
         let view = ViewSubscriptionView(presenter: presenter)
@@ -126,7 +126,7 @@ class Assembler {
         return useCase
     }
     private static func getSetEnterpriseName() -> SetEnterpriseName{
-        let database = SetEnterpriseDatabase()
+        let database = SetEnterpriseDatabaseService()
         let dataManager = SetEnterpriseNameDataManager(database: database)
         let useCase = SetEnterpriseName(dataManager: dataManager)
         return useCase
@@ -192,7 +192,7 @@ class Assembler {
     
     static func getViewAdminClient(employeeId: Int) -> ViewAdminClientView{
         let usecase = getViewAdminClientUsecase()
-        let presenter = ViewAdminClientPresenter(ViewAdminClient: usecase)
+        let presenter = ViewAdminClientPresenter(viewAdminClient: usecase)
         let view = ViewAdminClientView(employeeId: employeeId, presenter: presenter)
         view.presenter = presenter
         presenter.view = view
@@ -421,7 +421,7 @@ class Assembler {
     }
     
     private static func getCreateAvailableService() -> CreateAvailableService {
-        let database = CreateAvailableServicesDatabase()
+        let database = CreateAvailableServicesDatabaseService()
         let datamanager = CreateAvaialableServicesDataManager(database: database  )
         let usecase = CreateAvailableService(datamanager: datamanager)
         return usecase
@@ -449,14 +449,14 @@ class Assembler {
         return useCase
     }
     private static func getCreateAvailableServiceUsecase() -> CreateAvailableService {
-        let database = CreateAvailableServicesDatabase()
+        let database = CreateAvailableServicesDatabaseService()
         let dataManager = CreateAvaialableServicesDataManager(database: database)
         let useCase = CreateAvailableService(datamanager: dataManager)
         return useCase
     }
 
     private static func getUserLoginUsecase() -> UserLogin {
-        let database = UserLoginDatabase()
+        let database = UserLoginDatabaseService()
 
         let dataManager = UserLoginDataManager(dataBase: database)
         let useCase = UserLogin(dataManager: dataManager)
@@ -464,21 +464,21 @@ class Assembler {
     }
 
     private static func getViewServiceUseCase() -> ViewService {
-        let database = ViewServiceDatabase()
+        let database = ViewServiceDatabaseService()
         let datamanager = ViewServiceDataManager(database: database)
         let useCase = ViewService(dataManager: datamanager)
         return useCase
     }
 
     private static func getAddNewUserUsecase() -> AddNewUser {
-        let database = AddNewUserDatabase()
+        let database = AddNewUserDatabaseSerivce()
         let datamanager = AddNewUserDataManager(dataBase: database)
         let usecase = AddNewUser(dataManager: datamanager)
         return usecase
     }
 
     private static func getAddNewEmployeeUseCase() -> AddNewEmployee {
-        let databaseService = AddNewEmployeeDatabase()
+        let databaseService = AddNewEmployeeDatabaseService()
         let datamanger = AddNewEmployeeDatamanger(databaseService: databaseService)
         let usecase = AddNewEmployee(datamanger: datamanger)
         return usecase

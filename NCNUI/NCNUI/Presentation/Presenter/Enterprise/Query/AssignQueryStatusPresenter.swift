@@ -22,7 +22,7 @@ extension AssignQueryStatusPresenter: AssignQueryStatusPresenterContract {
     func viewLoaded(queryId: Int) {
         let request = AssignQueryStatusRequest(queryId: queryId)
         assignQueryStatus.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
         })
@@ -31,10 +31,10 @@ extension AssignQueryStatusPresenter: AssignQueryStatusPresenterContract {
 
 extension AssignQueryStatusPresenter {
     func result(response: String) {
-        view?.load(message: message)
+        view?.load(response: response)
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

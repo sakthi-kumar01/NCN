@@ -32,14 +32,14 @@ extension ViewExpiredServicePresenter {
     func result(message: [[String]]) {
         for value in message{
             
-            view?.load(message: value[0])
-            view?.load(message: value[1])
-            view?.load(message: value[2])
-            view?.load(message: value[3])
+            view?.load(response: value[0])
+            view?.load(response: value[1])
+            view?.load(response: value[2])
+            view?.load(response: value[3])
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

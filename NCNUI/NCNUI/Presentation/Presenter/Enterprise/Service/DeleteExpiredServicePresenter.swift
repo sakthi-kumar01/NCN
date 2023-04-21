@@ -22,7 +22,7 @@ extension DeleteExpiredServicePresenter: DeleteExpiredServicePresenterContract {
     func viewLoaded() {
         let request = DeleteExpiredServiceRequest()
         deleteExpiredService.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
         })
@@ -31,10 +31,10 @@ extension DeleteExpiredServicePresenter: DeleteExpiredServicePresenterContract {
 
 extension DeleteExpiredServicePresenter {
     func result(response: String) {
-        view?.load(message: message)
+        view?.load(response: response)
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

@@ -33,17 +33,17 @@ extension TrackQueryPresenter {
     func result(message: [Query]) {
         for query in message {
             view?.load(response: String(query.queryId))
-            view?.load(message: query.queryMessage)
+            view?.load(response: query.queryMessage)
             view?.load(response: String(query.queryType.rawValue))
-            view?.load(message: query.querystatus.description)
+            view?.load(response: query.querystatus.description)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
             var queryDate = dateFormatter.string(from: query.queryDate)
-            view?.load(message: queryDate)
+            view?.load(response: queryDate)
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

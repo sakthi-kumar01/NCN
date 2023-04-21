@@ -31,15 +31,15 @@ extension SearchClientPresenter: SearchClientPresenterContract {
 extension SearchClientPresenter {
     func result(message: [User]) {
         for user in message {
-            view?.load(message: "UserName: "+user.userName)
-            view?.load(message: "password: "+user.password)
-            view?.load(message: "email id: "+user.email)
-            view?.load(message: "mobile number: "+user.mobileNumber.description)
-            view?.load(message: "")
+            view?.load(response: "UserName: "+user.userName)
+            view?.load(response: "password: "+user.password)
+            view?.load(response: "email id: "+user.email)
+            view?.load(response: "mobile number: "+user.mobileNumber.description)
+            view?.load(response: "")
         }
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }

@@ -29,7 +29,7 @@ extension CreateAvailableSubscriptionPresenter: CreateAvailableSubscriptionPrese
 
 extension CreateAvailableSubscriptionPresenter {
     func result(subscriptionResponse: CreateAvailableSubscriptionResponse) {
-        view?.load(message: subscriptionResponse.response)
+        view?.load(response: subscriptionResponse.response)
     }
 
     func failed(error: CreateAvailableSubscriptionError) {

@@ -37,7 +37,7 @@ public class ClientTrackServiceView: NSView {
 
 extension ClientTrackServiceView: ClientTrackServiceViewContract {
     public func load(response: String) {
-        print(message)
+        print(response)
     }
 
     func failed(error: String) {

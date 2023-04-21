@@ -33,6 +33,6 @@ class SetEnterpriseNameView: NSView {
 
 extension SetEnterpriseNameView: SetEnterpriseNameViewContract {
     func load(response: String) {
-        print(message)
+        print(response)
     }
 }

@@ -33,7 +33,7 @@ extension AddNewEmployeePresenter: AddNewEmployeePresenterContract {
 
 extension AddNewEmployeePresenter {
     func result(response: AddNewEmployeeResponse) {
-        view?.load(message: response.response)
+        view?.load(response: response.response)
     }
 
     func failed(error: AddNewEmployeeError) {

@@ -1,23 +1,22 @@
 //
-//  RemoveSubscriptionView.swift
+//  GetEnterpriseView.swift
 //  NCNUI
 //
-//  Created by raja-16327 on 12/04/23.
+//  Created by raja-16327 on 20/04/23.
 //
 
 import Foundation
 import AppKit
-
-
-class RemoveSubscriptionView: NSView {
+import NCN_BackEnd
+class GetEnterpriseNameView: NSView {
     
-    public var subscriptionId: Int
     
-    var presenter: RemoveSubscriptionPresenter
     
-    init(  subscriptionId: Int, presenter: RemoveSubscriptionPresenter) {
+    var presenter: GetEnterpriseNamePresenter
+    
+    init(presenter: GetEnterpriseNamePresenter) {
         
-        self.subscriptionId = subscriptionId
+       
         
         self.presenter = presenter
         super.init(frame: NSZeroRect)
@@ -30,12 +29,12 @@ class RemoveSubscriptionView: NSView {
     
     override func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(subscriptionId: subscriptionId )
+            presenter.viewLoaded()
         }
     }
 }
 
-extension RemoveSubscriptionView: RemoveSubscriptionViewContract {
+extension GetEnterpriseNameView: GetEnterpriseNameViewContract {
     func load(response: String) {
         print(response)
     }

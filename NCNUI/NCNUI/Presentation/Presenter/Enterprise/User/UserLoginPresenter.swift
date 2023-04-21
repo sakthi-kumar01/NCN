@@ -31,11 +31,11 @@ extension UserLoginPresenter: UserLoginPresenterContract {
 
 extension UserLoginPresenter {
     func result(user: User) {
-        view?.load(message: user.userName)
+        view?.load(response: user.userName)
     }
 
     func failed(error: String) {
-        view?.load(message: error)
+        view?.load(response: error)
     }
     
     

@@ -34,6 +34,6 @@ class UserLoginView: NSView {
 
 extension UserLoginView: UserLoginViewContract {
     func load(response: String) {
-        print(message)
+        print(response)
     }
 }

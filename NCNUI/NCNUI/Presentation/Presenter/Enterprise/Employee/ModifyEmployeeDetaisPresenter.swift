@@ -21,7 +21,7 @@ extension ModifyEmployeeDetailsPresenter: ModifyEmployeeDetailsPresenterContract
     func viewLoaded(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int) {
         let request = ModifyEmployeeDetailsRequest(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo)
         modifyEmployeeDetails.execute(request: request, onSuccess: { [weak self] response in
-            self?.result(message: response.response)
+            self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
             self?.failed(loginError: loginError.error)
         })
@@ -30,10 +30,10 @@ extension ModifyEmployeeDetailsPresenter: ModifyEmployeeDetailsPresenterContract
 
 extension ModifyEmployeeDetailsPresenter {
     func result(response: String) {
-        view?.load(message: message)
+        view?.load(response: response)
     }
 
     func failed(loginError: String) {
-        view?.load(message: loginError)
+        view?.load(response: loginError)
     }
 }
