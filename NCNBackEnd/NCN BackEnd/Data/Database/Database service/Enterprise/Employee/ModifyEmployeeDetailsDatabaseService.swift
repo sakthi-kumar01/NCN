@@ -18,8 +18,4 @@ extension ModifyEmployeeDetailsDatabaseService: ModifyEmployeeDetailsDatabaseSer
         let columnValue: [Any] = [userName, password, eMail, mobileNo]
         db.updateValue(tableName: "users", columnValue: columnValue, columnName: columnName, whereClause: "userId = \(userId)", success: success, failure: failure)
     }
-    
-    
-    
-    
 }

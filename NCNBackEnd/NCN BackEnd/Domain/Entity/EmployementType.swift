@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public enum EmploymentType: String, CaseIterable {
+public enum EmploymentType: String, CaseIterable, Codable {
     case freelancer
     case permanent
     case contract

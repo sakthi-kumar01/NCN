@@ -13,10 +13,10 @@ public class AssignQueryDatabaseService {
 }
 
 extension AssignQueryDatabaseService: AssignQueryDatabaseServiceContract {
-    public func assignQuery(employeeId: Int, queryId: Int, success: @escaping (String) -> Void, failure : @escaping (String) -> Void) {
+    public func assignQuery(employeeId: Int, queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         var tableName = "query"
-        var columnsValue = [ queryId, employeeId]
-        var columnName = ["queryId","employeeId"]
+        var columnsValue = [queryId, employeeId]
+        var columnName = ["queryId", "employeeId"]
         var rowIdColumnName = "queryId"
         var rowIdColumnValue = queryId
         db.updateValue(tableName: tableName, columnValue: columnsValue, columnName: columnName, whereClause: "\(rowIdColumnName) = \(rowIdColumnValue)", success: success, failure: failure)

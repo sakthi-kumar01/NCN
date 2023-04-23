@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol RemoveAvailableServiceDataContract {
-   func removeAvailableService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+    func removeAvailableService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

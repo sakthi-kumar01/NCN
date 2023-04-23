@@ -27,10 +27,9 @@ public class ClientTrackServiceView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func viewDidMoveToSuperview() {
+    override public func viewDidMoveToSuperview() {
         if superview != nil {
             presenter.viewLoaded(id: id, subscriptionUsage: subscriptionUsage, userId: userId)
-            
         }
     }
 }

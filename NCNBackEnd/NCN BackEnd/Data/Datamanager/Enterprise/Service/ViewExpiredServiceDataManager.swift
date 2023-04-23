@@ -26,15 +26,13 @@ public class ViewExpiredServiceDataManager {
 }
 
 extension ViewExpiredServiceDataManager: ViewExpiredServiceDataContract {
-    public func viewExpiredService( success: @escaping ([[String]]) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.viewExpiredService( success: {
+    public func viewExpiredService(success: @escaping ([[String]]) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.viewExpiredService(success: {
             [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(response: message, callback: failure)
         })
-        
     }
-    
 }

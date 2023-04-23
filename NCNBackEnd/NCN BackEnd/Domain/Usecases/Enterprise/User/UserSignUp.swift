@@ -13,13 +13,12 @@ public final class UserSignUpRequest: Request {
     public var password: String
     public var email: String
     public var mobileNumber: Int
-   
+
     public init(userName: String, password: String, email: String, mobileNumber: Int) {
-        self.userName =  userName
+        self.userName = userName
         self.password = password
         self.email = email
-        self.mobileNumber =  mobileNumber
-        
+        self.mobileNumber = mobileNumber
     }
 }
 
@@ -46,7 +45,7 @@ public final class UserSignUp: ZUsecase<UserSignUpRequest, UserSignUpResponse, U
     }
 
     override public func run(request: UserSignUpRequest, success: @escaping (UserSignUpResponse) -> Void, failure: @escaping (UserSignUpError) -> Void) {
-        dataManager.userSignUp(userName: request.userName, password: request.password, email: request.email, mobileNumber: request.mobileNumber , success: { [weak self] response in
+        dataManager.userSignUp(userName: request.userName, password: request.password, email: request.email, mobileNumber: request.mobileNumber, success: { [weak self] response in
             self?.success(response: response, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: UserSignUpError(error: error), callback: failure)

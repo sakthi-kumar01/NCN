@@ -13,7 +13,7 @@ class ViewEmployeeClientPresenter {
     weak var router: ViewEmployeeClientRouterContract?
 
     init(ViewEmployeeClient: ViewEmployeeClient) {
-        self.viewEmployeeClient = ViewEmployeeClient
+        viewEmployeeClient = ViewEmployeeClient
     }
 }
 

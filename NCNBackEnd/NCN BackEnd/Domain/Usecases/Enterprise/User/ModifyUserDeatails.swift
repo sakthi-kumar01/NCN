@@ -14,14 +14,13 @@ public final class ModifyUserDetailsRequest: Request {
     public var password: String
     public var eMail: String
     public var mobileNo: Int
-   
+
     public init(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int) {
         self.userId = userId
         self.userName = userName
         self.password = password
         self.eMail = eMail
         self.mobileNo = mobileNo
-        
     }
 }
 
@@ -48,12 +47,12 @@ public final class ModifyUserDetails: ZUsecase<ModifyUserDetailsRequest, ModifyU
     }
 
     override public func run(request: ModifyUserDetailsRequest, success: @escaping (ModifyUserDetailsResponse) -> Void, failure: @escaping (ModifyUserDetailsError) -> Void) {
-        dataManager.modifyUserDetails(userId: request.userId, userName: request.userName, password: request.password, eMail: request.eMail, mobileNo: request.mobileNo
-                                        ,success: { [weak self] message in
-            self?.success(response: message, callback: success)
-        }, failure: { [weak self] error in
-            self?.failure(error: ModifyUserDetailsError(error: error), callback: failure)
-        })
+        dataManager.modifyUserDetails(userId: request.userId, userName: request.userName, password: request.password, eMail: request.eMail, mobileNo: request.mobileNo,
+                                      success: { [weak self] message in
+                                          self?.success(response: message, callback: success)
+                                      }, failure: { [weak self] error in
+                                          self?.failure(error: ModifyUserDetailsError(error: error), callback: failure)
+                                      })
     }
 
     private func success(response: String, callback: @escaping (ModifyUserDetailsResponse) -> Void) {
@@ -65,4 +64,3 @@ public final class ModifyUserDetails: ZUsecase<ModifyUserDetailsRequest, ModifyU
         invokeFailure(callback: callback, failure: error)
     }
 }
-

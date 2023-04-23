@@ -11,7 +11,7 @@ public final class SearchClientRequest: Request {
     public var employeeId: Int
     public var userId: Int
 
-    public init(userId:Int, employeeId: Int) {
+    public init(userId: Int, employeeId: Int) {
         self.employeeId = employeeId
         self.userId = userId
     }

@@ -9,7 +9,6 @@ import Foundation
 public class BuyServiceDatabaseService {
     public init() {}
     var db = Database.shared
-    
 }
 
 extension BuyServiceDatabaseService: BuyServiceDatabaseServiceContract {

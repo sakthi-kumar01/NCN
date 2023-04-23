@@ -14,7 +14,7 @@ class SetEnterpriseNameView: NSView {
 
     init(enterpriseName: String, presenter: SetEnterpriseNamePresenter) {
         self.enterpriseName = enterpriseName
-        
+
         self.presenter = presenter
         super.init(frame: NSZeroRect)
     }

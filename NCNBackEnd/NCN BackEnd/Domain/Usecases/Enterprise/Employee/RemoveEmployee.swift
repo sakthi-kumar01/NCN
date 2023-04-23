@@ -11,11 +11,10 @@ import VTComponents
 public final class RemoveEmployeeRequest: Request {
     public var employeeId: Int
     public var userId: Int
-   
+
     public init(employeeId: Int, userId: Int) {
         self.employeeId = employeeId
         self.userId = userId
-        
     }
 }
 
@@ -58,4 +57,3 @@ public final class RemoveEmployee: ZUsecase<RemoveEmployeeRequest, RemoveEmploye
         invokeFailure(callback: callback, failure: error)
     }
 }
-

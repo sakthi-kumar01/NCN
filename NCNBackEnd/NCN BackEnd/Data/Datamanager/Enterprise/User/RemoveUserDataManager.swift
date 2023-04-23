@@ -34,7 +34,5 @@ extension RemoveUserDataManager: RemoveUserDataContract {
             [weak self] message in
             self?.failure(response: message, callback: failure)
         })
-        
     }
-    
 }

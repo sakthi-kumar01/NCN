@@ -11,15 +11,16 @@ public class CreateAvailableSubscriptionDatabaseService {
     var db = Database.shared
 }
 
-extension CreateAvailableSubscriptionDatabaseService : CreateAvailableSubscriptionDatabaseServiceContract {
+extension CreateAvailableSubscriptionDatabaseService: CreateAvailableSubscriptionDatabaseServiceContract {
     public func createAvaialableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionConuntLimit: Float, subscriptionDaylimit: Int, serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        let columnName = ["subscriptionId", "subscriptionPackageType", "subscriptionConuntLimit","subscriptionDaylimit", "serviceId", "enterpriseId"]
-        let columnValue: [Any] = [subscriptionId, subscriptionPackageType, subscriptionConuntLimit, subscriptionDaylimit,serviceId, 11]
+        let columnName = ["subscriptionId", "subscriptionPackageType", "subscriptionConuntLimit", "subscriptionDaylimit", "serviceId", "enterpriseId"]
+        let columnValue: [Any] = [subscriptionId, subscriptionPackageType, subscriptionConuntLimit, subscriptionDaylimit, serviceId, 11]
         db.insertStatement(tableName: "availableService", columnName: columnName, insertData: columnValue, success: {
-            message in  () },
-                           failure: failure)
-        
-        var result = db.selectQuery(columnString: "*", tableName: "availableService",whereClause: "serviceId =  last_insert_rowid()")
+            _ in ()
+        },
+        failure: failure)
+
+        var result = db.selectQuery(columnString: "*", tableName: "availableService", whereClause: "serviceId =  last_insert_rowid()")
         print("executed here")
         var res: [AvailableService] = []
         guard let resultedArray = result else {
@@ -28,26 +29,14 @@ extension CreateAvailableSubscriptionDatabaseService : CreateAvailableSubscripti
         }
         for dict in resultedArray {
             if let subscriptionId = dict["serviceId"] as? Int {
-                
                 if let subscriptionPackageType = dict["serviceTitle"] as? String {
-                    
                     if let subscriptionCountLimit = dict["serviceDescription"] as? String {
-                        
-                        
-                        
-                        let newAvailableSubscription = AvailableService(serviceId: subscriptionId, serviceTitle: subscriptionPackageType , serviceDescription: subscriptionCountLimit)
-                        
+                        let newAvailableSubscription = AvailableService(serviceId: subscriptionId, serviceTitle: subscriptionPackageType, serviceDescription: subscriptionCountLimit)
+
                         res.append(newAvailableSubscription)
-                        
-                        
-                        
                     }
-                    
                 }
-                
             }
-            
-            
         }
         if res.count == 0 {
             failure("No Data")
@@ -55,6 +44,4 @@ extension CreateAvailableSubscriptionDatabaseService : CreateAvailableSubscripti
             success("Data has been entered successfully")
         }
     }
-    
-    
 }

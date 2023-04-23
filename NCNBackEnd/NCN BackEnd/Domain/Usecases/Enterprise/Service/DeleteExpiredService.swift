@@ -8,11 +8,7 @@
 import Foundation
 import VTComponents
 
-public final class DeleteExpiredServiceRequest: Request {
-    
-   
-   
-}
+public final class DeleteExpiredServiceRequest: Request {}
 
 public final class DeleteExpiredServiceResponse: ZResponse {
     public var response: String
@@ -36,8 +32,8 @@ public final class DeleteExpiredService: ZUsecase<DeleteExpiredServiceRequest, D
         self.dataManager = dataManager
     }
 
-    override public func run(request: DeleteExpiredServiceRequest, success: @escaping (DeleteExpiredServiceResponse) -> Void, failure: @escaping (DeleteExpiredServiceError) -> Void) {
-        dataManager.deleteExpiredService( success: { [weak self] message in
+    override public func run(request _: DeleteExpiredServiceRequest, success: @escaping (DeleteExpiredServiceResponse) -> Void, failure: @escaping (DeleteExpiredServiceError) -> Void) {
+        dataManager.deleteExpiredService(success: { [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: DeleteExpiredServiceError(error: error), callback: failure)

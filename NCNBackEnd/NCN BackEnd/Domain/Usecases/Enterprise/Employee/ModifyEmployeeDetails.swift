@@ -14,14 +14,13 @@ public final class ModifyEmployeeDetailsRequest: Request {
     public var password: String
     public var eMail: String
     public var mobileNo: Int
-   
+
     public init(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int) {
         self.userId = userId
         self.userName = userName
         self.password = password
         self.eMail = eMail
         self.mobileNo = mobileNo
-        
     }
 }
 

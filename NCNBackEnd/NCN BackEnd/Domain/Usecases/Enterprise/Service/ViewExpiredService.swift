@@ -8,11 +8,7 @@
 import Foundation
 import VTComponents
 
-public final class ViewExpiredServiceRequest: Request {
-    
-
-    
-}
+public final class ViewExpiredServiceRequest: Request {}
 
 public final class ViewExpiredServiceResponse: ZResponse {
     public var response: [[String]]
@@ -36,7 +32,7 @@ public final class ViewExpiredService: ZUsecase<ViewExpiredServiceRequest, ViewE
         self.dataManager = dataManager
     }
 
-    override public func run(request: ViewExpiredServiceRequest, success: @escaping (ViewExpiredServiceResponse) -> Void, failure: @escaping (ViewExpiredServiceError) -> Void) {
+    override public func run(request _: ViewExpiredServiceRequest, success: @escaping (ViewExpiredServiceResponse) -> Void, failure: @escaping (ViewExpiredServiceError) -> Void) {
         dataManager.viewExpiredService(success: { [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: { [weak self] error in
@@ -53,4 +49,3 @@ public final class ViewExpiredService: ZUsecase<ViewExpiredServiceRequest, ViewE
         invokeFailure(callback: callback, failure: error)
     }
 }
-

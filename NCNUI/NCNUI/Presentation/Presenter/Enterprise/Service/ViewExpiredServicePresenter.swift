@@ -30,8 +30,7 @@ extension ViewExpiredServicePresenter: ViewExpiredServicePresenterContract {
 
 extension ViewExpiredServicePresenter {
     func result(message: [[String]]) {
-        for value in message{
-            
+        for value in message {
             view?.load(response: value[0])
             view?.load(response: value[1])
             view?.load(response: value[2])

@@ -14,19 +14,19 @@ public class ViewUserQueryDatabaseService {
 
 extension ViewUserQueryDatabaseService: ViewUserQueryDatabaseServiceContract {
     public func viewUserQuery(userId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
-        var result =  db.selectQuery(columnString: "*", tableName: "query", whereClause: "userId = \(userId)")
-        
+        var result = db.selectQuery(columnString: "*", tableName: "query", whereClause: "userId = \(userId)")
+
         guard let resultantArray = result else {
             failure("No data")
             return
         }
-        
+
         for dict in resultantArray {
             if let queryId = dict["queryId"] as? Int {
                 print(queryId)
                 if let queryTypeId = dict["queryTypeId"] as? Int {
                     print(queryTypeId)
-                    //changind to queryType
+                    // changind to queryType
                     var queryType: QueryType = .complaint
                     if queryTypeId == 1 {
                         queryType = .complaint
@@ -41,9 +41,8 @@ extension ViewUserQueryDatabaseService: ViewUserQueryDatabaseServiceContract {
                             dateFormatter.dateFormat = "MM/dd/yyyy"
                             var queryDate = dateFormatter.date(from: querydate)
                             print(queryDate!)
-                            
+
                             if let queryStatus = dict["queryStatus"] as? String {
-                                
                                 print(queryStatus)
                                 var querystatus = (queryStatus == "true") ? true : false
                                 var newQuery = Query(queryId: queryId, queryType: queryType, queryMessage: queryMessage, queryDate: queryDate!, querystatus: querystatus)
@@ -56,6 +55,4 @@ extension ViewUserQueryDatabaseService: ViewUserQueryDatabaseServiceContract {
         }
         success(resultQuery)
     }
-    
-    
 }

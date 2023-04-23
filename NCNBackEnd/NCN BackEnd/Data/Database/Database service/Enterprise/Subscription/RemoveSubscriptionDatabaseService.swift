@@ -11,10 +11,8 @@ public class RemoveSubscriptionDatabaseService {
     var db = Database.shared
 }
 
-extension RemoveSubscriptionDatabaseService : RemoveSubscriptionDatabaseServiceContract {
+extension RemoveSubscriptionDatabaseService: RemoveSubscriptionDatabaseServiceContract {
     public func removeSubscription(subscriptionId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        db.deleteValue(tableName: "availableSubscription", columnName: "subscriptionId", columnValue: String(describing: subscriptionId),success: success, failure: failure)
+        db.deleteValue(tableName: "availableSubscription", columnName: "subscriptionId", columnValue: String(describing: subscriptionId), success: success, failure: failure)
     }
-    
-    
 }

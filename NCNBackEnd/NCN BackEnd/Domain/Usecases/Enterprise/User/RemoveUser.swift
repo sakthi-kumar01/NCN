@@ -10,10 +10,9 @@ import VTComponents
 
 public final class RemoveUserRequest: Request {
     public var userId: Int
-   
+
     public init(userId: Int) {
         self.userId = userId
-        
     }
 }
 

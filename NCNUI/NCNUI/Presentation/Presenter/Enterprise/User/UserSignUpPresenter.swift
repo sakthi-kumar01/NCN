@@ -30,11 +30,7 @@ extension UserSignUpPresenter: UserSignUpPresenterContract {
 
 extension UserSignUpPresenter {
     func result(response: String) {
-        
-            
-            view?.load(response: response)
-            
-        
+        view?.load(response: response)
     }
 
     func failed(loginError: String) {

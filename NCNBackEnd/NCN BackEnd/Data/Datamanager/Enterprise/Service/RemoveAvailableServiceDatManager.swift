@@ -34,7 +34,5 @@ extension RemoveAvailableServiceDataManager: RemoveAvailableServiceDataContract 
             [weak self] message in
             self?.failure(response: message, callback: failure)
         })
-        
     }
-    
 }

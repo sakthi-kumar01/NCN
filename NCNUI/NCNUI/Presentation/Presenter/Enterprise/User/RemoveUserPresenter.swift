@@ -32,6 +32,7 @@ extension RemoveUserPresenter {
     func result(response: String) {
         view?.load(response: response)
     }
+
     func failed(loginError: String) {
         view?.load(response: loginError)
     }

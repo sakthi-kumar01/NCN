@@ -18,7 +18,7 @@ class SearchClientPresenter {
 }
 
 extension SearchClientPresenter: SearchClientPresenterContract {
-    func viewLoaded(userId: Int,employeeId: Int) {
+    func viewLoaded(userId: Int, employeeId: Int) {
         let request = SearchClientRequest(userId: userId, employeeId: employeeId)
         searchClient.execute(request: request, onSuccess: { [weak self] response in
             self?.result(message: response.response)
@@ -31,10 +31,10 @@ extension SearchClientPresenter: SearchClientPresenterContract {
 extension SearchClientPresenter {
     func result(message: [User]) {
         for user in message {
-            view?.load(response: "UserName: "+user.userName)
-            view?.load(response: "password: "+user.password)
-            view?.load(response: "email id: "+user.email)
-            view?.load(response: "mobile number: "+user.mobileNumber.description)
+            view?.load(response: "UserName: " + user.userName)
+            view?.load(response: "password: " + user.password)
+            view?.load(response: "email id: " + user.email)
+            view?.load(response: "mobile number: " + user.mobileNumber.description)
             view?.load(response: "")
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 public class ViewSubscriptionDatabaseService {
     public init() {}
-    
+
     var db = Database.shared
     var result: [AvailableSubscription] = []
 }
@@ -25,7 +25,7 @@ extension ViewSubscriptionDatabaseService: ViewSubscriptionDatabaseServiceContra
         print(resultedArray.count)
         for dict in resultedArray {
             if let subscriptionId = dict["subscriptionId"], let subscriptionPackageType = dict["subscriptionPackageType"], let subscriptionCountLimit = dict["subscriptionCountLimit"] as? Int, let subscriptionDaylimit = dict["subscritptionDayLimit"], let serviceId = dict["serviceId"] {
-                var newAvailableSubscription = AvailableSubscription(subscriptionId: subscriptionId as! Int, subscriptionPackageType: subscriptionPackageType as? String, subscriptionCountLimit: subscriptionCountLimit , subscritptionDayLimit: subscriptionDaylimit as? Int, serviceId: serviceId as! Int)
+                var newAvailableSubscription = AvailableSubscription(subscriptionId: subscriptionId as! Int, subscriptionPackageType: subscriptionPackageType as? String, subscriptionCountLimit: subscriptionCountLimit, subscritptionDayLimit: subscriptionDaylimit as? Int, serviceId: serviceId as! Int)
                 result.append(newAvailableSubscription)
             }
         }

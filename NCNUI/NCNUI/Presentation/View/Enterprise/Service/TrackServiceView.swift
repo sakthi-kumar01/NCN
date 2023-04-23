@@ -16,7 +16,7 @@ public class TrackServiceView: NSView {
 
     var presenter: TrackServicePresenter
 
-    public init(id:Int, subscriptionUsage: Int, employeeId: Int, presenter: TrackServicePresenter) {
+    public init(id: Int, subscriptionUsage: Int, employeeId: Int, presenter: TrackServicePresenter) {
         self.id = id
         self.subscriptionUsage = subscriptionUsage
         self.employeeId = employeeId
@@ -30,9 +30,9 @@ public class TrackServiceView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func viewDidMoveToSuperview() {
+    override public func viewDidMoveToSuperview() {
         if superview != nil {
-            presenter.viewLoaded(id: id, subscriptionUsage: subscriptionUsage,employeeId: employeeId)
+            presenter.viewLoaded(id: id, subscriptionUsage: subscriptionUsage, employeeId: employeeId)
         }
     }
 }

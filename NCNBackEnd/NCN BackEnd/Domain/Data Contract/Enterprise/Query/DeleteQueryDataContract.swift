@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol DeleteQueryDataContract {
-   func deleteQuery(queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+    func deleteQuery(queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

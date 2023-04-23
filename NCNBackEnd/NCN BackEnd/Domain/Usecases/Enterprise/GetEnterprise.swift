@@ -8,11 +8,10 @@
 import Foundation
 import VTComponents
 public final class GetEnterpriseNameRequest: Request {
-    
-   
-    public override init() {
-       
-        
+    public var id: Int
+    public init(id: Int) {
+        print("GetEnterpriseNameRequest")
+        self.id = id
     }
 }
 
@@ -35,11 +34,12 @@ public final class GetEnterpriseName: ZUsecase<GetEnterpriseNameRequest, GetEnte
     var dataManager: GetEnterpriseNameDataContract
 
     public init(dataManager: GetEnterpriseNameDataContract) {
+        print("GetEnterpriseName")
         self.dataManager = dataManager
     }
 
     override public func run(request: GetEnterpriseNameRequest, success: @escaping (GetEnterpriseNameResponse) -> Void, failure: @escaping (GetEnterpriseNameError) -> Void) {
-        dataManager.getEnterpriseName( success: { [weak self] response in
+        dataManager.getEnterpriseName(id: request.id, success: { [weak self] response in
             self?.success(response: response, callback: success)
         }, failure: { [weak self] error in
             self?.failure(error: GetEnterpriseNameError(error: error), callback: failure)

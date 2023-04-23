@@ -10,10 +10,9 @@ import VTComponents
 
 public final class RemoveAvailableServiceRequest: Request {
     public var serviceId: Int
-   
+
     public init(serviceId: Int) {
         self.serviceId = serviceId
-        
     }
 }
 

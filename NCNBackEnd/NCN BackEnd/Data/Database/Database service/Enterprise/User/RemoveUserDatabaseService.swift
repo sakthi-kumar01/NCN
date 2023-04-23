@@ -7,13 +7,12 @@
 
 import Foundation
 public class RemoveUserDatabaseService {
-    public init () {}
+    public init() {}
     var db = Database.shared
 }
-extension RemoveUserDatabaseService : RemoveUserDatabaseServiceContract {
+
+extension RemoveUserDatabaseService: RemoveUserDatabaseServiceContract {
     public func removeUser(userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        db.deleteValue(tableName: "user", columnName: "userId", columnValue: String(describing: userId),success: success, failure: failure)
+        db.deleteValue(tableName: "user", columnName: "userId", columnValue: String(describing: userId), success: success, failure: failure)
     }
-    
-    
 }

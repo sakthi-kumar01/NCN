@@ -10,12 +10,10 @@ public class DeleteQueryDatabaseService {
     public init() {}
     var db = Database.shared
 }
-extension DeleteQueryDatabaseService : DeleteQueryDatabaseServiceContract {
-    public func deleteQuery(queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        db.deleteValue(tableName: "query", columnName: "queryId", columnValue: String(describing: queryId),success: success, failure: failure)
-        db.deleteValue(tableName: "query", columnName: "queryStatus", columnValue: "\'true\'",success: success, failure: failure)
 
+extension DeleteQueryDatabaseService: DeleteQueryDatabaseServiceContract {
+    public func deleteQuery(queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        db.deleteValue(tableName: "query", columnName: "queryId", columnValue: String(describing: queryId), success: success, failure: failure)
+        db.deleteValue(tableName: "query", columnName: "queryStatus", columnValue: "\'true\'", success: success, failure: failure)
     }
-    
-    
 }

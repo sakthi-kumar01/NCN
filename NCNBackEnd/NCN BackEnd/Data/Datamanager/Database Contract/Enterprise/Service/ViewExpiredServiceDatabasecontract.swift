@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol ViewExpiredServiceDatabaseServiceContract {
-    func viewExpiredService( success: @escaping ([[String]]) -> Void, failure: @escaping (String) -> Void)
+    func viewExpiredService(success: @escaping ([[String]]) -> Void, failure: @escaping (String) -> Void)
 }

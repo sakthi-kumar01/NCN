@@ -19,7 +19,7 @@ public class TrackServicePresenter {
 }
 
 extension TrackServicePresenter: TrackServicePresenterContract {
-    func viewLoaded(id: Int,subscriptionUsage:Int, employeeId: Int) {
+    func viewLoaded(id: Int, subscriptionUsage: Int, employeeId: Int) {
         let request = TrackServiceRequest(id: id, subscriptionUsage: subscriptionUsage, employeeId: employeeId)
         trackService.execute(request: request, onSuccess: { [weak self] response in
             self?.result(response: response.response)

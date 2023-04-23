@@ -13,7 +13,6 @@ class UserDefaultsManager {
 
     private init() {}
 
-    
     func saveIntData(key: String, value: Int) {
         defaults.set(value, forKey: key)
     }
@@ -22,12 +21,10 @@ class UserDefaultsManager {
         defaults.set(value, forKey: key)
     }
 
-    
     func retrieveIntData(key: String) -> Int? {
         return defaults.integer(forKey: key)
     }
 
-    
     func retrieveStringData(key: String) -> String? {
         return defaults.string(forKey: key)
     }

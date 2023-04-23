@@ -12,12 +12,10 @@ public class DeleteExpiredServiceDatabaseService {
 }
 
 extension DeleteExpiredServiceDatabaseService: DeleteExpiredServiceDatabaseServiceContract {
-    public func deleteExpiredService( success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+    public func deleteExpiredService(success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let todayString = dateFormatter.string(from: Date())
-        db.deleteValue(tableName: "serviceLinkTable",whereClause: " validTill < \'\(todayString)\'", success: success, failure: failure)
+        db.deleteValue(tableName: "serviceLinkTable", whereClause: " validTill < \'\(todayString)\'", success: success, failure: failure)
     }
-    
-    
 }

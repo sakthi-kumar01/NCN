@@ -35,8 +35,5 @@ extension UserSignUpDataManager: UserSignUpDataContract {
             [weak self] response in
             self?.failure(response: response, callback: failure)
         })
-        
     }
-    
 }
-

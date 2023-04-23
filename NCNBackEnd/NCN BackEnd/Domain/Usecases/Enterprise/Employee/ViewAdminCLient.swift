@@ -55,4 +55,3 @@ public final class ViewAdminClient: ZUsecase<ViewAdminClientRequest, ViewAdminCl
         invokeFailure(callback: callback, failure: error)
     }
 }
-

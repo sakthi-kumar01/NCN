@@ -26,8 +26,9 @@ public class TrackServiceDataManager {
 }
 
 extension TrackServiceDataManager: TrackServiceDataContract {
-    public func trackService(id: Int, subscriptionUsage:Int ,employeeId: Int, success: @escaping (
-    String) -> Void, failure: @escaping (String) -> Void) {
+    public func trackService(id: Int, subscriptionUsage: Int, employeeId: Int, success: @escaping (
+        String) -> Void, failure: @escaping (String) -> Void)
+    {
         databaseService.trackService(id: id, subscriptionUsage: subscriptionUsage, employeeId: employeeId, success: {
             [weak self] message in
             self?.success(response: message, callback: success)

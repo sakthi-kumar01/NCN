@@ -12,13 +12,10 @@ public class TrackQueryDatabasService {
     var resultQuery: [Query] = []
 }
 
-
 extension TrackQueryDatabasService: TrackQueryDatabaseServiceContract {
     public func trackQuery(employeeId: Int, success: @escaping ([Query]) -> Void, failure: @escaping (String) -> Void) {
-        
-        
-        var result =  db.selectQuery(columnString: "*", tableName: "query", whereClause: "employeeId = \(employeeId) AND queryStatus = \'false\'")
-        
+        var result = db.selectQuery(columnString: "*", tableName: "query", whereClause: "employeeId = \(employeeId) AND queryStatus = \'false\'")
+
         guard let resultantArray = result else {
             failure("No data")
             return
@@ -33,7 +30,7 @@ extension TrackQueryDatabasService: TrackQueryDatabaseServiceContract {
                 print(queryId)
                 if let queryTypeId = dict["queryTypeId"] as? Int {
                     print(queryTypeId)
-                    //changind to queryType
+                    // changind to queryType
                     var queryType: QueryType = .complaint
                     if queryTypeId == 1 {
                         queryType = .complaint
@@ -48,9 +45,8 @@ extension TrackQueryDatabasService: TrackQueryDatabaseServiceContract {
                             dateFormatter.dateFormat = "MM/dd/yyyy"
                             var queryDate = dateFormatter.date(from: querydate)
                             print(queryDate!)
-                            
+
                             if let queryStatus = dict["queryStatus"] as? String {
-                                
                                 print(queryStatus)
                                 var querystatus = (queryStatus == "true") ? true : false
                                 var newQuery = Query(queryId: queryId, queryType: queryType, queryMessage: queryMessage, queryDate: queryDate!, querystatus: querystatus)
@@ -63,6 +59,4 @@ extension TrackQueryDatabasService: TrackQueryDatabaseServiceContract {
         }
         success(resultQuery)
     }
-    
-    
 }

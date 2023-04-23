@@ -9,10 +9,7 @@ import Foundation
 
 public class AddNewUserDatabaseSerivce {
     public init() {}
-
-    
 }
-
 
 extension AddNewUserDatabaseSerivce: AddNewUserDatabaseServiceContract {
     public func addNewUser(userName: String, password: String, email: String, mobilePhone: Int64, enterpriseId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {

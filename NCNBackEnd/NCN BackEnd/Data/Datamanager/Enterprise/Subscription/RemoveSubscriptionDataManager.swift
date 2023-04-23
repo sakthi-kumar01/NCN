@@ -34,7 +34,5 @@ extension RemoveSubscriptionDataManager: RemoveSubscriptionDataContract {
             [weak self] message in
             self?.failure(response: message, callback: failure)
         })
-        
     }
-    
 }

@@ -360,28 +360,27 @@ public class Database {
 extension Database {
     func selectQuery(columnString: String, tableName: String, joinClause: String = "", whereClause: String = "") -> [[String: Any]]? {
         print("select query for \(tableName) called")
-        
+
         var stmt: OpaquePointer?
         var result: [[String: Any]] = []
         var query = "SELECT \(columnString) FROM \(tableName) \(joinClause)"
-        
+
         if whereClause != "" {
             query += " WHERE \(whereClause)"
         }
-        
+
         print(query)
-        
+
         if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
-            //print("select statement preparation = sucess")
+            // print("select statement preparation = sucess")
             while sqlite3_step(stmt) == SQLITE_ROW {
-                
                 var row: [String: Any] = [:]
                 let columnCount = sqlite3_column_count(stmt)
-                
-                for i in 0..<columnCount {
+
+                for i in 0 ..< columnCount {
                     let columnName = String(cString: sqlite3_column_name(stmt, i))
                     let columnType = sqlite3_column_type(stmt, i)
-                    
+
                     switch columnType {
                     case SQLITE_INTEGER:
                         let value = sqlite3_column_int(stmt, i)
@@ -399,22 +398,21 @@ extension Database {
                         row[columnName] = nil
                     }
                 }
-                
+
                 result.append(row)
             }
         } else {
             print("selsct statement preparation failure")
         }
-        
+
         sqlite3_finalize(stmt)
-        
+
         if result.isEmpty {
             return nil
         } else {
             return result
         }
     }
-
 
     func prepareStatement(db: OpaquePointer?, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
@@ -456,11 +454,11 @@ extension Database {
         return nil
     }
 
-    func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String)-> Void, failure: @escaping (String)-> Void) {
+    func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         var columnNameString = ""
-        if columnName.count > 1{
+        if columnName.count > 1 {
             columnNameString = columnName.joined(separator: ", ")
-            
+
         } else {
             columnNameString = columnName[0]
         }
@@ -503,7 +501,7 @@ extension Database {
 
     func prepareUpdateStatement(tableName: String, columnName: [String], columnValue: [Any], whereClause: String? = nil) -> String {
         var columnsString = ""
-        for i in 0...columnName.count - 1 {
+        for i in 0 ... columnName.count - 1 {
             if columnValue[i] is String {
                 columnsString = columnsString + "\(columnName[i])" + " = " + "\'" + "\(String(describing: columnValue[i]))" + "\'" + "," + " "
             } else {
@@ -522,15 +520,14 @@ extension Database {
         return updateStatement
     }
 
-
-    func deleteValue(tableName: String, columnName: String = "", columnValue: String = "",whereClause:String = "", success: @escaping (String)-> Void, failure: @escaping (String)-> Void ) {
+    func deleteValue(tableName: String, columnName: String = "", columnValue: String = "", whereClause: String = "", success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         var deleteQuery = ""
         if whereClause == "" {
-             deleteQuery = "DELETE FROM \(tableName) WHERE " + columnName + " = " + columnValue
+            deleteQuery = "DELETE FROM \(tableName) WHERE " + columnName + " = " + columnValue
         } else {
-             deleteQuery =  "DELETE FROM \(tableName) WHERE " + whereClause
+            deleteQuery = "DELETE FROM \(tableName) WHERE " + whereClause
         }
-        
+
         print(deleteQuery)
         var deleteStatement: OpaquePointer?
         if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStatement, nil) == SQLITE_OK {
@@ -539,10 +536,8 @@ extension Database {
                 success("Deletion Statement Executed")
             } else {
                 sqlite3_finalize(deleteStatement)
-               failure("Deletion is not done.")
+                failure("Deletion is not done.")
             }
         }
-        
-        
     }
 }

@@ -36,8 +36,4 @@ extension ViewUserQueryDataManager: ViewUserQueryDataContract {
             self?.failure(response: message, callback: failure)
         })
     }
-    
-    
-    
-    
 }

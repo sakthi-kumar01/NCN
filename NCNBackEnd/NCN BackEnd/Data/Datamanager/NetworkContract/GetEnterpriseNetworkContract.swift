@@ -1,11 +1,11 @@
 //
-//  GetEnterpriseDataContract.swift
+//  GetEnterpriseNetworkContract.swift
 //  NCN BackEnd
 //
-//  Created by raja-16327 on 20/04/23.
+//  Created by raja-16327 on 21/04/23.
 //
 
 import Foundation
-public protocol GetEnterpriseNameDataContract {
+public protocol GetEnterpriseNameNetworkServiceContract {
     func getEnterpriseName(id: Int, success: @escaping (Enterprise) -> Void, failure: @escaping (String) -> Void)
 }

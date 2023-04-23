@@ -18,8 +18,8 @@ class GetEnterpriseNamePresenter {
 }
 
 extension GetEnterpriseNamePresenter: GetEnterpriseNamePresenterContract {
-    func viewLoaded() {
-        let request = GetEnterpriseNameRequest()
+    func viewLoaded(id: Int) {
+        let request = GetEnterpriseNameRequest(id: id)
         getEnterpriseName.execute(request: request, onSuccess: { [weak self] response in
             self?.result(response: response.response)
         }, onFailure: { [weak self] loginError in
@@ -30,11 +30,7 @@ extension GetEnterpriseNamePresenter: GetEnterpriseNamePresenterContract {
 
 extension GetEnterpriseNamePresenter {
     func result(response: Enterprise) {
-        
-            
         view?.load(response: response.enterpriseId.description)
-            
-        
     }
 
     func failed(loginError: String) {

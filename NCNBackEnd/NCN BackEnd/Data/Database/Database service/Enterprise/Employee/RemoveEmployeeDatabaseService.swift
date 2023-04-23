@@ -12,12 +12,8 @@ public class RemoveEmployeeDatabaseService {
 }
 
 extension RemoveEmployeeDatabaseService: RemoveEmployeeDataContract {
-    public func removeEmployee(employeeId: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        db.deleteValue(tableName: "employee", columnName: "userId", columnValue: String(describing: userId),success: success, failure: failure)
-        db.deleteValue(tableName: "user", columnName: "userId", columnValue: String(describing: userId),success: success, failure: failure)
+    public func removeEmployee(employeeId _: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        db.deleteValue(tableName: "employee", columnName: "userId", columnValue: String(describing: userId), success: success, failure: failure)
+        db.deleteValue(tableName: "user", columnName: "userId", columnValue: String(describing: userId), success: success, failure: failure)
     }
-    
-    
-    
-    
 }

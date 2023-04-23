@@ -9,10 +9,9 @@ import Foundation
 import VTComponents
 public final class RemoveSubscriptionRequest: Request {
     public var subscriptionId: Int
-   
+
     public init(subscriptionId: Int) {
         self.subscriptionId = subscriptionId
-        
     }
 }
 

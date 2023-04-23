@@ -7,5 +7,5 @@
 
 import Foundation
 public protocol RemoveEmployeeDataContract {
-   func removeEmployee(employeeId: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
+    func removeEmployee(employeeId: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void)
 }

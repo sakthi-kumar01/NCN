@@ -10,13 +10,11 @@ public class ModifyAvailableSubscriptionDatabaseService {
     public init() {}
     var db = Database.shared
 }
+
 extension ModifyAvailableSubscriptionDatabaseService: ModifyAvailableSubscriptionDatabaseServiceContract {
     public func modifyAvailableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionCountLimit: Float, subscriptionDayLimit: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        
-        let columnName = ["subscriptionPackageType", "subscriptionCountLimit","subscritptionDayLimit"]
-        let columnValue: [Any] = [subscriptionPackageType,subscriptionCountLimit,subscriptionDayLimit]
+        let columnName = ["subscriptionPackageType", "subscriptionCountLimit", "subscritptionDayLimit"]
+        let columnValue: [Any] = [subscriptionPackageType, subscriptionCountLimit, subscriptionDayLimit]
         db.updateValue(tableName: "availableSubscription", columnValue: columnValue, columnName: columnName, whereClause: "subscriptionId = \(subscriptionId)", success: success, failure: failure)
     }
-    
-    
 }

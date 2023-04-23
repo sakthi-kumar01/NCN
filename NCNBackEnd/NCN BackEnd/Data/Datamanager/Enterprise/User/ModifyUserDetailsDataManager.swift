@@ -26,17 +26,13 @@ public class ModifyUserDetailsDataManager {
 }
 
 extension ModifyUserDetailsDataManager: ModifyUserDetailsDataContract {
-    
-    
-    public func modifyUserDetails(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void){
-        databaseService.modifyUserDetails(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo,  success: {
+    public func modifyUserDetails(userId: Int, userName: String, password: String, eMail: String, mobileNo: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        databaseService.modifyUserDetails(userId: userId, userName: userName, password: password, eMail: eMail, mobileNo: mobileNo, success: {
             [weak self] message in
             self?.success(response: message, callback: success)
         }, failure: {
             [weak self] message in
             self?.failure(response: message, callback: failure)
         })
-        
     }
-    
 }

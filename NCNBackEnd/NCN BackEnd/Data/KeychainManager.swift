@@ -25,7 +25,7 @@ class KeychainManager {
             kSecAttrService as String: "com.zoho.NCN" as AnyObject,
             kSecAttrAccount as String: email as AnyObject,
             kSecClass as String: kSecClassGenericPassword,
-            kSecValueData as String: passwordData as AnyObject
+            kSecValueData as String: passwordData as AnyObject,
         ]
 
         let status = SecItemAdd(query as CFDictionary, nil)
@@ -40,11 +40,11 @@ class KeychainManager {
         let query: [String: AnyObject] = [
             kSecAttrService as String: "com.zoho.NCN" as AnyObject,
             kSecAttrAccount as String: email as AnyObject,
-            kSecClass as String: kSecClassGenericPassword
+            kSecClass as String: kSecClassGenericPassword,
         ]
 
         let attributesToUpdate: [String: AnyObject] = [
-            kSecValueData as String: passwordData as AnyObject
+            kSecValueData as String: passwordData as AnyObject,
         ]
 
         let status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)
@@ -60,7 +60,7 @@ class KeychainManager {
             kSecAttrAccount as String: email as AnyObject,
             kSecClass as String: kSecClassGenericPassword,
             kSecMatchLimit as String: kSecMatchLimitOne,
-            kSecReturnData as String: kCFBooleanTrue
+            kSecReturnData as String: kCFBooleanTrue,
         ]
 
         var itemCopy: AnyObject?
@@ -71,7 +71,8 @@ class KeychainManager {
         }
 
         guard let passwordData = itemCopy as? Data,
-              let password = String(data: passwordData, encoding: .utf8) else {
+              let password = String(data: passwordData, encoding: .utf8)
+        else {
             throw KeychainError.invalidItemFormat
         }
 
@@ -82,7 +83,7 @@ class KeychainManager {
         let query: [String: AnyObject] = [
             kSecAttrService as String: "com.zoho.NCN" as AnyObject,
             kSecAttrAccount as String: email as AnyObject,
-            kSecClass as String: kSecClassGenericPassword
+            kSecClass as String: kSecClassGenericPassword,
         ]
 
         let status = SecItemDelete(query as CFDictionary)
@@ -92,4 +93,3 @@ class KeychainManager {
         }
     }
 }
-

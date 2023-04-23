@@ -9,10 +9,9 @@ import Foundation
 import VTComponents
 public final class ViewEmployeeQueryRequest: Request {
     public var employeeId: Int
-   
+
     public init(employeeId: Int) {
         self.employeeId = employeeId
-        
     }
 }
 
@@ -55,4 +54,3 @@ public final class ViewEmployeeQuery: ZUsecase<ViewEmployeeQueryRequest, ViewEmp
         invokeFailure(callback: callback, failure: error)
     }
 }
-

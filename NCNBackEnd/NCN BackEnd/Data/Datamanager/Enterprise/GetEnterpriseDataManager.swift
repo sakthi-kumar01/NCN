@@ -7,10 +7,11 @@
 
 import Foundation
 public class GetEnterpriseNameDataManager {
-    public var databaseService: GetEnterpriseNameDatabaseServiceContract
+    public var networkService: GetEnterpriseNameNetworkServiceContract
 
-    public init(databaseService: GetEnterpriseNameDatabaseServiceContract) {
-        self.databaseService = databaseService
+    public init(networkService: GetEnterpriseNameNetworkServiceContract) {
+        print("GetEnterpriseNameDataManager")
+        self.networkService = networkService
     }
 
     private func success(response: Enterprise, callback: (Enterprise) -> Void) {
@@ -25,16 +26,14 @@ public class GetEnterpriseNameDataManager {
     }
 }
 
-extension GetEnterpriseNameDataManager: GetEnterpriseNameDatabaseServiceContract {
-    public func getEnterpriseName( success: @escaping (Enterprise) -> Void, failure: @escaping (String) -> Void) {
-        databaseService.getEnterpriseName( success: {
+extension GetEnterpriseNameDataManager: GetEnterpriseNameDataContract {
+    public func getEnterpriseName(id: Int, success: @escaping (Enterprise) -> Void, failure: @escaping (String) -> Void) {
+        networkService.getEnterpriseName(id: id, success: {
             [weak self] response in
             self?.success(response: response, callback: success)
         }, failure: {
             [weak self] response in
             self?.failure(response: response, callback: failure)
         })
-        
     }
-    
 }

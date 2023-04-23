@@ -8,7 +8,7 @@
 import Foundation
 public class AssignQueryStatusDatabaseService {
     public init() {}
-    
+
     var db = Database.shared
 }
 
@@ -16,10 +16,8 @@ extension AssignQueryStatusDatabaseService: AssignQueryStatusDatabaseServiceCont
     public func assignQueryStatus(queryId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         let rowIdColumnName = "queryId"
         let rowIdColumnValue = queryId
-        
+
         "\(rowIdColumnName) = \(rowIdColumnValue)"
         db.updateValue(tableName: "query", columnValue: ["false"], columnName: ["queryStatus"], whereClause: "\(rowIdColumnName) = \(rowIdColumnValue)", success: success, failure: failure)
     }
-    
-    
 }

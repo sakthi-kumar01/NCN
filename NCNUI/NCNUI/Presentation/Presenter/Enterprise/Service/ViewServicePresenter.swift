@@ -29,9 +29,7 @@ extension ViewServicePresenter: ViewServicePresenterContract {
 
 extension ViewServicePresenter {
     func result(response: ViewServiceResponse) {
-       
         for vals in response.response {
-           
             view?.load(serviceId: vals.serviceId, serviceTitle: vals.serviceTitle, serviceDescription: vals.serviceDescription)
         }
     }

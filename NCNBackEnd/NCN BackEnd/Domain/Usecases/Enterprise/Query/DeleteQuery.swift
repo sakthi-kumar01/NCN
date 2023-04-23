@@ -8,13 +8,11 @@
 import Foundation
 import VTComponents
 
-
 public final class DeleteQueryRequest: Request {
     public var queryId: Int
-   
+
     public init(queryId: Int) {
         self.queryId = queryId
-        
     }
 }
 

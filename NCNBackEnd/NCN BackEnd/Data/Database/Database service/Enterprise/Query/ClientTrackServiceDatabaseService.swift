@@ -12,12 +12,12 @@ public class ClientTrackServiceDatabaseService {
 }
 
 extension ClientTrackServiceDatabaseService: ClientTrackServiceDatabaseServiceContract {
-    public func ClientTrackService( id: Int, subscriptionUsage: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+    public func ClientTrackService(id: Int, subscriptionUsage: Int, userId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         var subscriptionUsageOld = 0
         let columnString = "subscriptionUsage"
         let tableName = "serviceLinkTable"
         let whereClause = "id = \(id) AND employeeId = \(userId)"
-        
+
         if let rows = db.selectQuery(columnString: columnString, tableName: tableName, whereClause: whereClause) {
             print("Rows with subscriptionUsage:")
             for row in rows {
@@ -32,8 +32,6 @@ extension ClientTrackServiceDatabaseService: ClientTrackServiceDatabaseServiceCo
         }
         print("subscriptionUsageOld: \(subscriptionUsageOld)")
         var newsubscriptionUsage = subscriptionUsageOld + subscriptionUsage
-db.updateValue(tableName: "serviceLinkTable", columnValue: [newsubscriptionUsage], columnName: ["subscriptionUsage"],whereClause: "id = \(id) AND userId = \(userId)", success: success, failure: failure)
+        db.updateValue(tableName: "serviceLinkTable", columnValue: [newsubscriptionUsage], columnName: ["subscriptionUsage"], whereClause: "id = \(id) AND userId = \(userId)", success: success, failure: failure)
     }
-    
-    
 }

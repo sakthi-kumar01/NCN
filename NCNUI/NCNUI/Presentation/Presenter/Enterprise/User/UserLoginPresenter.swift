@@ -37,11 +37,6 @@ extension UserLoginPresenter {
     func failed(error: String) {
         view?.load(response: error)
     }
-    
-    
 }
-extension UserLoginPresenter {
-    
 
-    
-}
+extension UserLoginPresenter {}

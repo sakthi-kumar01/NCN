@@ -10,9 +10,9 @@ public class CreateQueryDatabaseService {
     public init() {}
 
     var db = Database.shared
-    
 }
-extension CreateQueryDatabaseService: CreateQueryDatabaseServiceContract{
+
+extension CreateQueryDatabaseService: CreateQueryDatabaseServiceContract {
     public func createQuery(queryId: Int, queryType: QueryType, queryMessage: String, queryDate: Date, userId: Int, employeeId: Int, enterpriseId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         let queryColumnName = ["queryId", "queryTypeId", "queryStatus", "queryMessage", "createdOn", "userId", "employeeId", "enterpriseId"]
         let date = queryDate.description

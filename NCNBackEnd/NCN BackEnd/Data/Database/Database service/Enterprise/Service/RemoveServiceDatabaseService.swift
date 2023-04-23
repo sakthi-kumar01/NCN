@@ -8,12 +8,11 @@
 import Foundation
 public class RemoveAvailableServiceDatabaseService {
     public init() {}
-     var db = Database.shared
+    var db = Database.shared
 }
-extension RemoveAvailableServiceDatabaseService : RemoveAvailableServiceDatabaseServiceContract {
+
+extension RemoveAvailableServiceDatabaseService: RemoveAvailableServiceDatabaseServiceContract {
     public func removeAvailableService(serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        db.deleteValue(tableName: "availableService", columnName: "serviceId", columnValue: String(describing: serviceId),success: success, failure: failure)
+        db.deleteValue(tableName: "availableService", columnName: "serviceId", columnValue: String(describing: serviceId), success: success, failure: failure)
     }
-    
-    
 }

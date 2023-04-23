@@ -11,7 +11,7 @@ protocol GetEnterpriseNameViewContract: AnyObject {
 }
 
 protocol GetEnterpriseNamePresenterContract {
-    func viewLoaded()
+    func viewLoaded(id: Int)
 }
 
 protocol GetEnterpriseNameRouterContract: AnyObject {

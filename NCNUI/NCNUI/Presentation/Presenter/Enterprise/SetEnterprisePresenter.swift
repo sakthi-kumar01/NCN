@@ -20,8 +20,6 @@ class SetEnterpriseNamePresenter {
 }
 
 extension SetEnterpriseNamePresenter: SetEnterpriseNamePresenterContract {
-    
-    
     func viewLoaded(enterpriseName: String) {
         let request = SetEnterpriseNameRequest(enterpriseName: enterpriseName)
         setEnterpriseName.execute(request: request, onSuccess: { [weak self] response in
@@ -40,6 +38,4 @@ extension SetEnterpriseNamePresenter {
     func failed(error: String) {
         view?.load(response: error)
     }
-    
-    
 }

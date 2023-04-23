@@ -30,11 +30,10 @@ extension ViewEmployeeQueryPresenter: ViewEmployeeQueryPresenterContract {
 
 extension ViewEmployeeQueryPresenter {
     func result(message: [Query]) {
-        for query in message{
-            
+        for query in message {
             view?.load(response: String(query.queryId))
             view?.load(response: query.queryMessage)
-            if (query.queryType.rawValue == 1 ) {
+            if query.queryType.rawValue == 1 {
                 view?.load(response: "Feedback")
             } else {
                 view?.load(response: "Complaint")

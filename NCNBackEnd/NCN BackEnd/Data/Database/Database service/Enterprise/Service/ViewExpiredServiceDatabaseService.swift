@@ -9,7 +9,7 @@ import Foundation
 public class ViewExpiredServiceDatabaseService {
     public init() {}
     var db = Database.shared
-    
+
     var resultedArray: [[String]] = []
 }
 
@@ -24,9 +24,9 @@ extension ViewExpiredServiceDatabaseService: ViewExpiredServiceDatabaseServiceCo
             failure("No data")
             return
         }
-        
+
         print("ans: \(resultantArray)")
-        
+
         for field in resultantArray {
             if let userId = field["userId"] as? Int {
                 print(userId)
@@ -60,6 +60,4 @@ extension ViewExpiredServiceDatabaseService: ViewExpiredServiceDatabaseServiceCo
         }
         success(resultedArray)
     }
-    
-    
 }

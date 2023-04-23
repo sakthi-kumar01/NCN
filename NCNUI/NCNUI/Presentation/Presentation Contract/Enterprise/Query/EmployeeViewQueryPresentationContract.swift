@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol ViewEmployeeQueryViewContract: AnyObject {
     func load(response: String)
 }

@@ -36,7 +36,4 @@ extension ViewEmployeeQueryDataManager: ViewEmployeeQueryDataContract {
             self?.failure(response: message, callback: failure)
         })
     }
-    
-    
-    
 }
