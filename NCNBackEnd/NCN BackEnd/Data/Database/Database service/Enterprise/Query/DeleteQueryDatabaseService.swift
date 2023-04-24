@@ -1,14 +1,14 @@
 //
-//  DeleteQueryDatabaseService.swift
+//  DeleteQuerydatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 14/04/23.
 //
 
 import Foundation
-public class DeleteQueryDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class DeleteQueryDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
 }
 
 extension DeleteQueryDatabaseService: DeleteQueryDatabaseServiceContract {

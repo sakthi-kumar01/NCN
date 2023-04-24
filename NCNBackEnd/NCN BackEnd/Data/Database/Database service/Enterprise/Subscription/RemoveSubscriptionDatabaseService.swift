@@ -1,14 +1,13 @@
 //
-//  RemoveSubscriptionDatabaseService.swift
+//  RemoveSubscriptiondatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 14/04/23.
 //
 
 import Foundation
-public class RemoveSubscriptionDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class RemoveSubscriptionDatabaseService: EnterpriseDatabaseService {
+    public override init() {}
 }
 
 extension RemoveSubscriptionDatabaseService: RemoveSubscriptionDatabaseServiceContract {

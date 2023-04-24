@@ -1,15 +1,13 @@
 //
-//  AssignQueryStatusDatabaseService.swift
+//  AssignQueryStatusdatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 17/04/23.
 //
 
 import Foundation
-public class AssignQueryStatusDatabaseService {
-    public init() {}
-
-    var db = Database.shared
+public class AssignQueryStatusDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
 }
 
 extension AssignQueryStatusDatabaseService: AssignQueryStatusDatabaseServiceContract {

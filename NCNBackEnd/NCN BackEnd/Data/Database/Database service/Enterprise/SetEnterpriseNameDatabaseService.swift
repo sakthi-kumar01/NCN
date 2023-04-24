@@ -6,14 +6,14 @@
 //
 
 import Foundation
-public class SetEnterpriseDatabaseService {
-    var db = Database.shared
+public class SetEnterpriseDatabaseService: EnterpriseDatabaseService{
+   
 
-    public init() {}
+    public override init() {}
 }
 
 extension SetEnterpriseDatabaseService: SetEnterpriseDatabaseServiceContract {
-    public func setEnterpriseName(enterpriseName _: String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        db.insertStatement(tableName: "enterprise", columnName: ["enterpriseName"], insertData: ["random"], success: success, failure: failure)
+    public func setEnterpriseName(enterpriseName : String, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        db.insertStatement(tableName: "enterprise", columnName: ["enterpriseName"], insertData: [enterpriseName], success: success, failure: failure)
     }
 }

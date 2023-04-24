@@ -6,9 +6,9 @@
 //
 
 import Foundation
-public class ViewServiceDatabaseService {
-    public init() { print("db created") }
-    let db = Database.shared
+public class ViewServiceDatabaseService:  EnterpriseDatabaseService{
+    public override init() { print("db created") }
+    
     var result: [AvailableService] = []
 }
 

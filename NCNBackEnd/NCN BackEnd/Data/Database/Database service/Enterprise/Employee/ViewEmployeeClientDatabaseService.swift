@@ -1,14 +1,14 @@
 //
-//  ViewEmployeeClientDatabaseService.swift
+//  ViewEmployeeClientdatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 16/04/23.
 //
 
 import Foundation
-public class ViewEmployeeClientDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class ViewEmployeeClientDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
     var resultUser: [User] = []
 }
 

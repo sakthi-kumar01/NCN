@@ -1,15 +1,15 @@
 //
-//  ModifyUserDetailsDatabaseService.swift
+//  ModifyUserDetailsdatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 16/04/23.
 //
 
 import Foundation
-public class ModifyUserDetailsDatabaseService {
-    var db = Database.shared
+public class ModifyUserDetailsDatabaseService: EnterpriseDatabaseService{
+    
 
-    public init() {}
+    public override init() {}
 }
 
 extension ModifyUserDetailsDatabaseService: ModifyUserDetailsDatabaseServiceContract {

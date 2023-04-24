@@ -1,14 +1,14 @@
 //
-//  ModifyAvailableSubscriptionDatabaseService.swift
+//  ModifyAvailableSubscriptiondatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 17/04/23.
 //
 
 import Foundation
-public class ModifyAvailableSubscriptionDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class ModifyAvailableSubscriptionDatabaseService:EnterpriseDatabaseService {
+    public override init() {}
+    
 }
 
 extension ModifyAvailableSubscriptionDatabaseService: ModifyAvailableSubscriptionDatabaseServiceContract {

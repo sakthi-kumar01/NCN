@@ -1,14 +1,14 @@
 //
-//  CreateAvaialableServiceDatabaseService.swift
+//  CreateAvaialableServicedatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 13/04/23.
 //
 
 import Foundation
-public class CreateAvailableServicesDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class CreateAvailableServicesDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
     func success(response _: String) {}
 }
 

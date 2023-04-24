@@ -7,17 +7,27 @@
 
 import Foundation
 import SQLite3
+
+
+enum SQLiteError: Error {
+    case Preparestmt(response: String)
+    case Step(response: String)
+}
 public class DataBase {
     var db: OpaquePointer?
 
-    public init() {}
-
+    public init() {
+        openDatabase(databaseName: "")
+//        createTables()
+        
+    }
+    static let shared = DataBase()
     func openDatabase(databaseName: String) {
         var filePath = ""
 
         do {
             var path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            path.append(path: "\(databaseName).sqlite")
+            path.append(path: "NCN.sqlite3")
 
             filePath = path.absoluteString
 
@@ -28,6 +38,7 @@ public class DataBase {
 
         if sqlite3_open(filePath, &tempDbPointer) == SQLITE_OK {
             if let dbPointer = tempDbPointer {
+                print("database is connected")
                 db = dbPointer
             }
         } else {
@@ -35,27 +46,38 @@ public class DataBase {
         }
     }
 
-    func prepareCreateTableStatement(tableName: String, columns: [String: String], foreignKeyConstraints: [String]) -> String {
-        let columnsString = columns.map { "\($0) \($1)" }.joined(separator: ", ")
-        var createTableStatement = "CREATE TABLE IF NOT EXISTS \(tableName) (\(columnsString));"
-        for foreignKeys in foreignKeyConstraints {
-            createTableStatement = createTableStatement + foreignKeys
+    func prepareCreateTableStatement(tableName: String, columnName: [String], columnValue: [String], foreignKeyConstraints: [String]) -> String {
+        var columnString = ""
+        for i in 0 ..< columnName.count {
+            columnString = columnString + columnName[i] + " " + columnValue[i] + "," + " "
         }
-        return createTableStatement
-    }
-
-    func createTable(tableName: String, columns: [String: String], foreignKeyConstrsint: [String]) {
-        let createTableStatement = prepareCreateTableStatement(tableName: tableName, columns: columns, foreignKeyConstraints: foreignKeyConstrsint)
-
+       
+        var columnStringModified = columnString.dropLast(2)
+        
+        for foreignKeys in foreignKeyConstraints{
+            columnStringModified = columnStringModified + foreignKeys
+            
+        }
+        
+        var createTableStatement = "CREATE TABLE IF NOT EXISTS \(tableName) (\(columnStringModified));"
+        
+            return createTableStatement
+        }
+    
+    func createTable( tableName: String, columnName: [String], columnValue: [String] ,foreignKeyConstrsint: [String]) {
+        let createTableStatement = prepareCreateTableStatement(tableName: tableName, columnName: columnName, columnValue: columnValue, foreignKeyConstraints: foreignKeyConstrsint)
+        
+        print(createTableStatement)
+        
         var statement: OpaquePointer?
         if sqlite3_prepare_v2(db, createTableStatement, -1, &statement, nil) == SQLITE_OK {
             if sqlite3_step(statement) == SQLITE_DONE {
-                print("Table created successfully")
+                print("Table created successfully \(tableName)")
             } else {
                 print("Failed to create table: \(String(cString: sqlite3_errmsg(db)))")
             }
         } else {
-            print("Failed to prepare create table statement: \(String(cString: sqlite3_errmsg(db)))")
+            print("Failed to prepare create table statement \(tableName) : \(String(cString: sqlite3_errmsg(db)))")
         }
         sqlite3_finalize(statement)
     }
@@ -110,176 +132,188 @@ public class DataBase {
     func deleteData() {}
 }
 
+
 extension DataBase {
-    func createTables() {
-        createUserTable()
-        createEmployeeTypeTable()
-        createEmployeeTable()
-        createAdminTable()
-        createAvailableSubscriptionTable()
-        createAvailableservicesTable()
-        createQueryTypeTable()
-        createQueryTable()
-        createServiceLinkTableTable()
+    func selectQuery(columnString: String, tableName: String, joinClause: String = "", whereClause: String = "") -> [[String: Any]]? {
+        print("select query for \(tableName) called")
+
+        var stmt: OpaquePointer?
+        var result: [[String: Any]] = []
+        var query = "SELECT \(columnString) FROM \(tableName) \(joinClause)"
+
+        if whereClause != "" {
+            query += " WHERE \(whereClause)"
+        }
+
+        print(query)
+
+        if sqlite3_prepare_v2(db, query, -1, &stmt, nil) == SQLITE_OK {
+             print("select statement preparation = sucess")
+            while sqlite3_step(stmt) == SQLITE_ROW {
+                var row: [String: Any] = [:]
+                let columnCount = sqlite3_column_count(stmt)
+
+                for i in 0 ..< columnCount {
+                    let columnName = String(cString: sqlite3_column_name(stmt, i))
+                    let columnType = sqlite3_column_type(stmt, i)
+
+                    switch columnType {
+                    case SQLITE_INTEGER:
+                        let value = sqlite3_column_int(stmt, i)
+                        row[columnName] = Int(value)
+                    case SQLITE_FLOAT:
+                        let value = sqlite3_column_double(stmt, i)
+                        row[columnName] = Double(value)
+                    case SQLITE_TEXT:
+                        let value = String(cString: sqlite3_column_text(stmt, i))
+                        row[columnName] = value
+                    case SQLITE_BLOB:
+                        let value = Data(bytes: sqlite3_column_blob(stmt, i), count: Int(sqlite3_column_bytes(stmt, i)))
+                        row[columnName] = value
+                    default:
+                        row[columnName] = nil
+                    }
+                }
+
+                result.append(row)
+            }
+        } else {
+            print("selsct statement preparation failure")
+        }
+
+        sqlite3_finalize(stmt)
+
+        if result.isEmpty {
+            return nil
+        } else {
+            return result
+        }
     }
 
-    // 1
-    func createUserTable() {
-        let tableName = "users"
-        let columns: [String: String] = [
-            "userId": "INTEGER NOT NULL UNIQUE",
-            "userName": "TEXT NOT NULL",
-            "eMail": "TEXT NOT NULL",
-            "password": "TEXT NOT NULL",
-            "mobileNumber": "INTEGER NOT NULL",
-
-            "PRIMARY KEY": "(\"userId\" AUTOINCREMENT)",
-        ]
-        let foreignKeyConstraints: [String] = []
-
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+    func prepareStatement(db: OpaquePointer?, sql: String) throws -> OpaquePointer? {
+        var statement: OpaquePointer?
+        guard sqlite3_prepare_v2(db, sql, -1, &statement, nil) == SQLITE_OK else {
+            throw SQLiteError.Preparestmt(response: errorMessage(db: db))
+        }
+        return statement
     }
 
-    // 2
-    func createEmployeeTypeTable() {
-        let tableName = "employeeType"
-        let columns: [String: String] = [
-            "\"employeeTypeId\"": "INTEGER NOT NULL UNIQUE",
-            "\"employeeType\"": "TEXT",
-            "PRIMARY KEY": "(\"employeeTypeId\" AUTOINCREMENT)",
-        ]
-        let foreignKeyConstraints: [String] = []
-
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+    func stepStatement(db: OpaquePointer?, statement: OpaquePointer?) throws {
+        guard sqlite3_step(statement) == SQLITE_DONE else {
+            throw SQLiteError.Step(response: errorMessage(db: db))
+        }
     }
 
-    // 3
-    func createEmployeeTable() {
-        let tableName = "employee"
-
-        let columns = [
-            "\"employeeId\"": "INTEGER NOT NULL UNIQUE",
-            "\"employeeTypeId\"": "INTEGER",
-            "\"userId\"": "INTEGER",
-        ]
-
-        let foreignKeyConstraints = [
-            ", PRIMARY KEY(\"employeeId\" AUTOINCREMENT)",
-            ", FOREIGN KEY(\"employeeTypeId\") REFERENCES \"employeeType\"(\"employeeTypeId\")",
-            ", FOREIGN KEY(\"userId\") REFERENCES \"Users\"(\"userId\")",
-        ]
-
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+    func errorMessage(db _: OpaquePointer?) -> String {
+        return "Error"
     }
 
-    // 4
-    func createAdminTable() {
-        let tableName = "admin"
-        let columns: [String: String] = [
-            "userId": "INTEGER",
-            "employeeId": "INTEGER",
-        ]
-        let foreignKeyConstraints = [
-            ", FOREIGN KEY(\"userId\") REFERENCES \"Users\"(\"userId\")",
-            ", FOREIGN KEY(\"employeeId\") REFERENCES \"employee\"(\"employeeId\")",
-        ]
-
-        let createTableStatement = prepareCreateTableStatement(tableName: tableName, columns: columns, foreignKeyConstraints: foreignKeyConstraints)
-        print(createTableStatement)
+    func executequery(db: OpaquePointer?, Statement: String) {
+        do {
+            let queryStatement = try prepareStatement(db: db, sql: Statement)
+            defer {
+                sqlite3_finalize(queryStatement)
+            }
+            try stepStatement(db: db, statement: queryStatement)
+        } catch {
+            print(error)
+        }
     }
 
-    // 5
-    func createAvailableSubscriptionTable() {
-        let tableName = "availableSubscription"
-        let columns: [String: String] = [
-            "\"subscriptionId\"": "INTEGER NOT NULL UNIQUE",
-            "\"subscriptionPackageType\"": "TEXT NOT NULL",
-            "\"subscriptionCountLimit\"": "NUMERIC NOT NULL",
-            "\"subscritptionDayLimit\"": "NUMERIC NOT NULL",
-            "\"serviceId\"": "INTEGER NOT NULL",
-        ]
-        let foreignKeyConstraints = [
-            ", PRIMARY KEY(\"subscriptionId\" AUTOINCREMENT)",
-            ", FOREIGN KEY(\"serviceId\") REFERENCES \"availableService\"(\"serviceId\")",
-        ]
-
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+    public func prepareStatement(statement: String) -> OpaquePointer? {
+        var preparePointer: OpaquePointer?
+        if sqlite3_prepare(db, statement, -1, &preparePointer, nil) == SQLITE_OK {
+            return preparePointer
+        } else {
+            print("Error In Prepare Statement:\(String(describing: sqlite3_errmsg(db))) ")
+        }
+        return nil
     }
 
-    // 6
-    func createAvailableservicesTable() {
-        let tableName = "availableService"
-        let columns = [
-            "serviceId": "INTEGER NOT NULL UNIQUE",
-            "serviceTitle": "TEXT",
-            "serviceDescription": "TEXT",
-        ]
-        let foreignKeyConstraints = [
-            ", PRIMARY KEY(\"serviceId\" AUTOINCREMENT)",
-        ]
+    func insertStatement(tableName: String, columnName: [String], insertData: [Any], success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        var columnNameString = ""
+        if columnName.count > 1 {
+            columnNameString = columnName.joined(separator: ", ")
 
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+        } else {
+            columnNameString = columnName[0]
+        }
+        var insertString = ""
+        for val in insertData {
+            if val is String {
+                insertString = insertString + "\'" + String(describing: val) + "\'"
+                insertString = insertString + ", "
+            } else {
+                insertString = insertString + String(describing: val)
+                insertString = insertString + ", "
+            }
+        }
+
+        var finalInsertString = insertString.dropLast(2)
+        var insertValueString = insertData.map { String(describing: $0) }.joined(separator: ", ")
+
+        var querry = "INSERT INTO \(tableName) (\(columnNameString)) VALUES (\(finalInsertString))"
+        print(querry)
+        let prepareStatement: OpaquePointer? = DataBase.shared.prepareStatement(statement: querry)
+
+        if sqlite3_step(prepareStatement) == SQLITE_DONE {
+            success("\(tableName): Sucessfully Executed")
+        } else {
+            failure("Error : \(String(cString: sqlite3_errmsg(db)))")
+        }
     }
 
-    // 7
-    func createQueryTypeTable() {
-        let tableName = "\"queryType\""
-        let columns: [String: String] = [
-            "\"queryTypeId\"": "INTEGER NOT NULL UNIQUE",
-            "\"qeryType\"": "TEXT NOT NULL",
-            "PRIMARY KEY": "(\"queryTypeId\" AUTOINCREMENT)",
-        ]
-        let foreignKeyConstraints: [String] = []
+    func updateValue(tableName: String, columnValue: [Any], columnName: [String], whereClause: String? = nil, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        let query = prepareUpdateStatement(tableName: tableName, columnName: columnName, columnValue: columnValue, whereClause: whereClause)
+        print(query)
+        let prepareStatement: OpaquePointer? = DataBase.shared.prepareStatement(statement: query)
 
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+        if sqlite3_step(prepareStatement) == SQLITE_DONE {
+            success("\(tableName): Sucessfully Executed")
+        } else {
+            failure("Error : \(String(cString: sqlite3_errmsg(db)))")
+        }
     }
 
-    // 8
-    func createQueryTable() {
-        let tableName = "query"
+    func prepareUpdateStatement(tableName: String, columnName: [String], columnValue: [Any], whereClause: String? = nil) -> String {
+        var columnsString = ""
+        for i in 0 ... columnName.count - 1 {
+            if columnValue[i] is String {
+                columnsString = columnsString + "\(columnName[i])" + " = " + "\'" + "\(String(describing: columnValue[i]))" + "\'" + "," + " "
+            } else {
+                columnsString = columnsString + "\(columnName[i])" + " = " + "\(String(describing: columnValue[i]))" + "," + " "
+            }
+        }
+        columnsString = String(columnsString.dropLast(2))
 
-        let columns: [String: String] = [
-            "queryId": "INTEGER NOT NULL UNIQUE",
-            "queryTypeId": "INTEGER NOT NULL",
-            "queryMessage": "TEXT NOT NULL",
-            "queryStatus": "TEXT",
-            "createdOn": "DATE NOT NULL",
-            "userId": "INTEGER NOT NULL",
-            "employeeId": "INTEGER",
+        var updateStatement = "UPDATE \(tableName) SET \(columnsString)"
+        if let whereClause = whereClause {
+            updateStatement += " WHERE \(whereClause);"
+        } else {
+            updateStatement += ";"
+        }
 
-            "PRIMARY KEY": "(\"queryId\" AUTOINCREMENT)",
-        ]
-
-        let foreignKeyConstraints = [
-            ", FOREIGN KEY(\"employeeId\") REFERENCES \"employee\"(\"employeeId\")",
-
-            ", FOREIGN KEY(\"userId\") REFERENCES \"users\"(\"userId\")",
-            ", FOREIGN KEY(\"queryTypeId\") REFERENCES \"queryType\"(\"queryTypeId\")",
-        ]
-
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+        return updateStatement
     }
 
-    // 9
-    func createServiceLinkTableTable() {
-        let tableName = "serviceLinkTable"
+    func deleteValue(tableName: String, columnName: String = "", columnValue: String = "", whereClause: String = "", success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
+        var deleteQuery = ""
+        if whereClause == "" {
+            deleteQuery = "DELETE FROM \(tableName) WHERE " + columnName + " = " + columnValue
+        } else {
+            deleteQuery = "DELETE FROM \(tableName) WHERE " + whereClause
+        }
 
-        let columns: [String: String] = [
-            "id": "INTEGER NOT NULL UNIQUE",
-            "userId": "INTEGER NOT NULL",
-            "employeeId": "INTEGER NOT NULL",
-            "serviceId": "INTEGER NOT NULL",
-            "subscriptionId": "INTEGER NOT NULL",
-        ]
-
-        let foreignKeyConstraints = [
-            "FOREIGN KEY(\"employeeId\") REFERENCES \"employee\"(\"employeeId\"),",
-            "FOREIGN KEY(\"serviceId\") REFERENCES \"availableService\"(\"serviceId\"),",
-            "FOREIGN KEY(\"subscriptionId\") REFERENCES \"availableSubscription\"(\"subscriptionId\"),",
-            "FOREIGN KEY(\"userId\") REFERENCES \"users\"(\"userId\"),",
-            "PRIMARY KEY(\"id\" AUTOINCREMENT),",
-        ]
-
-        createTable(tableName: tableName, columns: columns, foreignKeyConstrsint: foreignKeyConstraints)
+        print(deleteQuery)
+        var deleteStatement: OpaquePointer?
+        if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStatement, nil) == SQLITE_OK {
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                sqlite3_finalize(deleteStatement)
+                success("Deletion Statement Executed")
+            } else {
+                sqlite3_finalize(deleteStatement)
+                failure("Deletion is not done.")
+            }
+        }
     }
 }

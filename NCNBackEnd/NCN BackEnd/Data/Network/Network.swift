@@ -9,17 +9,22 @@ class NetworkManager {
 
     private init() { print("NetworkManager called ") }
 
-    func getData(id: Int, success: @escaping ([String: Any]) -> Void, failure: @escaping (NetworkError) -> Void) {
+    func getData(baseURL: String, apiKey: String? = nil, endpoint: String, id: Int, success: @escaping ([String: Any]) -> Void, failure: @escaping (NetworkError) -> Void) {
         print("get data")
-        let urlString = baseURL + "/get/\(id)"
+        let urlString = baseURL + "/\(endpoint)/\(id)"
         guard let url = URL(string: urlString) else {
             failure(.invalidURL)
             return
         }
 
+        var request = URLRequest(url: url)
+        if let apiKey = apiKey {
+            request.setValue(apiKey, forHTTPHeaderField: "API-Key")
+        }
+
         let session = URLSession.shared
 
-        let task = session.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             print("session started")
             if let error = error {
                 failure(.networkError(error))
@@ -47,8 +52,8 @@ class NetworkManager {
         task.resume()
     }
 
-    func postData(id: Int, data: [String: Any], success: @escaping (String) -> Void, failure: @escaping (NetworkError) -> Void) {
-        let urlString = baseURL + "/post/\(id)"
+    func postData(baseURL: String,apiKey: String? = nil, endpoint: String, id: Int, data: [String: Any], success: @escaping (String) -> Void, failure: @escaping (NetworkError) -> Void) {
+        let urlString = baseURL + "/\(endpoint)/\(id)"
         guard let url = URL(string: urlString) else {
             failure(.invalidURL)
             return
@@ -56,6 +61,10 @@ class NetworkManager {
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+
+        if let apiKey = apiKey {
+            request.setValue(apiKey, forHTTPHeaderField: "API-Key")
+        }
 
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
@@ -98,3 +107,4 @@ class NetworkManager {
         task.resume()
     }
 }
+

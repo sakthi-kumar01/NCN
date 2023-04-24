@@ -1,15 +1,15 @@
 //
-//  AssignQueryDatabaseService.swift
+//  AssignQuerydatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 08/04/23.
 //
 
 import Foundation
-public class AssignQueryDatabaseService {
-    var db: Database = .shared
+public class AssignQueryDatabaseService: EnterpriseDatabaseService {
+    
 
-    public init() {}
+    public override init() {}
 }
 
 extension AssignQueryDatabaseService: AssignQueryDatabaseServiceContract {

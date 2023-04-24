@@ -1,15 +1,15 @@
 //
-//  ViewSubscriptionDatabaseService.swift
+//  ViewSubscriptiondatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 27/03/23.
 //
 
 import Foundation
-public class ViewSubscriptionDatabaseService {
-    public init() {}
+public class ViewSubscriptionDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
 
-    var db = Database.shared
+   
     var result: [AvailableSubscription] = []
 }
 

@@ -13,7 +13,7 @@ public class GetEnterpriseNameNetworkService {
 
 extension GetEnterpriseNameNetworkService: GetEnterpriseNameNetworkServiceContract {
     public func getEnterpriseName(id: Int, success: @escaping (Enterprise) -> Void, failure: @escaping (String) -> Void) {
-        network.getData(id: id, success: {
+        network.getData(baseURL: "http://127.0.0.1:8000", endpoint: "get", id: id, success: {
             [weak self] response in
             self?.dictionaryToEnterprise(dictionary: response, success: success, failure: failure)
         }, failure: { [weak self] error in

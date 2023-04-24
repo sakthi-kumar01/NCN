@@ -6,15 +6,15 @@
 //
 
 import Foundation
-public class UserLoginDatabaseService {
-    let database = Database.shared
+public class UserLoginDatabaseService: EnterpriseDatabaseService{
+    
 
-    public init() {}
+    public override init() {}
 }
 
 extension UserLoginDatabaseService: UserLoginDatabaseServiceContract {
     public func userLogin(userName: String, password: String, success: @escaping (User) -> Void, failure: @escaping (String) -> Void) {
-        let values = database.selectQuery(columnString: "*", tableName: "users", whereClause: "userName = \'\(userName)\' AND password = \'\(password)\'")
+        let values = db.selectQuery(columnString: "*", tableName: "users", whereClause: "userName = \'\(userName)\' AND password = \'\(password)\'")
 
         guard let resultValue = values?[0] else {
             failure("No Data")

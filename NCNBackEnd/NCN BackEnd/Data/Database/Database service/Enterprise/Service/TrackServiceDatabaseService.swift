@@ -8,9 +8,9 @@
 import Foundation
 
 // add a count to serviceusage in servicelink table
-public class TrackServiceDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class TrackServiceDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
 }
 
 extension TrackServiceDatabaseService: TrackServiceDatabaseServiceContract {

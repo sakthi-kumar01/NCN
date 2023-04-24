@@ -6,16 +6,16 @@
 //
 
 import Foundation
-public class CreateAvailableSubscriptionDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class CreateAvailableSubscriptionDatabaseService: EnterpriseDatabaseService {
+    public override init() {}
+    
 }
 
 extension CreateAvailableSubscriptionDatabaseService: CreateAvailableSubscriptionDatabaseServiceContract {
     public func createAvaialableSubscription(subscriptionId: Int, subscriptionPackageType: String, subscriptionConuntLimit: Float, subscriptionDaylimit: Int, serviceId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
-        let columnName = ["subscriptionId", "subscriptionPackageType", "subscriptionConuntLimit", "subscriptionDaylimit", "serviceId", "enterpriseId"]
+        let columnName = ["subscriptionId", "subscriptionPackageType", "subscriptionCountLimit", "subscritptionDayLimit", "serviceId", "enterpriseId"]
         let columnValue: [Any] = [subscriptionId, subscriptionPackageType, subscriptionConuntLimit, subscriptionDaylimit, serviceId, 11]
-        db.insertStatement(tableName: "availableService", columnName: columnName, insertData: columnValue, success: {
+        db.insertStatement(tableName: "availableSubscription", columnName: columnName, insertData: columnValue, success: {
             _ in ()
         },
         failure: failure)
@@ -28,14 +28,11 @@ extension CreateAvailableSubscriptionDatabaseService: CreateAvailableSubscriptio
             return
         }
         for dict in resultedArray {
-            if let subscriptionId = dict["serviceId"] as? Int {
-                if let subscriptionPackageType = dict["serviceTitle"] as? String {
-                    if let subscriptionCountLimit = dict["serviceDescription"] as? String {
-                        let newAvailableSubscription = AvailableService(serviceId: subscriptionId, serviceTitle: subscriptionPackageType, serviceDescription: subscriptionCountLimit)
-
-                        res.append(newAvailableSubscription)
-                    }
-                }
+            if let subscriptionId = dict["serviceId"] as? Int,
+               let subscriptionPackageType = dict["serviceTitle"] as? String,
+               let subscriptionCountLimit = dict["serviceDescription"] as? String {
+                let newAvailableSubscription = AvailableService(serviceId: subscriptionId, serviceTitle: subscriptionPackageType, serviceDescription: subscriptionCountLimit)
+                res.append(newAvailableSubscription)
             }
         }
         if res.count == 0 {

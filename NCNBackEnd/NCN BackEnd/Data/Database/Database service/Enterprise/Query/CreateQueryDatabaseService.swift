@@ -1,15 +1,15 @@
 //
-//  CreateQueryDatabaseService.swift
+//  CreateQuerydatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 28/03/23.
 //
 
 import Foundation
-public class CreateQueryDatabaseService {
-    public init() {}
+public class CreateQueryDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
 
-    var db = Database.shared
+  
 }
 
 extension CreateQueryDatabaseService: CreateQueryDatabaseServiceContract {

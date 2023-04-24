@@ -1,14 +1,14 @@
 //
-//  ViewEmployeeQueryDatabaseService.swift
+//  ViewEmployeeQuerydatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 18/04/23.
 //
 
 import Foundation
-public class ViewEmployeeQueryDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class ViewEmployeeQueryDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
     var resultQuery: [Query] = []
 }
 

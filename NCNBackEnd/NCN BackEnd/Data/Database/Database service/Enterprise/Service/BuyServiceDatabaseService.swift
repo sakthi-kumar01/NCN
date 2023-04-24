@@ -1,14 +1,14 @@
 //
-//  BuyServiceDatabaseService.swift
+//  BuyServicedatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 29/03/23.
 //
 
 import Foundation
-public class BuyServiceDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class BuyServiceDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+   
 }
 
 extension BuyServiceDatabaseService: BuyServiceDatabaseServiceContract {

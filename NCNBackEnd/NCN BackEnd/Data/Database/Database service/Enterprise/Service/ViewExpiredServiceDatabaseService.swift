@@ -1,14 +1,14 @@
 //
-//  ViewExpiredServiceDatabaseService.swift
+//  ViewExpiredServicedatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 17/04/23.
 //
 
 import Foundation
-public class ViewExpiredServiceDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class ViewExpiredServiceDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
 
     var resultedArray: [[String]] = []
 }

@@ -6,9 +6,10 @@
 //
 
 import Foundation
-public class SearchEmployeeDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class SearchEmployeeDatabaseService:
+EnterpriseDatabaseService{
+    public override init() {}
+   
     var resultEmployee: [Employee] = []
 }
 

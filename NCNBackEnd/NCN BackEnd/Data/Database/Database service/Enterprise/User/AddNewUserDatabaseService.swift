@@ -7,14 +7,14 @@
 
 import Foundation
 
-public class AddNewUserDatabaseSerivce {
-    public init() {}
+public class AddNewUserDatabaseSerivce: EnterpriseDatabaseService {
+    public override init() {}
 }
 
 extension AddNewUserDatabaseSerivce: AddNewUserDatabaseServiceContract {
     public func addNewUser(userName: String, password: String, email: String, mobilePhone: Int64, enterpriseId: Int, success: @escaping (String) -> Void, failure: @escaping (String) -> Void) {
         // create new User
-        let db = Database.shared
+        
         let columnName = ["userName", "password", "eMail", "mobileNumber", "enterpriseId"]
         let values: [Any] = [userName, password, email, mobilePhone, enterpriseId]
 

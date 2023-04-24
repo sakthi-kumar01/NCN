@@ -1,15 +1,15 @@
 //
-//  ModifyEmployeeDetailsDatabaseService.swift
+//  ModifyEmployeeDetailsdatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 16/04/23.
 //
 
 import Foundation
-public class ModifyEmployeeDetailsDatabaseService {
-    var db = Database.shared
+public class ModifyEmployeeDetailsDatabaseService: EnterpriseDatabaseService{
+    
 
-    public init() {}
+    public override init() {}
 }
 
 extension ModifyEmployeeDetailsDatabaseService: ModifyEmployeeDetailsDatabaseServiceContract {

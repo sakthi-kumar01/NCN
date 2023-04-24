@@ -1,14 +1,14 @@
 //
-//  ClientTrackServiceDatabaseService.swift
+//  ClientTrackServicedatabaseService.swift
 //  NCN BackEnd
 //
 //  Created by raja-16327 on 18/04/23.
 //
 
 import Foundation
-public class ClientTrackServiceDatabaseService {
-    public init() {}
-    var db = Database.shared
+public class ClientTrackServiceDatabaseService: EnterpriseDatabaseService{
+    public override init() {}
+    
 }
 
 extension ClientTrackServiceDatabaseService: ClientTrackServiceDatabaseServiceContract {
